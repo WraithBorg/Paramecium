@@ -1,8 +1,8 @@
 package com.zxu.convert;
 
-import com.zxu.domain.OrderBill;
-import com.zxu.domain.OrderDetail;
-import com.zxu.domain.OrderLogistics;
+import com.zxu.domain.OrderBillDo;
+import com.zxu.domain.OrderDetailDo;
+import com.zxu.domain.OrderLogisticsDo;
 import com.zxu.mapper.OrderBillMapper;
 import com.zxu.mapper.OrderDetailMapper;
 import com.zxu.mapper.OrderLogisticsMapper;
@@ -36,13 +36,13 @@ public class ShowOrderGroupConvert {
      */
     public ShowOrderGroupVO getShowOrderGroup(String orderId) {
         //
-        OrderLogistics logistics = logisticsMapper.getByOrderId(orderId);
+        OrderLogisticsDo logistics = logisticsMapper.getByOrderId(orderId);
         OrderBillAddrVO orderBillAddrVO = orderBillAddrConvert.getOrderBillAddrVO(logistics);
         //
-        List<OrderDetail> orderDetails = orderDetailMapper.selectByMap(CustomUtils.ofMap(OrderDetail.t.order_id, orderId));
+        List<OrderDetailDo> orderDetails = orderDetailMapper.selectByMap(CustomUtils.ofMap(OrderDetailDo.t.order_id, orderId));
         List<OrderDetailVO> orderDetailVOS = orderDetailConvert.getOrderDetailVOS(orderDetails);
         //
-        OrderBill orderBill = orderBillMapper.selectById(orderId);
+        OrderBillDo orderBill = orderBillMapper.selectById(orderId);
         OrderBillVO orderBillVO = orderBillConvert.getOrderBill4ListVO(orderBill);
         //
         ShowOrderGroupVO vo = new ShowOrderGroupVO();

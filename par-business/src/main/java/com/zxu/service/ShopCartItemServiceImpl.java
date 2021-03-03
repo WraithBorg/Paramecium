@@ -1,8 +1,8 @@
 package com.zxu.service;
 
-import com.zxu.domain.ItemInfo;
-import com.zxu.domain.ItemInfoImg;
-import com.zxu.domain.ShopCartItemInfo;
+import com.zxu.domain.ItemDo;
+import com.zxu.domain.ItemImgDo;
+import com.zxu.domain.ShopCartItemDo;
 import com.zxu.mapper.ItemInfoImgMapper;
 import com.zxu.mapper.ItemInfoMapper;
 import com.zxu.mapper.ShopCartItemMapper;
@@ -28,8 +28,8 @@ public class ShopCartItemServiceImpl implements ShopCartItemService {
      * 查询购物车信息
      */
     @Override
-    public List<ShopCartItemInfo> getShopCartInfo(String userId) {
-        List<ShopCartItemInfo> itemInfoList = shopCartItemMapper.selectByMap(CustomUtils.ofMap(ShopCartItemInfo.t.user_id, userId));
+    public List<ShopCartItemDo> getShopCartInfo(String userId) {
+        List<ShopCartItemDo> itemInfoList = shopCartItemMapper.selectByMap(CustomUtils.ofMap(ShopCartItemDo.t.user_id, userId));
         return itemInfoList;
     }
 
@@ -38,9 +38,9 @@ public class ShopCartItemServiceImpl implements ShopCartItemService {
      */
     @Override
     public void addItem(String userId, String itemId, String amount) {
-        List<ShopCartItemInfo> cartItemInfos = shopCartItemMapper.selectByMap(CustomUtils.ofMap(ShopCartItemInfo.t.user_id, userId, ShopCartItemInfo.t.item_id, itemId));
+        List<ShopCartItemDo> cartItemInfos = shopCartItemMapper.selectByMap(CustomUtils.ofMap(ShopCartItemDo.t.user_id, userId, ShopCartItemDo.t.item_id, itemId));
         BigDecimal itemAmount = new BigDecimal(amount);
-        ShopCartItemInfo cartItemInfo = null;
+        ShopCartItemDo cartItemInfo = null;
         if (cartItemInfos.size() > 0) {
             cartItemInfo = cartItemInfos.get(0);
         }
@@ -60,13 +60,13 @@ public class ShopCartItemServiceImpl implements ShopCartItemService {
         if (itemAmount.compareTo(BigDecimal.ZERO) == 0) {
             return;
         }
-        ItemInfo itemInfo = itemInfoMapper.selectById(itemId);
-        List<ItemInfoImg> itemInfoImgs = itemInfoImgMapper.selectByMap(CustomUtils.ofMap(ItemInfoImg.t.item_id, itemId));
+        ItemDo itemInfo = itemInfoMapper.selectById(itemId);
+        List<ItemImgDo> itemInfoImgs = itemInfoImgMapper.selectByMap(CustomUtils.ofMap(ItemImgDo.t.item_id, itemId));
         String itemImgUrl = null;
         if (itemInfoImgs.size() > 0) {
             itemImgUrl = itemInfoImgs.get(0).getUrl();
         }
-        ShopCartItemInfo newCartItemInfo = new ShopCartItemInfo();
+        ShopCartItemDo newCartItemInfo = new ShopCartItemDo();
         newCartItemInfo.setAmount(itemAmount);
         newCartItemInfo.setCreateTime(new Date());
         newCartItemInfo.setItemId(itemId);

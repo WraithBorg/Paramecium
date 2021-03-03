@@ -1,7 +1,7 @@
 package com.zxu.service.usb;
 
-import com.zxu.entity.Storage;
+import com.zxu.domain.StorageDo;
 
 public interface StorageService {
-    public Storage get();
+    public StorageDo get();
 }

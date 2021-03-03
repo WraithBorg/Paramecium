@@ -12,7 +12,7 @@ import java.util.Date;
  * 购物车明细
  */
 @TableName("shop_cart_item")
-public class ShopCartItemInfo {
+public class ShopCartItemDo {
     @TableId(type = IdType.ASSIGN_UUID)
     private String id;
     @TableField(value = t.amount)

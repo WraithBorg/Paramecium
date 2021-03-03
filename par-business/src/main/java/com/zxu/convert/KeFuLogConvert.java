@@ -1,6 +1,6 @@
 package com.zxu.convert;
 
-import com.zxu.domain.KeFuLogInfo;
+import com.zxu.domain.KeFuLogDo;
 import com.zxu.util.DDateUtil;
 import com.zxu.vo.KeFuLogVO;
 import org.springframework.stereotype.Component;
@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 @Component
 public class KeFuLogConvert {
 
-    public KeFuLogVO getKeFuLogVO(KeFuLogInfo info) {
+    public KeFuLogVO getKeFuLogVO(KeFuLogDo info) {
         KeFuLogVO vo = new KeFuLogVO();
         vo.setId(info.getId());
         vo.setUserid(info.getUserId());
@@ -22,7 +22,7 @@ public class KeFuLogConvert {
         return vo;
     }
 
-    public List<KeFuLogVO> getKeFuLogVOS(List<KeFuLogInfo> infos) {
+    public List<KeFuLogVO> getKeFuLogVOS(List<KeFuLogDo> infos) {
         List<KeFuLogVO> collect = infos.stream().map(m -> getKeFuLogVO(m)).collect(Collectors.toList());
         return collect;
     }

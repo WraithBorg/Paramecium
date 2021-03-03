@@ -1,6 +1,6 @@
 package com.zxu.service;
 
-import com.zxu.domain.UserFavItemInfo;
+import com.zxu.domain.UserFavItemDo;
 import com.zxu.mapper.UserFavItemMapper;
 import com.zxu.service.usb.UserFavItemService;
 import com.zxu.util.CustomUtils;
@@ -17,7 +17,7 @@ public class UserFavItemServiceImpl implements UserFavItemService {
 
     @Override
     public Integer hasFav(String userId, String itemId) {
-        List<UserFavItemInfo> userFavItemInfos = userFavItemMapper.selectByMap(CustomUtils.ofMap(UserFavItemInfo.t.user_id, userId, UserFavItemInfo.t.item_id, itemId));
+        List<UserFavItemDo> userFavItemInfos = userFavItemMapper.selectByMap(CustomUtils.ofMap(UserFavItemDo.t.user_id, userId, UserFavItemDo.t.item_id, itemId));
         if (userFavItemInfos.size() > 0) {
             return 1;
         }
@@ -26,9 +26,9 @@ public class UserFavItemServiceImpl implements UserFavItemService {
 
     @Override
     public String favItem(String userId, String itemId) {
-        List<UserFavItemInfo> userFavItemInfos = userFavItemMapper.selectByMap(CustomUtils.ofMap(UserFavItemInfo.t.user_id, userId, UserFavItemInfo.t.item_id, itemId));
+        List<UserFavItemDo> userFavItemInfos = userFavItemMapper.selectByMap(CustomUtils.ofMap(UserFavItemDo.t.user_id, userId, UserFavItemDo.t.item_id, itemId));
         if (userFavItemInfos.size() == 0) {
-            UserFavItemInfo info = new UserFavItemInfo();
+            UserFavItemDo info = new UserFavItemDo();
             info.setUserId(userId);
             info.setItemId(itemId);
             userFavItemMapper.insert(info);

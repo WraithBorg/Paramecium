@@ -1,8 +1,8 @@
 package com.zxu.controller;
 
 import com.zxu.util.SessionUtil;
-import com.zxu.domain.KeFuLogInfo;
-import com.zxu.domain.UserInfo;
+import com.zxu.domain.KeFuLogDo;
+import com.zxu.domain.UserDo;
 import com.zxu.constant.PageConst;
 import com.zxu.convert.KeFuLogConvert;
 import com.zxu.dto.KeFuLogDTO;
@@ -45,8 +45,8 @@ public class KeFuController {
      */
     @GetMapping("/kefu/mykefu")
     public MsgResult mykefu() {
-        UserInfo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
-        List<KeFuLogInfo> list = keFuLogService.getMyLog(currentUser);
+        UserDo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
+        List<KeFuLogDo> list = keFuLogService.getMyLog(currentUser);
         List<KeFuLogVO> vos = keFuLogConvert.getKeFuLogVOS(list);
         Map data = CustomUtils.ofMap("list", vos);
         return MsgResult.doneUrl(data, PageConst.KEFU_INDEX);
@@ -57,8 +57,8 @@ public class KeFuController {
      */
     @PostMapping("/kefu/savelog")
     public Object MsgResult(KeFuLogDTO keFuLogDTO) {
-        UserInfo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
-        KeFuLogInfo info = new KeFuLogInfo();
+        UserDo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
+        KeFuLogDo info = new KeFuLogDo();
         info.setUserId(currentUser.getId());
         info.setCreateTime(new Date());
         info.setStatus(1);

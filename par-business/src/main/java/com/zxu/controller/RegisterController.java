@@ -1,7 +1,7 @@
 package com.zxu.controller;
 
 import com.zxu.annotate.WithoutLogin;
-import com.zxu.domain.UserInfo;
+import com.zxu.domain.UserDo;
 import com.zxu.dto.RegisterDTO;
 import com.zxu.mapper.UserInfoMapper;
 import com.zxu.util.CustomUtils;
@@ -60,17 +60,17 @@ public class RegisterController {
             return CustomUtils.ofMap("error", 1, "message", "请填写密码");
         }
 
-        List<UserInfo> v_telePhone = userInfoMapper.selectByMap(CustomUtils.ofMap(UserInfo.t.telephone, registerDTO.getTelephone()));
+        List<UserDo> v_telePhone = userInfoMapper.selectByMap(CustomUtils.ofMap(UserDo.t.telephone, registerDTO.getTelephone()));
         if (v_telePhone.size() > 0) {
             return CustomUtils.ofMap("error", 1, "message", "该手机号已注册");
         }
-        List<UserInfo> v_nickName = userInfoMapper.selectByMap(CustomUtils.ofMap(UserInfo.t.nickname, registerDTO.getNickname()));
+        List<UserDo> v_nickName = userInfoMapper.selectByMap(CustomUtils.ofMap(UserDo.t.nickname, registerDTO.getNickname()));
         if (v_nickName.size() > 0) {
             return CustomUtils.ofMap("error", 1, "message", "该昵称已注册");
         }
 
         // install
-        UserInfo userInfo = new UserInfo();
+        UserDo userInfo = new UserDo();
         userInfo.setNickName(registerDTO.getNickname());
         userInfo.setTelePhone(registerDTO.getTelephone());
         userInfo.setPassword(registerDTO.getPassword());

@@ -1,8 +1,8 @@
 package com.zxu.convert;
 
-import com.zxu.domain.ItemInfo;
-import com.zxu.domain.ShopCartItemInfo;
-import com.zxu.domain.UserInfo;
+import com.zxu.domain.ItemDo;
+import com.zxu.domain.ShopCartItemDo;
+import com.zxu.domain.UserDo;
 import com.zxu.constant.PageConst;
 import com.zxu.mapper.ShopCartItemMapper;
 import com.zxu.service.usb.UserInfoService;
@@ -28,17 +28,17 @@ public class ItemInfoConvert {
     @Resource
     private UserInfoService userInfoService;
 
-    public List<ItemInfoVO> getItemInfoVOS(UserInfo currentUser, List<ItemInfo> itemInfos) {
+    public List<ItemInfoVO> getItemInfoVOS(UserDo currentUser, List<ItemDo> itemInfos) {
         List<ItemInfoVO> itemInfoVOS = itemInfos.stream().map(m -> getItemInfoVO(currentUser,m)).collect(Collectors.toList());
         return itemInfoVOS;
     }
 
-    public ItemInfoVO getItemInfoVO(UserInfo currentUser,ItemInfo itemInfo) {
+    public ItemInfoVO getItemInfoVO(UserDo currentUser, ItemDo itemInfo) {
         Integer cartAmount;
         if (currentUser == null){
             cartAmount = 0;
         }else {
-            ShopCartItemInfo cartItemInfo = shopCartItemMapper.getByUserItem(itemInfo.getId(), currentUser.getId());
+            ShopCartItemDo cartItemInfo = shopCartItemMapper.getByUserItem(itemInfo.getId(), currentUser.getId());
             if(cartItemInfo == null){
                 cartAmount = 0;
             }else {
@@ -94,12 +94,12 @@ public class ItemInfoConvert {
         return itemInfoVO;
     }
 
-    public List<ItemInfo4IndexVO> getItemInfo4IndexVOS(List<ItemInfo> itemInfos) {
+    public List<ItemInfo4IndexVO> getItemInfo4IndexVOS(List<ItemDo> itemInfos) {
         List<ItemInfo4IndexVO> itemInfoVOS = itemInfos.stream().map(this :: getItemInfo4IndexVO).collect(Collectors.toList());
         return itemInfoVOS;
     }
 
-    public ItemInfo4IndexVO getItemInfo4IndexVO(ItemInfo itemInfo) {
+    public ItemInfo4IndexVO getItemInfo4IndexVO(ItemDo itemInfo) {
         ItemInfo4IndexVO itemInfoVO = new ItemInfo4IndexVO();
         itemInfoVO.setBuy_num(itemInfo.getBuyNum());
         itemInfoVO.setId(itemInfo.getId());

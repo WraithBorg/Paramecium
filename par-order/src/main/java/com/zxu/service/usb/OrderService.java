@@ -1,7 +1,7 @@
 package com.zxu.service.usb;
 
-import com.zxu.entity.Order;
+import com.zxu.domain.OrderDo;
 
 public interface OrderService {
-    public Order get();
+    public OrderDo get();
 }

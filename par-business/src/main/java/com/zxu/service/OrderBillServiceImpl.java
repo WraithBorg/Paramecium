@@ -1,12 +1,12 @@
 package com.zxu.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.zxu.domain.OrderBill;
-import com.zxu.domain.OrderDetail;
-import com.zxu.domain.OrderLogistics;
-import com.zxu.domain.ReceiptInfo;
-import com.zxu.domain.ShopCartItemInfo;
-import com.zxu.domain.UserInfo;
+import com.zxu.domain.OrderBillDo;
+import com.zxu.domain.OrderDetailDo;
+import com.zxu.domain.OrderLogisticsDo;
+import com.zxu.domain.ReceiptDo;
+import com.zxu.domain.ShopCartItemDo;
+import com.zxu.domain.UserDo;
 import com.zxu.dto.CreateOrderDTO;
 import com.zxu.eum.DeliveryStatus;
 import com.zxu.eum.OrderState;
@@ -51,18 +51,18 @@ public class OrderBillServiceImpl implements OrderBillService {
      * 创建订单
      */
     @Override
-    public void createOrder(UserInfo currentUser, CreateOrderDTO dto) {
+    public void createOrder(UserDo currentUser, CreateOrderDTO dto) {
 
         // Prepared
         List<String> cartIds = dto.getCartid();
-        List<ShopCartItemInfo> cartItemInfos = cartIds.stream().map(s -> shopCartItemMapper.selectById(s)).collect(Collectors.toList());
-        BigDecimal totalAmount = cartItemInfos.stream().map(ShopCartItemInfo::getAmount).reduce(BigDecimal::add).get();
+        List<ShopCartItemDo> cartItemInfos = cartIds.stream().map(s -> shopCartItemMapper.selectById(s)).collect(Collectors.toList());
+        BigDecimal totalAmount = cartItemInfos.stream().map(ShopCartItemDo::getAmount).reduce(BigDecimal::add).get();
         BigDecimal sumMoney = cartItemInfos.stream().map(m -> m.getAmount().multiply(m.getPrice())).reduce(BigDecimal::add).get();
 
         String billId = UUID.randomUUID().toString().replace("-", "");
         String logisticsId = UUID.randomUUID().toString().replace("-", "");
         // Install OrderBill And Save
-        OrderBill orderBill = new OrderBill();
+        OrderBillDo orderBill = new OrderBillDo();
         orderBill.setId(billId);
         orderBill.setCreateTime(new Date());
         orderBill.setOrderNo(BillNoUtil.createNo());
@@ -77,8 +77,8 @@ public class OrderBillServiceImpl implements OrderBillService {
         orderBill.setState(OrderState.UN_PAY.id);
         billMapper.insert(orderBill);
         // Install Detail And Save
-        for (ShopCartItemInfo info : cartItemInfos) {
-            OrderDetail dt = new OrderDetail();
+        for (ShopCartItemDo info : cartItemInfos) {
+            OrderDetailDo dt = new OrderDetailDo();
             dt.setUserId(currentUser.getId());
             dt.setCreateTime(new Date());
             dt.setOrderId(billId);
@@ -92,8 +92,8 @@ public class OrderBillServiceImpl implements OrderBillService {
             detailMapper.insert(dt);
         }
         //  Install OrderLogistics And Save
-        ReceiptInfo receiptInfo = receiptInfoMapper.selectById(dto.getUser_address_id());
-        OrderLogistics logistics = new OrderLogistics();
+        ReceiptDo receiptInfo = receiptInfoMapper.selectById(dto.getUser_address_id());
+        OrderLogisticsDo logistics = new OrderLogisticsDo();
         logistics.setId(logisticsId);
         logistics.setOrderId(billId);
         logistics.setExpressNo(null);
@@ -112,33 +112,33 @@ public class OrderBillServiceImpl implements OrderBillService {
 
 
     @Override
-    public List<OrderBill> getMyOrder(String userId, String type) {
+    public List<OrderBillDo> getMyOrder(String userId, String type) {
         Integer state = OrderState.getId(type);
         if (state == null) {
-            QueryWrapper<OrderBill> queryWrapper = new QueryWrapper<>();
-            queryWrapper.lambda().eq(OrderBill::getUserId, userId).ne(OrderBill::getState, OrderState.CANCELLED.id);
+            QueryWrapper<OrderBillDo> queryWrapper = new QueryWrapper<>();
+            queryWrapper.lambda().eq(OrderBillDo::getUserId, userId).ne(OrderBillDo::getState, OrderState.CANCELLED.id);
             return billMapper.selectList(queryWrapper);
         }
-        QueryWrapper<OrderBill> queryWrapper = new QueryWrapper<>();
-        queryWrapper.lambda().eq(OrderBill::getUserId, userId).eq(OrderBill::getState, state);
+        QueryWrapper<OrderBillDo> queryWrapper = new QueryWrapper<>();
+        queryWrapper.lambda().eq(OrderBillDo::getUserId, userId).eq(OrderBillDo::getState, state);
         return billMapper.selectList(queryWrapper);
 
     }
 
     @Override
     public void cancelOrder(String id) {
-        OrderBill orderBill = billMapper.selectById(id);
+        OrderBillDo orderBill = billMapper.selectById(id);
         orderBill.setState(OrderState.CANCELLED.id);
         billMapper.updateById(orderBill);
     }
 
     @Override
     public void clearOrder(String id) {
-        OrderBill orderBill = billMapper.selectById(id);
+        OrderBillDo orderBill = billMapper.selectById(id);
         if (orderBill.getState().equals(OrderState.CANCELLED.id)) {
             billMapper.deleteById(id);
-            logisticsMapper.deleteByMap(CustomUtils.ofMap(OrderLogistics.t.order_id, id));
-            detailMapper.deleteByMap(CustomUtils.ofMap(OrderLogistics.t.order_id, id));
+            logisticsMapper.deleteByMap(CustomUtils.ofMap(OrderLogisticsDo.t.order_id, id));
+            detailMapper.deleteByMap(CustomUtils.ofMap(OrderLogisticsDo.t.order_id, id));
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.zxu.service;
 
-import com.zxu.domain.ItemInfo;
-import com.zxu.domain.ItemInfoImg;
+import com.zxu.domain.ItemDo;
+import com.zxu.domain.ItemImgDo;
 import com.zxu.mapper.ItemInfoImgMapper;
 import com.zxu.mapper.ItemInfoMapper;
 import com.zxu.service.usb.ItemInfoService;
@@ -25,9 +25,9 @@ public class ItemInfoServiceImpl implements ItemInfoService {
      * @return
      */
     @Override
-    public ItemInfo getItemWithImg(String id) {
-        ItemInfo itemInfo = itemInfoMapper.selectById(id);
-        List<ItemInfoImg> itemInfoImgs = itemInfoImgMapper.selectByMap(CustomUtils.ofMap(ItemInfoImg.t.item_id, id));
+    public ItemDo getItemWithImg(String id) {
+        ItemDo itemInfo = itemInfoMapper.selectById(id);
+        List<ItemImgDo> itemInfoImgs = itemInfoImgMapper.selectByMap(CustomUtils.ofMap(ItemImgDo.t.item_id, id));
         if (itemInfoImgs.size() > 0) {
             itemInfo.setDefaultImg(itemInfoImgs.get(0).getUrl());
         }
@@ -38,10 +38,10 @@ public class ItemInfoServiceImpl implements ItemInfoService {
      * 获取商品信息以及图片
      */
     @Override
-    public List<ItemInfo> selectListWithImg() {
-        List<ItemInfo> itemInfos = itemInfoMapper.selectList(null);
+    public List<ItemDo> selectListWithImg() {
+        List<ItemDo> itemInfos = itemInfoMapper.selectList(null);
         itemInfos.forEach(m -> {
-            List<ItemInfoImg> itemInfoImgs = itemInfoImgMapper.selectByMap(CustomUtils.ofMap(ItemInfoImg.t.item_id, m.getId(), ItemInfoImg.t.default_flag, "1"));
+            List<ItemImgDo> itemInfoImgs = itemInfoImgMapper.selectByMap(CustomUtils.ofMap(ItemImgDo.t.item_id, m.getId(), ItemImgDo.t.default_flag, "1"));
             if (itemInfoImgs.size() > 0) {
                 m.setDefaultImg(itemInfoImgs.get(0).getUrl());
             }
@@ -50,10 +50,10 @@ public class ItemInfoServiceImpl implements ItemInfoService {
     }
 
     @Override
-    public List<ItemInfo> selectListWithImg(List<ItemInfo> itemInfos) {
+    public List<ItemDo> selectListWithImg(List<ItemDo> itemInfos) {
 
         itemInfos.forEach(m -> {
-            List<ItemInfoImg> itemInfoImgs = itemInfoImgMapper.selectByMap(CustomUtils.ofMap(ItemInfoImg.t.item_id, m.getId(), ItemInfoImg.t.default_flag, "1"));
+            List<ItemImgDo> itemInfoImgs = itemInfoImgMapper.selectByMap(CustomUtils.ofMap(ItemImgDo.t.item_id, m.getId(), ItemImgDo.t.default_flag, "1"));
             if (itemInfoImgs.size() > 0) {
                 m.setDefaultImg(itemInfoImgs.get(0).getUrl());
             }

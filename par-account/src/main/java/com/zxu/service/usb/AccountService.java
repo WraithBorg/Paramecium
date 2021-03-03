@@ -1,7 +1,7 @@
 package com.zxu.service.usb;
 
-import com.zxu.entity.Account;
+import com.zxu.domain.AccountDo;
 
 public interface AccountService {
-    public Account getAccount();
+    public AccountDo getAccount();
 }

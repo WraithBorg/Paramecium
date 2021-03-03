@@ -1,7 +1,7 @@
 package com.zxu;
 
 import com.alibaba.fastjson.JSON;
-import com.zxu.entity.Order;
+import com.zxu.domain.OrderDo;
 import com.zxu.service.usb.OrderService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,7 +17,7 @@ public class OrderTest {
     private OrderService orderService;
     @Test
     public void testGet() {
-        Order account = orderService.get();
+        OrderDo account = orderService.get();
         System.out.println(JSON.toJSONString(account));
     }
     

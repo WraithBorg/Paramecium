@@ -1,6 +1,6 @@
 package com.zxu.service;
 
-import com.zxu.entity.Order;
+import com.zxu.domain.OrderDo;
 import com.zxu.mapper.OrderMapper;
 import com.zxu.service.usb.OrderService;
 import org.springframework.stereotype.Service;
@@ -13,8 +13,8 @@ public class OrderServiceImpl implements OrderService {
     private OrderMapper orderMapper;
 
     @Override
-    public Order get() {
-        Order order = orderMapper.selectList(null).get(0);
+    public OrderDo get() {
+        OrderDo order = orderMapper.selectList(null).get(0);
         return order;
     }
 }

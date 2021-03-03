@@ -1,13 +1,13 @@
 package com.zxu.service.usb;
 
-import com.zxu.domain.ItemInfo;
+import com.zxu.domain.ItemDo;
 
 import java.util.List;
 
 public interface ItemInfoService {
-    ItemInfo getItemWithImg(String id);
+    ItemDo getItemWithImg(String id);
 
-    List<ItemInfo> selectListWithImg();
+    List<ItemDo> selectListWithImg();
 
-    public List<ItemInfo> selectListWithImg(List<ItemInfo> itemInfos);
+    public List<ItemDo> selectListWithImg(List<ItemDo> itemInfos);
 }

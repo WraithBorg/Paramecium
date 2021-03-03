@@ -1,13 +1,13 @@
 package com.zxu.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.zxu.domain.CategoryInfo;
+import com.zxu.domain.CategoryDo;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
-public interface CategoryInfoMapper extends BaseMapper<CategoryInfo> {
+public interface CategoryInfoMapper extends BaseMapper<CategoryDo> {
 
     @Select(" select * from category_info limit 5 ")
-    List<CategoryInfo> getCats4Index();
+    List<CategoryDo> getCats4Index();
 }

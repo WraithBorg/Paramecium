@@ -2,7 +2,7 @@ package com.zxu.controller;
 
 import com.zxu.util.SessionUtil;
 import com.zxu.chip.MultipartContext;
-import com.zxu.domain.UserInfo;
+import com.zxu.domain.UserDo;
 import com.zxu.constant.PageConst;
 import com.zxu.convert.UserInfoConvert;
 import com.zxu.mapper.UserInfoMapper;
@@ -48,7 +48,7 @@ public class UploadController {
      */
     @PostMapping("/upload/img/user_head")
     public MsgResult uploadUserHead(@RequestParam("upimg") MultipartFile uploadFile) {
-        UserInfo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
+        UserDo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
         try {
             String fileName = UUID.randomUUID().toString() + "." + uploadFile.getOriginalFilename().split("\\.")[1];
             ssFtpInstance.upload4InputStream(uploadFile.getInputStream(), fileName);
@@ -77,7 +77,7 @@ public class UploadController {
      */
     private void uploadHeadImg(@RequestParam("upimg") MultipartFile file) {
         try {
-            UserInfo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
+            UserDo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
             String headFileName = UUID.randomUUID().toString() + file.getOriginalFilename();
             File newFiel = new File(headFileName);
             file.transferTo(newFiel);

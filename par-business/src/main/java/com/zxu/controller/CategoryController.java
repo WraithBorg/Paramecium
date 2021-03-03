@@ -2,7 +2,7 @@ package com.zxu.controller;
 
 
 import com.zxu.annotate.WithoutLogin;
-import com.zxu.domain.CategoryInfo;
+import com.zxu.domain.CategoryDo;
 import com.zxu.constant.PageConst;
 import com.zxu.convert.CategoryInfoConvert;
 import com.zxu.mapper.CategoryInfoMapper;
@@ -33,7 +33,7 @@ public class CategoryController {
     @WithoutLogin
     @RequestMapping("/category/b2c_category_tree")
     public MsgResult b2c_category() {
-        List<CategoryInfo> categoryInfos = categoryMapper.selectList(null);
+        List<CategoryDo> categoryInfos = categoryMapper.selectList(null);
         List<CategoryVO> categoryVOS = categoryInfoConvert.getCategoryVOS(categoryInfos);
         System.out.println(PageConst.WEB_HOST);
         return MsgResult.doneUrl("catList", categoryVOS, PageConst.CATEGORY_INDEX);

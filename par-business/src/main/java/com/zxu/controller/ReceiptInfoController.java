@@ -1,8 +1,8 @@
 package com.zxu.controller;
 
 import com.zxu.util.SessionUtil;
-import com.zxu.domain.ReceiptInfo;
-import com.zxu.domain.UserInfo;
+import com.zxu.domain.ReceiptDo;
+import com.zxu.domain.UserDo;
 import com.zxu.constant.PageConst;
 import com.zxu.convert.ReceiptInfoConvert;
 import com.zxu.dto.ReceiptInfoDTO;
@@ -41,8 +41,8 @@ public class ReceiptInfoController {
     @GetMapping("/user_address/my")
     public MsgResult userAddress() {
         //
-        UserInfo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
-        List<ReceiptInfo> receiptInfos = receiptInfoService.selectList(defaultUser.getId());
+        UserDo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
+        List<ReceiptDo> receiptInfos = receiptInfoService.selectList(defaultUser.getId());
         List<ReceiptInfoVO> receiptVOS = receiptConvert.getReceiptVOS(receiptInfos);
         Map data = CustomUtils.ofMap("list", receiptVOS,
                 "pagelist", false,
@@ -61,7 +61,7 @@ public class ReceiptInfoController {
             Map data = CustomUtils.ofMap("data", null);
             return MsgResult.doneUrl(data, PageConst.ADDRESS_ADD);
         }
-        ReceiptInfo receiptInfo = receiptInfoService.selectById(id);
+        ReceiptDo receiptInfo = receiptInfoService.selectById(id);
         ReceiptInfoVO receiptVO = receiptConvert.getReceiptVO(receiptInfo);
         Map data = CustomUtils.ofMap("data", receiptVO);
         return MsgResult.doneUrl(data, PageConst.ADDRESS_ADD);
@@ -72,14 +72,14 @@ public class ReceiptInfoController {
      */
     @PostMapping("/user_address/save")
     public MsgResult save(ReceiptInfoDTO addressDTO) {
-        UserInfo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
+        UserDo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
         if (addressDTO.getId() == null) {
-            ReceiptInfo receiptInfo = receiptConvert.getReceiptInfo(addressDTO);
+            ReceiptDo receiptInfo = receiptConvert.getReceiptInfo(addressDTO);
             receiptInfoService.insert(currentUser, receiptInfo);
             Map data = CustomUtils.ofMap("data", null);
             return MsgResult.doneUrl(data, PageConst.ADDRESS_ADD);
         }
-        ReceiptInfo receiptInfo = receiptConvert.getReceiptInfo(addressDTO);
+        ReceiptDo receiptInfo = receiptConvert.getReceiptInfo(addressDTO);
         receiptInfoService.updateById(receiptInfo);
         Map data = CustomUtils.ofMap("data", null);
         return MsgResult.doneUrl(data, PageConst.ADDRESS_ADD);

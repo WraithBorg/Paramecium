@@ -1,8 +1,8 @@
 package com.zxu.service;
 
  
-import com.zxu.domain.KeFuLogInfo;
-import com.zxu.domain.UserInfo;
+import com.zxu.domain.KeFuLogDo;
+import com.zxu.domain.UserDo;
 import com.zxu.mapper.KeFuLogMapper;
 import com.zxu.mapper.UserInfoMapper;
 import com.zxu.service.usb.KeFuLogService;
@@ -20,8 +20,8 @@ public class KeFuLogServiceImpl implements KeFuLogService {
     private UserInfoMapper userInfoMapper;
 
     @Override
-    public List<KeFuLogInfo> getMyLog(UserInfo currentUser) {
-        List<KeFuLogInfo> keFuLogInfos = keFuLogMapper.selectByMap(CustomUtils.ofMap(KeFuLogInfo.t.user_id, currentUser.getId()));
+    public List<KeFuLogDo> getMyLog(UserDo currentUser) {
+        List<KeFuLogDo> keFuLogInfos = keFuLogMapper.selectByMap(CustomUtils.ofMap(KeFuLogDo.t.user_id, currentUser.getId()));
         return keFuLogInfos;
     }
 }

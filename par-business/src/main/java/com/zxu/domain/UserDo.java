@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 @TableName("user_info")
-public class UserInfo {
+public class UserDo {
     @TableId(type = IdType.ASSIGN_UUID)
     private String id;
     @TableField(value = t.nickname)

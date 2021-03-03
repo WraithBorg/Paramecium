@@ -1,8 +1,8 @@
 package com.zxu.service.usb;
 
-import com.zxu.domain.UserInfo;
+import com.zxu.domain.UserDo;
 
 public interface UserInfoService {
 
-    UserInfo getUserByTelephone(String telePhone);
+    UserDo getUserByTelephone(String telePhone);
 }

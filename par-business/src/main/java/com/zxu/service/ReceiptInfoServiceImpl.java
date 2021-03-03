@@ -1,7 +1,7 @@
 package com.zxu.service;
 
-import com.zxu.domain.ReceiptInfo;
-import com.zxu.domain.UserInfo;
+import com.zxu.domain.ReceiptDo;
+import com.zxu.domain.UserDo;
 import com.zxu.mapper.ReceiptInfoMapper;
 import com.zxu.service.usb.ReceiptInfoService;
 import com.zxu.service.usb.UserInfoService;
@@ -21,13 +21,13 @@ public class ReceiptInfoServiceImpl implements ReceiptInfoService {
     private UserInfoService userInfoService;
 
     @Override
-    public ReceiptInfo selectById(String id) {
-        ReceiptInfo receiptInfo = receiptInfoMapper.selectById(id);
+    public ReceiptDo selectById(String id) {
+        ReceiptDo receiptInfo = receiptInfoMapper.selectById(id);
         return receiptInfo;
     }
 
     @Override
-    public void insert(UserInfo currentUser, ReceiptInfo receiptInfo) {
+    public void insert(UserDo currentUser, ReceiptDo receiptInfo) {
         receiptInfo.setUserId(currentUser.getId());
         receiptInfoMapper.insert(receiptInfo);
     }
@@ -38,13 +38,13 @@ public class ReceiptInfoServiceImpl implements ReceiptInfoService {
     }
 
     @Override
-    public void updateById(ReceiptInfo receiptInfo) {
+    public void updateById(ReceiptDo receiptInfo) {
         receiptInfoMapper.updateById(receiptInfo);
     }
 
     @Override
-    public List<ReceiptInfo> selectList(String userId) {
-        List<ReceiptInfo> receiptInfoList = receiptInfoMapper.selectByMap(CustomUtils.ofMap(ReceiptInfo.t.user_id, userId));
+    public List<ReceiptDo> selectList(String userId) {
+        List<ReceiptDo> receiptInfoList = receiptInfoMapper.selectByMap(CustomUtils.ofMap(ReceiptDo.t.user_id, userId));
         return receiptInfoList;
     }
 }

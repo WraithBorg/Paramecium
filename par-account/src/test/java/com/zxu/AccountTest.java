@@ -1,7 +1,7 @@
 package com.zxu;
 
 import com.alibaba.fastjson.JSON;
-import com.zxu.entity.Account;
+import com.zxu.domain.AccountDo;
 import com.zxu.service.usb.AccountService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,7 +17,7 @@ public class AccountTest {
     private AccountService accountService;
     @Test
     public void testGet() {
-        Account account = accountService.getAccount();
+        AccountDo account = accountService.getAccount();
         System.out.println(JSON.toJSONString(account));
     }
 }

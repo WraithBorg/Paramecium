@@ -12,7 +12,7 @@ import java.util.Date;
  */
 
 @TableName("order_logistics")
-public class OrderLogistics {
+public class OrderLogisticsDo {
     @TableId
     private String id;
     @TableField(value = t.order_id)

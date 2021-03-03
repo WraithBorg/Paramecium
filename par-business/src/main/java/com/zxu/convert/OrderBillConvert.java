@@ -1,6 +1,6 @@
 package com.zxu.convert;
 
-import com.zxu.domain.OrderBill;
+import com.zxu.domain.OrderBillDo;
 import com.zxu.eum.OrderState;
 import com.zxu.eum.PayType;
 import com.zxu.util.DDateUtil;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class OrderBillConvert {
-    public OrderBill4ListVO getOrderBill4ListVO(OrderBill info) {
+    public OrderBill4ListVO getOrderBill4ListVO(OrderBillDo info) {
 
         OrderBill4ListVO vo = new OrderBill4ListVO();
         vo.setComment(info.getRemark());

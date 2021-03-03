@@ -1,7 +1,7 @@
 package com.zxu.controller;
 
 import com.zxu.util.SessionUtil;
-import com.zxu.domain.UserInfo;
+import com.zxu.domain.UserDo;
 import com.zxu.constant.PageConst;
 import com.zxu.convert.UserInfoConvert;
 import com.zxu.dto.ModifyPassDTO;
@@ -43,7 +43,7 @@ public class UserInfoController {
      */
     @RequestMapping("/user/set")
     public MsgResult set() {
-        UserInfo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
+        UserDo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
         UserInfoVO userInfoVO = userInfoConvert.getUserVO(defaultUser);
         Map data = CustomUtils.ofMap("data", userInfoVO);
         return MsgResult.doneUrl(data, PageConst.USER_SET_SHOW);
@@ -56,7 +56,7 @@ public class UserInfoController {
      */
     @RequestMapping("/user/info")
     public MsgResult info() {
-        UserInfo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
+        UserDo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
         UserInfoVO userInfoVO = userInfoConvert.getUserVO(defaultUser);
         Map data = CustomUtils.ofMap("data", userInfoVO);
         return MsgResult.doneUrl(data, PageConst.USER_INFO_SHOW);
@@ -67,7 +67,7 @@ public class UserInfoController {
      */
     @PostMapping("/user/save")
     public MsgResult save(UserInfoDTO userInfoDTO) {
-        UserInfo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
+        UserDo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
         defaultUser.setNickName(userInfoDTO.getNickname());
         userInfoMapper.updateById(defaultUser);
         return MsgResult.doneUrl(new ArrayList<>(), PageConst.USER_INFO_SHOW);
@@ -80,7 +80,7 @@ public class UserInfoController {
      */
     @GetMapping("/user/user_head")
     public MsgResult user_head() {
-        UserInfo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
+        UserDo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
         UserPassVO userPassVO = userInfoConvert.getUserPassVO(defaultUser);
         Map data = CustomUtils.ofMap("data", userPassVO);
         return MsgResult.doneUrl(data, PageConst.USER_PWD_SHOW);
@@ -94,7 +94,7 @@ public class UserInfoController {
      */
     @GetMapping("/user/password")
     public MsgResult password() {
-        UserInfo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
+        UserDo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
         UserPassVO userPassVO = userInfoConvert.getUserPassVO(defaultUser);
         Map data = CustomUtils.ofMap("data", userPassVO);
         return MsgResult.doneUrl(data, PageConst.USER_PWD_SHOW);
@@ -109,7 +109,7 @@ public class UserInfoController {
         if (!modifyPassDTO.getPassword().equals(modifyPassDTO.getPassword2())) {
             return MsgResult.fail("新密码输入不一致");
         }
-        UserInfo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
+        UserDo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
         if (!defaultUser.getPassword().equals(modifyPassDTO.getOldpassword())) {
             return MsgResult.fail("旧密码出错");
         }
@@ -128,7 +128,7 @@ public class UserInfoController {
      */
     @GetMapping("/user/paypwd")
     public MsgResult paypwd() {
-        UserInfo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
+        UserDo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
         UserPassVO userPassVO = userInfoConvert.getUserPassVO(defaultUser);
         Map data = CustomUtils.ofMap("data", userPassVO);
         return MsgResult.doneUrl(data, PageConst.USER_PAY_PWD_SHOW);
@@ -139,7 +139,7 @@ public class UserInfoController {
      */
     @PostMapping("/user/savepaypwd")
     public MsgResult savePayPwd(PayPwdDTO payPwdDTO) {
-        UserInfo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
+        UserDo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
         if (!defaultUser.getPassword().equals(payPwdDTO.getPassword())) {
             return MsgResult.fail("登录密码出错");
         }

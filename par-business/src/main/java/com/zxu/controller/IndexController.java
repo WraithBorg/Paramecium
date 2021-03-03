@@ -1,9 +1,9 @@
 package com.zxu.controller;
 
 import com.zxu.annotate.WithoutLogin;
-import com.zxu.domain.CategoryInfo;
-import com.zxu.domain.ItemInfo;
-import com.zxu.domain.UserInfo;
+import com.zxu.domain.CategoryDo;
+import com.zxu.domain.ItemDo;
+import com.zxu.domain.UserDo;
 import com.zxu.constant.PageConst;
 import com.zxu.convert.CategoryInfoConvert;
 import com.zxu.convert.ItemInfoConvert;
@@ -52,9 +52,9 @@ public class IndexController {
     @WithoutLogin
     @GetMapping("b2c/indexpage")
     public MsgResult indexpage() {
-        UserInfo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
+        UserDo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
         List adList = new ArrayList<>();
-        List<ItemInfo> itemInfos = itemInfoService.selectListWithImg(itemInfoMapper.selectBiMaiList());
+        List<ItemDo> itemInfos = itemInfoService.selectListWithImg(itemInfoMapper.selectBiMaiList());
         // 必买好货
         List<ItemInfo4IndexVO> bmList = itemInfoConvert.getItemInfo4IndexVOS(itemInfos);
         // 首页轮播图
@@ -62,7 +62,7 @@ public class IndexController {
         // 热销商品
         List<ItemInfoVO> hotList = itemInfoConvert.getItemInfoVOS( currentUser,itemInfoMapper.selectHotSaleList());
         // 热销商品类型
-        List<CategoryInfo> categoryInfos = categoryMapper.getCats4Index();
+        List<CategoryDo> categoryInfos = categoryMapper.getCats4Index();
         List<Category4IndexVO> navList = categoryInfoConvert.getCategory4IndexVOS(categoryInfos);
         //
         List<ItemInfoVO> recList = hotList;

@@ -11,7 +11,7 @@ import java.util.Date;
  * 客服记录
  */
 @TableName("kefu_log")
-public class KeFuLogInfo {
+public class KeFuLogDo {
     @TableId(type = IdType.ASSIGN_UUID)
     private String id;
     @TableField(value = "user_id")

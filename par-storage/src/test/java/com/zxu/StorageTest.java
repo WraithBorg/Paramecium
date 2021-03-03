@@ -1,7 +1,7 @@
 package com.zxu;
 
 import com.alibaba.fastjson.JSON;
-import com.zxu.entity.Storage;
+import com.zxu.domain.StorageDo;
 import com.zxu.service.usb.StorageService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,7 +17,7 @@ public class StorageTest {
     private StorageService storageService;
     @Test
     public void testGet() {
-        Storage account = storageService.get();
+        StorageDo account = storageService.get();
         System.out.println(JSON.toJSONString(account));
     }
 }

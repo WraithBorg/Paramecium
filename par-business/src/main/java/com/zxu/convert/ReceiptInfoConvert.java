@@ -1,6 +1,6 @@
 package com.zxu.convert;
 
-import com.zxu.domain.ReceiptInfo;
+import com.zxu.domain.ReceiptDo;
 import com.zxu.dto.ReceiptInfoDTO;
 import com.zxu.vo.ReceiptInfoVO;
 import org.springframework.stereotype.Component;
@@ -12,12 +12,12 @@ import java.util.stream.Collectors;
 @Component
 public class ReceiptInfoConvert {
 
-    public List<ReceiptInfoVO> getReceiptVOS(List<ReceiptInfo> receiptInfos) {
+    public List<ReceiptInfoVO> getReceiptVOS(List<ReceiptDo> receiptInfos) {
         List<ReceiptInfoVO> receiptInfoVOS = receiptInfos.stream().map(m -> getReceiptVO(m)).collect(Collectors.toList());
         return receiptInfoVOS;
     }
 
-    public ReceiptInfoVO getReceiptVO(ReceiptInfo receiptInfo) {
+    public ReceiptInfoVO getReceiptVO(ReceiptDo receiptInfo) {
         String id = receiptInfo.getId();
         String userId = receiptInfo.getUserId();
         String address = receiptInfo.getAddress();
@@ -49,7 +49,7 @@ public class ReceiptInfoConvert {
         return receiptInfoVO;
     }
 
-    public ReceiptInfo getReceiptInfo(ReceiptInfoDTO dto) {
+    public ReceiptDo getReceiptInfo(ReceiptInfoDTO dto) {
         String id = dto.getId();
         String address = dto.getAddress();
         String provinceId = dto.getProvince_id();
@@ -57,7 +57,7 @@ public class ReceiptInfoConvert {
         String townId = dto.getTown_id();
         String telephone = dto.getTelephone();
         String trueName = dto.getTruename();
-        ReceiptInfo receiptInfo = new ReceiptInfo();
+        ReceiptDo receiptInfo = new ReceiptDo();
         receiptInfo.setId(id);
         receiptInfo.setAddress(address);
         receiptInfo.setProvinceId(Integer.parseInt(provinceId));

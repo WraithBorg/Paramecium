@@ -1,18 +1,18 @@
 package com.zxu.service.usb;
 
-import com.zxu.domain.ReceiptInfo;
-import com.zxu.domain.UserInfo;
+import com.zxu.domain.ReceiptDo;
+import com.zxu.domain.UserDo;
 
 import java.util.List;
 
 public interface ReceiptInfoService {
-    public ReceiptInfo selectById(String id);
+    public ReceiptDo selectById(String id);
 
-    void insert(UserInfo currentUser, ReceiptInfo receiptInfo);
+    void insert(UserDo currentUser, ReceiptDo receiptInfo);
 
-    List<ReceiptInfo> selectList(String userId);
+    List<ReceiptDo> selectList(String userId);
 
-    public void updateById(ReceiptInfo receiptInfo);
+    public void updateById(ReceiptDo receiptInfo);
 
     public void deleteById(String id);
 }

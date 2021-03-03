@@ -1,7 +1,7 @@
 package com.zxu.convert;
 
 import com.zxu.FfileServer;
-import com.zxu.domain.UserInfo;
+import com.zxu.domain.UserDo;
 import com.zxu.constant.PageConst;
 import com.zxu.util.CustomUtils;
 import com.zxu.vo.UserInfoVO;
@@ -16,7 +16,7 @@ public class UserInfoConvert {
     @Resource
     private FfileServer ffileServer;
 
-    public UserInfoVO getUserVO(UserInfo userInfo) {
+    public UserInfoVO getUserVO(UserDo userInfo) {
         UserInfoVO vo = new UserInfoVO();
         vo.setBirthday(CustomUtils.formatDate(new Date()));
         vo.setCreatetime(CustomUtils.formatDate(new Date()));
@@ -39,7 +39,7 @@ public class UserInfoConvert {
         return vo;
     }
 
-    public UserPassVO getUserPassVO(UserInfo userInfo) {
+    public UserPassVO getUserPassVO(UserDo userInfo) {
         UserPassVO vo = new UserPassVO();
         vo.setGender(0);
         vo.setGold(0);

@@ -1,7 +1,7 @@
 package com.zxu.controller;
 
 import com.zxu.util.SessionUtil;
-import com.zxu.domain.UserInfo;
+import com.zxu.domain.UserDo;
 import com.zxu.constant.PageConst;
 import com.zxu.mapper.UserInfoMapper;
 import com.zxu.result.MsgResult;
@@ -29,7 +29,7 @@ public class ItemFavController {
      */
     @RequestMapping("/item/itemfav")
     public MsgResult toggle(String objectid) {
-        UserInfo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
+        UserDo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
         String method = userFavInfoService.favItem(currentUser.getId(), objectid);
         return MsgResult.doneUrl(method, PageConst.PRODUCT_SHOW + objectid);
     }

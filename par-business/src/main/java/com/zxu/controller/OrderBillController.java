@@ -1,10 +1,10 @@
 package com.zxu.controller;
 
 import com.zxu.util.SessionUtil;
-import com.zxu.domain.OrderBill;
-import com.zxu.domain.ReceiptInfo;
-import com.zxu.domain.ShopCartItemInfo;
-import com.zxu.domain.UserInfo;
+import com.zxu.domain.OrderBillDo;
+import com.zxu.domain.ReceiptDo;
+import com.zxu.domain.ShopCartItemDo;
+import com.zxu.domain.UserDo;
 import com.zxu.constant.CConstant;
 import com.zxu.constant.PageConst;
 import com.zxu.convert.OrderBill4ListConvert;
@@ -65,18 +65,18 @@ public class OrderBillController {
     @GetMapping("/b2c_order/confirm")
     public MsgResult confirm(@RequestParam(required = false) String user_address_id) {
         // 获取登陆人信息
-        UserInfo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
+        UserDo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
         // 查询收货地址列表
-        List<ReceiptInfo> receiptInfos = receiptInfoService.selectList(defaultUser.getId());
+        List<ReceiptDo> receiptInfos = receiptInfoService.selectList(defaultUser.getId());
         List<ReceiptInfoVO> receiptVOS = receiptConvert.getReceiptVOS(receiptInfos);
         // 查询购物车列表
-        List<ShopCartItemInfo> cartItemInfos = shopCartItemService.getShopCartInfo(defaultUser.getId());
+        List<ShopCartItemDo> cartItemInfos = shopCartItemService.getShopCartInfo(defaultUser.getId());
         List<ShopCartItemVO> cartList = cartItemConvert.getShoppingCartItemVOS(cartItemInfos);
         // 查询支付方式列表
         Map<String, String> payType = CConstant.PAY_TYPE;
         // 计算金额 数量
         BigDecimal totalMoney = cartItemInfos.stream().map(m -> m.getAmount().multiply(m.getPrice())).reduce(BigDecimal.ZERO, BigDecimal::add);
-        BigDecimal totalNum = cartItemInfos.stream().map(ShopCartItemInfo::getAmount).reduce(BigDecimal.ZERO, BigDecimal::add);
+        BigDecimal totalNum = cartItemInfos.stream().map(ShopCartItemDo::getAmount).reduce(BigDecimal.ZERO, BigDecimal::add);
         BigDecimal goodsMoney = totalMoney;
         // 设置默认值
         String defaultAddressId = user_address_id;// 默认收货地址
@@ -108,8 +108,8 @@ public class OrderBillController {
      */
     @GetMapping("/b2c_order/myorder")
     public MsgResult myorder(String type) {
-        UserInfo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
-        List<OrderBill> myOrder = orderBillService.getMyOrder(defaultUser.getId(), type);
+        UserDo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
+        List<OrderBillDo> myOrder = orderBillService.getMyOrder(defaultUser.getId(), type);
         List<OrderBill4ListVO> orderBillVOS = orderBill4ListConvert.getOrderBill4ListVOS(myOrder);
         Map<String, Object> data = CustomUtils.ofMap("type", type, "per_page", 0, "list", orderBillVOS);
         return MsgResult.doneUrl(data, PageConst.ORDER_LIST);
@@ -120,7 +120,7 @@ public class OrderBillController {
      */
     @PostMapping("/b2c_order/createorder")
     public Object createOrder(CreateOrderDTO createOrderDTO) {
-        UserInfo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
+        UserDo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
         orderBillService.createOrder(currentUser, createOrderDTO);
         return null;
     }

@@ -1,6 +1,6 @@
 package com.zxu.convert;
 
-import com.zxu.domain.CategoryInfo;
+import com.zxu.domain.CategoryDo;
 import com.zxu.constant.PageConst;
 import com.zxu.util.CustomUtils;
 import com.zxu.vo.Category4IndexVO;
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public class CategoryInfoConvert {
     private final String finalFatherID = "0";//父类的pid
 
-    public List<CategoryVO> getCategoryVOS(List<CategoryInfo> categoryInfos) {
+    public List<CategoryVO> getCategoryVOS(List<CategoryDo> categoryInfos) {
         List<CategoryVO> categoryVOS = categoryInfos.stream().map(this::getCategoryVO).collect(Collectors.toList());
         List<CategoryVO> bigCats = categoryVOS.stream().filter(m -> m.getPid().equals(finalFatherID)).collect(Collectors.toList());
         for (CategoryVO categoryVO : bigCats) {
@@ -27,7 +27,7 @@ public class CategoryInfoConvert {
         return bigCats;
     }
 
-    private CategoryVO getCategoryVO(CategoryInfo categoryInfo) {
+    private CategoryVO getCategoryVO(CategoryDo categoryInfo) {
         CategoryVO categoryVO = new CategoryVO();
         categoryVO.setCatid(categoryInfo.getId());
         categoryVO.setDescription(categoryInfo.getName());
@@ -44,12 +44,12 @@ public class CategoryInfoConvert {
         return categoryVO;
     }
 
-    public List<Category4IndexVO> getCategory4IndexVOS(List<CategoryInfo> categoryInfos) {
+    public List<Category4IndexVO> getCategory4IndexVOS(List<CategoryDo> categoryInfos) {
         List<Category4IndexVO> categoryVOS = categoryInfos.stream().map(this::getCategory4IndexVO).collect(Collectors.toList());
         return categoryVOS;
     }
 
-    private Category4IndexVO getCategory4IndexVO(CategoryInfo categoryInfo) {
+    private Category4IndexVO getCategory4IndexVO(CategoryDo categoryInfo) {
         Category4IndexVO categoryVO = new Category4IndexVO();
         categoryVO.setId(categoryInfo.getId());
         categoryVO.setInfo(categoryInfo.getName());

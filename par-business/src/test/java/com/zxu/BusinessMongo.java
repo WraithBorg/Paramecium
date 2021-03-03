@@ -1,6 +1,6 @@
 package com.zxu;
 
-import com.zxu.domain.UserInfo;
+import com.zxu.domain.UserDo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,11 +21,11 @@ public class BusinessMongo {
     @Test
     public void testSave() {
         // 新的数据库需要创建对应的用户
-        UserInfo userInfo = new UserInfo();
+        UserDo userInfo = new UserDo();
         mongoTemplate.save(userInfo);
 
         Query query = Query.query(Criteria.where("name").is("大黄鸭"));
-        List<UserInfo> userInfos = mongoTemplate.find(query, UserInfo.class);
+        List<UserDo> userInfos = mongoTemplate.find(query, UserDo.class);
         System.out.println(userInfos);
     }
 }

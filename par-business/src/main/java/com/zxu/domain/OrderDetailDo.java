@@ -12,7 +12,7 @@ import java.util.Date;
  * 订单商品详情表
  */
 @TableName("order_detail")
-public class OrderDetail {
+public class OrderDetailDo {
     @TableId(type = IdType.ASSIGN_UUID)
     private String id;
     @TableField(value = t.order_id)

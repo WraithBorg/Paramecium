@@ -2,7 +2,7 @@ package com.zxu.interceptor;
 
 import com.alibaba.fastjson.JSON;
 import com.zxu.annotate.WithoutLogin;
-import com.zxu.domain.UserInfo;
+import com.zxu.domain.UserDo;
 import com.zxu.constant.ErrCodeConst;
 import com.zxu.constant.SessionConst;
 import com.zxu.mapper.UserInfoMapper;
@@ -39,7 +39,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         }
         try {
             userInfoMapper.selectList(null);
-            UserInfo userDB = userInfoService.getUserByTelephone(JwtUtil.parseUser(authCode).getTelePhone());
+            UserDo userDB = userInfoService.getUserByTelephone(JwtUtil.parseUser(authCode).getTelePhone());
             if (userDB == null) {
                 logger.error("用户账户不存在" + ErrCodeConst.A0201);
                 return false;

@@ -2,10 +2,10 @@ package com.zxu.controller;
 
 import com.zxu.util.SessionUtil;
 import com.zxu.annotate.WithoutLogin;
-import com.zxu.domain.CategoryInfo;
-import com.zxu.domain.ItemInfo;
-import com.zxu.domain.ItemInfoImg;
-import com.zxu.domain.UserInfo;
+import com.zxu.domain.CategoryDo;
+import com.zxu.domain.ItemDo;
+import com.zxu.domain.ItemImgDo;
+import com.zxu.domain.UserDo;
 import com.zxu.constant.PageConst;
 import com.zxu.convert.CategoryInfoConvert;
 import com.zxu.convert.ItemInfoConvert;
@@ -62,21 +62,21 @@ public class ItemInfoController {
     @RequestMapping("item/b2c_product/list")
     public MsgResult list(@RequestParam(required = false) String orderby,
                           @RequestParam(required = false) String catid) {
-        UserInfo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
+        UserDo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
 
-        List<ItemInfo> itemInfos;
+        List<ItemDo> itemInfos;
 
         // category
         Map catMap = null;
         if (CustomUtils.isNotBlank(catid)) {
-            CategoryInfo catDB = categoryInfoMapper.selectById(catid);
+            CategoryDo catDB = categoryInfoMapper.selectById(catid);
             catMap = CustomUtils.ofMap("catid", catDB.getId(), "pid", catDB.getPid(), "title", catDB.getName());
-            itemInfos = itemInfoMapper.selectByMap(CustomUtils.ofMap(ItemInfo.t.category_id, catid));
+            itemInfos = itemInfoMapper.selectByMap(CustomUtils.ofMap(ItemDo.t.category_id, catid));
         } else {
             itemInfos = itemInfoMapper.selectList(null);
         }
         itemInfos.forEach(m -> {
-            List<ItemInfoImg> itemInfoImgs = itemInfoImgMapper.selectByMap(CustomUtils.ofMap(ItemInfoImg.t.item_id, m.getId(), ItemInfoImg.t.default_flag, "1"));
+            List<ItemImgDo> itemInfoImgs = itemInfoImgMapper.selectByMap(CustomUtils.ofMap(ItemImgDo.t.item_id, m.getId(), ItemImgDo.t.default_flag, "1"));
             if (itemInfoImgs.size() > 0) {
                 m.setDefaultImg(itemInfoImgs.get(0).getUrl());
             }
@@ -101,12 +101,12 @@ public class ItemInfoController {
     @WithoutLogin
     @RequestMapping("item/b2c_product/likelist")
     public MsgResult likelist(@RequestParam String productid) {
-        UserInfo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
+        UserDo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
         //
-        List<CategoryInfo> categoryInfos = categoryMapper.selectList(null);
+        List<CategoryDo> categoryInfos = categoryMapper.selectList(null);
         List<CategoryVO> categoryVOS = categoryInfoConvert.getCategoryVOS(categoryInfos);
         //
-        List<ItemInfo> itemInfos = itemInfoService.selectListWithImg();
+        List<ItemDo> itemInfos = itemInfoService.selectListWithImg();
         List<ItemInfoVO> list = itemInfoConvert.getItemInfoVOS(currentUser, itemInfos);
         Map data = CustomUtils.ofMapN(
                 "rscount", 0,
@@ -123,11 +123,11 @@ public class ItemInfoController {
     @WithoutLogin
     @RequestMapping("item/b2c_product/show")
     public MsgResult show(@RequestParam String id, @RequestParam String orderid) {
-        UserInfo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
-        ItemInfo itemInfo = infoService.getItemWithImg(id);
+        UserDo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
+        ItemDo itemInfo = infoService.getItemWithImg(id);
         ItemInfoVO itemInfoVO = itemInfoConvert.getItemInfoVO(currentUser, itemInfo);
 
-        List<ItemInfoImg> itemInfoImgs = itemInfoImgMapper.selectByMap(CustomUtils.ofMap(ItemInfoImg.t.item_id, id));
+        List<ItemImgDo> itemInfoImgs = itemInfoImgMapper.selectByMap(CustomUtils.ofMap(ItemImgDo.t.item_id, id));
         List<String> imgsdata = itemInfoImgs.stream().map(m -> {
             if (CustomUtils.isBlank(m.getUrl())) {
                 return null;
@@ -135,7 +135,7 @@ public class ItemInfoController {
             return PageConst.IMG_PATH + "index_flash_01.png";
         }).collect(Collectors.toList());
         // 查看是否该商品是否在收藏夹里
-        UserInfo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
+        UserDo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
         Integer hasFav;
         if (defaultUser == null) {
             hasFav = 0;
@@ -188,12 +188,12 @@ public class ItemInfoController {
     @WithoutLogin
     @RequestMapping("item/b2c_product/reclist")
     public MsgResult reclist(@RequestParam String productid) {
-        UserInfo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
+        UserDo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
         //
-        List<CategoryInfo> categoryInfos = categoryMapper.selectList(null);
+        List<CategoryDo> categoryInfos = categoryMapper.selectList(null);
         List<CategoryVO> categoryVOS = categoryInfoConvert.getCategoryVOS(categoryInfos);
         //
-        List<ItemInfo> itemInfos = itemInfoService.selectListWithImg();
+        List<ItemDo> itemInfos = itemInfoService.selectListWithImg();
         List<ItemInfoVO> list = itemInfoConvert.getItemInfoVOS(currentUser, itemInfos);
         Map data = CustomUtils.ofMapN(
                 "rscount", list.size(),

@@ -1,6 +1,6 @@
 package com.zxu.service;
 
-import com.zxu.domain.UserInfo;
+import com.zxu.domain.UserDo;
 import com.zxu.mapper.UserInfoMapper;
 import com.zxu.service.usb.UserInfoService;
 import com.zxu.util.CustomUtils;
@@ -20,8 +20,8 @@ public class UserInfoServiceImpl implements UserInfoService {
 //    }
 
     @Override
-    public UserInfo getUserByTelephone(String telePhone) {
-        List<UserInfo> userInfos = userInfoMapper.selectByMap(CustomUtils.ofMap(UserInfo.t.telephone, telePhone));
+    public UserDo getUserByTelephone(String telePhone) {
+        List<UserDo> userInfos = userInfoMapper.selectByMap(CustomUtils.ofMap(UserDo.t.telephone, telePhone));
         if (userInfos.size() == 0) {
             return null;
         }

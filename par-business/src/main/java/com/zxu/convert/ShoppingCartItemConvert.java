@@ -1,6 +1,6 @@
 package com.zxu.convert;
 
-import com.zxu.domain.ShopCartItemInfo;
+import com.zxu.domain.ShopCartItemDo;
 import com.zxu.constant.PageConst;
 import com.zxu.util.DDateUtil;
 import com.zxu.util.DDecimalUtil;
@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class ShoppingCartItemConvert {
 
 
-    public ShopCartItemVO getShoppingCartItemVO(ShopCartItemInfo info) {
+    public ShopCartItemVO getShoppingCartItemVO(ShopCartItemDo info) {
         ShopCartItemVO vo = new ShopCartItemVO();
         vo.setAmount(DDecimalUtil.toInt(info.getAmount()));
         vo.setCreatetime(DDateUtil.format(info.getCreateTime()));
@@ -35,7 +35,7 @@ public class ShoppingCartItemConvert {
         return vo;
     }
 
-    public List<ShopCartItemVO> getShoppingCartItemVOS(List<ShopCartItemInfo> cartItemInfos) {
+    public List<ShopCartItemVO> getShoppingCartItemVOS(List<ShopCartItemDo> cartItemInfos) {
         List<ShopCartItemVO> shopCartItemVOS = cartItemInfos.stream().map(m -> getShoppingCartItemVO(m)).collect(Collectors.toList());
         return shopCartItemVOS;
     }

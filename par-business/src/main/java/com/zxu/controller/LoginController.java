@@ -3,7 +3,7 @@ package com.zxu.controller;
 import com.zxu.security.JwtDTO;
 import com.zxu.util.SessionUtil;
 import com.zxu.annotate.WithoutLogin;
-import com.zxu.domain.UserInfo;
+import com.zxu.domain.UserDo;
 import com.zxu.constant.PageConst;
 import com.zxu.convert.UserInfoConvert;
 import com.zxu.dto.LoginDTO;
@@ -48,11 +48,11 @@ public class LoginController {
     public MsgResult loginsave(LoginDTO loginDTO) {
         // validate
         String telephone = loginDTO.getTelephone();
-        List<UserInfo> v_telephone = userInfoMapper.selectByMap(CustomUtils.ofMap(UserInfo.t.telephone, telephone));
+        List<UserDo> v_telephone = userInfoMapper.selectByMap(CustomUtils.ofMap(UserDo.t.telephone, telephone));
         if (v_telephone.size() == 0) {
             return MsgResult.fail("账号不存在");
         }
-        UserInfo userInfo = v_telephone.get(0);
+        UserDo userInfo = v_telephone.get(0);
         if (!userInfo.getPassword().equals(loginDTO.getPassword())) {
             return MsgResult.fail("密码错误");
         }
@@ -89,7 +89,7 @@ public class LoginController {
      */
     @GetMapping("logined/b2c_user")
     public MsgResult b2c_user() {
-        UserInfo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
+        UserDo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
         if (defaultUser == null){
             return MsgResult.fail("未登录");
         }

@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 @TableName("receipt_info")
-public class ReceiptInfo {
+public class ReceiptDo {
     @TableId(type = IdType.ASSIGN_UUID)
     private String id;
     @TableField(value = t.user_id)

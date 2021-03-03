@@ -1,7 +1,7 @@
 package com.zxu.service.usb;
 
-import com.zxu.domain.OrderBill;
-import com.zxu.domain.UserInfo;
+import com.zxu.domain.OrderBillDo;
+import com.zxu.domain.UserDo;
 import com.zxu.dto.CreateOrderDTO;
 
 import java.util.List;
@@ -10,11 +10,11 @@ public interface OrderBillService {
     /**
      * 创建订单
      */
-    void createOrder(UserInfo currentUser, CreateOrderDTO createOrderDTO);
+    void createOrder(UserDo currentUser, CreateOrderDTO createOrderDTO);
     /**
      * 查询订单列表
      */
-    List<OrderBill> getMyOrder(String userId, String type);
+    List<OrderBillDo> getMyOrder(String userId, String type);
     /**
      * 取消订单
      */

@@ -1,4 +1,4 @@
-package com.zxu.entity;
+package com.zxu.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import java.math.BigDecimal;
 
 @TableName(value = "account_tbl")
-public class Account {
+public class AccountDo {
     @TableId(value = t.id,type = IdType.AUTO)
     private Integer id;
     @TableField(value = t.user_id)

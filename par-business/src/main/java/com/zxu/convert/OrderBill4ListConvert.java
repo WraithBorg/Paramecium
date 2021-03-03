@@ -1,8 +1,8 @@
 package com.zxu.convert;
 
-import com.zxu.domain.OrderBill;
-import com.zxu.domain.OrderDetail;
-import com.zxu.domain.OrderLogistics;
+import com.zxu.domain.OrderBillDo;
+import com.zxu.domain.OrderDetailDo;
+import com.zxu.domain.OrderLogisticsDo;
 import com.zxu.eum.DeliveryStatus;
 import com.zxu.mapper.OrderDetailMapper;
 import com.zxu.mapper.OrderLogisticsMapper;
@@ -32,10 +32,10 @@ public class OrderBill4ListConvert {
     /**
      * vo
      */
-    public OrderBill4ListVO getOrderBill4ListVO(OrderBill info) {
+    public OrderBill4ListVO getOrderBill4ListVO(OrderBillDo info) {
         OrderBill4ListVO vo = orderBillConvert.getOrderBill4ListVO(info);
         // 收货地址
-        OrderLogistics logistics = logisticsMapper.getByOrderId(info.getId());
+        OrderLogisticsDo logistics = logisticsMapper.getByOrderId(info.getId());
         if (logistics != null) {
             vo.setExpress_no(logistics.getExpressNo());
             vo.setIsreceived(DeliveryStatus.isReceived(logistics.getStatus()));
@@ -44,13 +44,13 @@ public class OrderBill4ListConvert {
             vo.setAddr(orderBillAddrVO);
         }
         // 商品明细
-        List<OrderDetail> orderDetails = orderDetailMapper.selectByMap(CustomUtils.ofMap(OrderDetail.t.order_id, info.getId()));
+        List<OrderDetailDo> orderDetails = orderDetailMapper.selectByMap(CustomUtils.ofMap(OrderDetailDo.t.order_id, info.getId()));
         List<OrderDetailVO> orderDetailVOS = orderDetailConvert.getOrderDetailVOS(orderDetails);
         vo.setProlist(orderDetailVOS);
         return vo;
     }
 
-    public List<OrderBill4ListVO> getOrderBill4ListVOS(List<OrderBill> infos) {
+    public List<OrderBill4ListVO> getOrderBill4ListVOS(List<OrderBillDo> infos) {
         List<OrderBill4ListVO> collect = infos.stream().map(this::getOrderBill4ListVO).collect(Collectors.toList());
         return collect;
     }

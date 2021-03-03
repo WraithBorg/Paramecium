@@ -11,7 +11,7 @@ import java.util.Date;
  * 订单表
  */
 @TableName("order_bill")
-public class OrderBill {
+public class OrderBillDo {
     @TableId
     private String id;
     @TableField(value = t.order_no)

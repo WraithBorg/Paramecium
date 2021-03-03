@@ -1,6 +1,6 @@
 package com.zxu.convert;
 
-import com.zxu.domain.OrderDetail;
+import com.zxu.domain.OrderDetailDo;
 import com.zxu.constant.PageConst;
 import com.zxu.util.DDateUtil;
 import com.zxu.util.DDecimalUtil;
@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @Component
 public class OrderDetailConvert {
 
-    OrderDetailVO getOrderDetailVO(OrderDetail info) {
+    OrderDetailVO getOrderDetailVO(OrderDetailDo info) {
 
         OrderDetailVO vo = new OrderDetailVO();
         vo.setAmount(info.getAmount());
@@ -36,7 +36,7 @@ public class OrderDetailConvert {
         return vo;
     }
 
-    List<OrderDetailVO> getOrderDetailVOS(List<OrderDetail> infos) {
+    List<OrderDetailVO> getOrderDetailVOS(List<OrderDetailDo> infos) {
         List<OrderDetailVO> collect = infos.stream().map(this::getOrderDetailVO).collect(Collectors.toList());
         return collect;
     }

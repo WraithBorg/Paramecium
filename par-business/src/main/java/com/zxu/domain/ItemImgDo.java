@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 @TableName("item_img")
-public class ItemInfoImg {
+public class ItemImgDo {
     @TableId
     private String id;
     @TableField(value = t.item_id)

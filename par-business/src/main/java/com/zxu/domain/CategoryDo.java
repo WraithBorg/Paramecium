@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 @TableName(value = "category_info")
-public class CategoryInfo {
+public class CategoryDo {
     @TableId
     private String id;
     @TableField(value = t.name)

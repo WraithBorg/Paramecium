@@ -1,7 +1,7 @@
 package com.zxu.service.usb;
 
-import com.zxu.domain.KeFuLogInfo;
-import com.zxu.domain.UserInfo;
+import com.zxu.domain.KeFuLogDo;
+import com.zxu.domain.UserDo;
 
 import java.util.List;
 
@@ -9,6 +9,6 @@ public interface KeFuLogService {
     /**
      * 获取用户客服记录列表
      */
-    List<KeFuLogInfo> getMyLog(UserInfo currentUser);
+    List<KeFuLogDo> getMyLog(UserDo currentUser);
 
 }

@@ -1,8 +1,8 @@
 package com.zxu.controller;
 
 import com.zxu.util.SessionUtil;
-import com.zxu.domain.ShopCartItemInfo;
-import com.zxu.domain.UserInfo;
+import com.zxu.domain.ShopCartItemDo;
+import com.zxu.domain.UserDo;
 import com.zxu.constant.PageConst;
 import com.zxu.convert.ShoppingCartItemConvert;
 import com.zxu.result.MsgResult;
@@ -48,7 +48,7 @@ public class ShopCartController {
                     "total_num", 0);
             return MsgResult.doneUrl(dataMap, PageConst.CART_SHOW);
         }*/
-        UserInfo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
+        UserDo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
         if (defaultUser == null){
             return MsgResult.fail("请登录");
         }
@@ -64,7 +64,7 @@ public class ShopCartController {
                               @RequestParam String amount,
                               @RequestParam String ksid
     ) {
-        UserInfo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
+        UserDo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
         shopCartItemService.addItem(defaultUser.getId(), productid, amount);
         Map data = getCommonShopCartInfoList();
         return MsgResult.doneUrl(data, PageConst.CART_SHOW);
@@ -74,11 +74,11 @@ public class ShopCartController {
      * 查询购物车列表 通用方法
      */
     private Map getCommonShopCartInfoList() {
-        UserInfo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
-        List<ShopCartItemInfo> cartItemInfos = shopCartItemService.getShopCartInfo(defaultUser.getId());
+        UserDo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
+        List<ShopCartItemDo> cartItemInfos = shopCartItemService.getShopCartInfo(defaultUser.getId());
         List<ShopCartItemVO> cartList = cartItemConvert.getShoppingCartItemVOS(cartItemInfos);
         BigDecimal sumMoney = cartItemInfos.stream().map(m -> m.getAmount().multiply(m.getPrice())).reduce(BigDecimal.ZERO, BigDecimal::add);
-        BigDecimal sumNum = cartItemInfos.stream().map(ShopCartItemInfo::getAmount).reduce(BigDecimal.ZERO, BigDecimal::add);
+        BigDecimal sumNum = cartItemInfos.stream().map(ShopCartItemDo::getAmount).reduce(BigDecimal.ZERO, BigDecimal::add);
         return CustomUtils.ofMap("cartList", cartList, "total_money", DDecimalUtil.format(sumMoney), "total_num", DDecimalUtil.format(sumNum));
     }
 }

@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
  * 用户收藏表
  */
 @TableName("user_fav_item")
-public class UserFavItemInfo {
+public class UserFavItemDo {
     @TableId
     private String id;
     @TableField(value = t.user_id)

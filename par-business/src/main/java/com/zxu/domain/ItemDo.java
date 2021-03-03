@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import java.math.BigDecimal;
 
 @TableName(value = "item_info")
-public class ItemInfo {
+public class ItemDo {
     @TableId
     private String id;
     @TableField(value = t.name)
