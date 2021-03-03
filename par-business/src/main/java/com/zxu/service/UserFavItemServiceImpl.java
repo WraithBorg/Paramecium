@@ -1,6 +1,6 @@
 package com.zxu.service;
 
-import com.zxu.common.domain.UserFavItemInfo;
+import com.zxu.domain.UserFavItemInfo;
 import com.zxu.mapper.UserFavItemMapper;
 import com.zxu.service.usb.UserFavItemService;
 import com.zxu.util.CustomUtils;

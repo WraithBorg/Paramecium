@@ -2,10 +2,10 @@ package com.zxu.controller;
 
 import com.zxu.util.SessionUtil;
 import com.zxu.annotate.WithoutLogin;
-import com.zxu.common.domain.CategoryInfo;
-import com.zxu.common.domain.ItemInfo;
-import com.zxu.common.domain.ItemInfoImg;
-import com.zxu.common.domain.UserInfo;
+import com.zxu.domain.CategoryInfo;
+import com.zxu.domain.ItemInfo;
+import com.zxu.domain.ItemInfoImg;
+import com.zxu.domain.UserInfo;
 import com.zxu.constant.PageConst;
 import com.zxu.convert.CategoryInfoConvert;
 import com.zxu.convert.ItemInfoConvert;

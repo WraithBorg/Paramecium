@@ -1,6 +1,6 @@
 package com.zxu.convert;
 
-import com.zxu.common.domain.OrderLogistics;
+import com.zxu.domain.OrderLogistics;
 import com.zxu.vo.OrderBillAddrVO;
 import org.springframework.stereotype.Component;
 

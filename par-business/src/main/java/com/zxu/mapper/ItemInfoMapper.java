@@ -1,7 +1,7 @@
 package com.zxu.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.zxu.common.domain.ItemInfo;
+import com.zxu.domain.ItemInfo;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;

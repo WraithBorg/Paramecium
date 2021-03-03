@@ -1,7 +1,7 @@
 package com.zxu.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.zxu.common.domain.ShopCartItemInfo;
+import com.zxu.domain.ShopCartItemInfo;
 import org.apache.ibatis.annotations.Select;
 
 public interface ShopCartItemMapper extends BaseMapper<ShopCartItemInfo> {

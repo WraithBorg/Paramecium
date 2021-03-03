@@ -2,7 +2,7 @@ package com.zxu.interceptor;
 
 import com.alibaba.fastjson.JSON;
 import com.zxu.annotate.WithoutLogin;
-import com.zxu.common.domain.UserInfo;
+import com.zxu.domain.UserInfo;
 import com.zxu.constant.ErrCodeConst;
 import com.zxu.constant.SessionConst;
 import com.zxu.mapper.UserInfoMapper;

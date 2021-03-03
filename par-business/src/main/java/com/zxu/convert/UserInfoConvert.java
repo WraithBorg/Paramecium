@@ -1,7 +1,7 @@
 package com.zxu.convert;
 
 import com.zxu.FfileServer;
-import com.zxu.common.domain.UserInfo;
+import com.zxu.domain.UserInfo;
 import com.zxu.constant.PageConst;
 import com.zxu.util.CustomUtils;
 import com.zxu.vo.UserInfoVO;

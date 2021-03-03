@@ -1,8 +1,8 @@
 package com.zxu.convert;
 
-import com.zxu.common.domain.ItemInfo;
-import com.zxu.common.domain.ShopCartItemInfo;
-import com.zxu.common.domain.UserInfo;
+import com.zxu.domain.ItemInfo;
+import com.zxu.domain.ShopCartItemInfo;
+import com.zxu.domain.UserInfo;
 import com.zxu.constant.PageConst;
 import com.zxu.mapper.ShopCartItemMapper;
 import com.zxu.service.usb.UserInfoService;

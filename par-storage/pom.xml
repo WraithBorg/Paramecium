@@ -22,5 +22,10 @@
             <artifactId>par-common-api</artifactId>
             <version>0.0.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.zxu</groupId>
+            <artifactId>par-common-mysql</artifactId>
+            <version>0.0.1</version>
+        </dependency>
     </dependencies>
 </project>

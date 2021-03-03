@@ -1,7 +1,7 @@
 package com.zxu.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.zxu.common.domain.OrderLogistics;
+import com.zxu.domain.OrderLogistics;
 import org.apache.ibatis.annotations.Select;
 
 public interface OrderLogisticsMapper extends BaseMapper<OrderLogistics> {

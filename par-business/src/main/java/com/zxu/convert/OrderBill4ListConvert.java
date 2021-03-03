@@ -1,8 +1,8 @@
 package com.zxu.convert;
 
-import com.zxu.common.domain.OrderBill;
-import com.zxu.common.domain.OrderDetail;
-import com.zxu.common.domain.OrderLogistics;
+import com.zxu.domain.OrderBill;
+import com.zxu.domain.OrderDetail;
+import com.zxu.domain.OrderLogistics;
 import com.zxu.eum.DeliveryStatus;
 import com.zxu.mapper.OrderDetailMapper;
 import com.zxu.mapper.OrderLogisticsMapper;

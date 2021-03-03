@@ -1,7 +1,7 @@
 package com.zxu.service;
 
-import com.zxu.common.domain.ReceiptInfo;
-import com.zxu.common.domain.UserInfo;
+import com.zxu.domain.ReceiptInfo;
+import com.zxu.domain.UserInfo;
 import com.zxu.mapper.ReceiptInfoMapper;
 import com.zxu.service.usb.ReceiptInfoService;
 import com.zxu.service.usb.UserInfoService;

@@ -1,7 +1,7 @@
 package com.zxu.service;
 
-import com.zxu.common.domain.ItemInfo;
-import com.zxu.common.domain.ItemInfoImg;
+import com.zxu.domain.ItemInfo;
+import com.zxu.domain.ItemInfoImg;
 import com.zxu.mapper.ItemInfoImgMapper;
 import com.zxu.mapper.ItemInfoMapper;
 import com.zxu.service.usb.ItemInfoService;

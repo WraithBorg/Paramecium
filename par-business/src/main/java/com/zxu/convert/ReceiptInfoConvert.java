@@ -1,6 +1,6 @@
 package com.zxu.convert;
 
-import com.zxu.common.domain.ReceiptInfo;
+import com.zxu.domain.ReceiptInfo;
 import com.zxu.dto.ReceiptInfoDTO;
 import com.zxu.vo.ReceiptInfoVO;
 import org.springframework.stereotype.Component;

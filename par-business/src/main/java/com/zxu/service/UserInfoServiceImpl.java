@@ -1,6 +1,6 @@
 package com.zxu.service;
 
-import com.zxu.common.domain.UserInfo;
+import com.zxu.domain.UserInfo;
 import com.zxu.mapper.UserInfoMapper;
 import com.zxu.service.usb.UserInfoService;
 import com.zxu.util.CustomUtils;

@@ -1,6 +1,6 @@
 package com.zxu.service.usb;
 
-import com.zxu.common.domain.ShopCartItemInfo;
+import com.zxu.domain.ShopCartItemInfo;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
 package com.zxu.service;
 
  
-import com.zxu.common.domain.KeFuLogInfo;
-import com.zxu.common.domain.UserInfo;
+import com.zxu.domain.KeFuLogInfo;
+import com.zxu.domain.UserInfo;
 import com.zxu.mapper.KeFuLogMapper;
 import com.zxu.mapper.UserInfoMapper;
 import com.zxu.service.usb.KeFuLogService;

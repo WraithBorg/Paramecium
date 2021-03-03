@@ -1,10 +1,10 @@
 package com.zxu.controller;
 
 import com.zxu.util.SessionUtil;
-import com.zxu.common.domain.OrderBill;
-import com.zxu.common.domain.ReceiptInfo;
-import com.zxu.common.domain.ShopCartItemInfo;
-import com.zxu.common.domain.UserInfo;
+import com.zxu.domain.OrderBill;
+import com.zxu.domain.ReceiptInfo;
+import com.zxu.domain.ShopCartItemInfo;
+import com.zxu.domain.UserInfo;
 import com.zxu.constant.CConstant;
 import com.zxu.constant.PageConst;
 import com.zxu.convert.OrderBill4ListConvert;

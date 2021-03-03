@@ -1,6 +1,6 @@
 package com.zxu.convert;
 
-import com.zxu.common.domain.ShopCartItemInfo;
+import com.zxu.domain.ShopCartItemInfo;
 import com.zxu.constant.PageConst;
 import com.zxu.util.DDateUtil;
 import com.zxu.util.DDecimalUtil;

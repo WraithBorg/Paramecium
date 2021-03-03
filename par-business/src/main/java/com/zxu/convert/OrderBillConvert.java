@@ -1,6 +1,6 @@
 package com.zxu.convert;
 
-import com.zxu.common.domain.OrderBill;
+import com.zxu.domain.OrderBill;
 import com.zxu.eum.OrderState;
 import com.zxu.eum.PayType;
 import com.zxu.util.DDateUtil;

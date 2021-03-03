@@ -1,6 +1,6 @@
 package com.zxu;
 
-import com.zxu.common.domain.UserInfo;
+import com.zxu.domain.UserInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

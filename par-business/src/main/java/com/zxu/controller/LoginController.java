@@ -1,10 +1,9 @@
 package com.zxu.controller;
 
-import com.zxu.constant.CConstant;
 import com.zxu.security.JwtDTO;
 import com.zxu.util.SessionUtil;
 import com.zxu.annotate.WithoutLogin;
-import com.zxu.common.domain.UserInfo;
+import com.zxu.domain.UserInfo;
 import com.zxu.constant.PageConst;
 import com.zxu.convert.UserInfoConvert;
 import com.zxu.dto.LoginDTO;

@@ -2,7 +2,7 @@ package com.zxu.controller;
 
 import com.zxu.util.SessionUtil;
 import com.zxu.chip.MultipartContext;
-import com.zxu.common.domain.UserInfo;
+import com.zxu.domain.UserInfo;
 import com.zxu.constant.PageConst;
 import com.zxu.convert.UserInfoConvert;
 import com.zxu.mapper.UserInfoMapper;

@@ -1,8 +1,8 @@
 package com.zxu.controller;
 
 import com.zxu.util.SessionUtil;
-import com.zxu.common.domain.ShopCartItemInfo;
-import com.zxu.common.domain.UserInfo;
+import com.zxu.domain.ShopCartItemInfo;
+import com.zxu.domain.UserInfo;
 import com.zxu.constant.PageConst;
 import com.zxu.convert.ShoppingCartItemConvert;
 import com.zxu.result.MsgResult;

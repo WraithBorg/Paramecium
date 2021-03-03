@@ -1,6 +1,6 @@
 package com.zxu.service.usb;
 
-import com.zxu.common.domain.ItemInfo;
+import com.zxu.domain.ItemInfo;
 
 import java.util.List;
 

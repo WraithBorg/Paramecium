@@ -1,6 +1,6 @@
 package com.zxu.convert;
 
-import com.zxu.common.domain.KeFuLogInfo;
+import com.zxu.domain.KeFuLogInfo;
 import com.zxu.util.DDateUtil;
 import com.zxu.vo.KeFuLogVO;
 import org.springframework.stereotype.Component;

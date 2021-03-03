@@ -1,12 +1,12 @@
 package com.zxu.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.zxu.common.domain.OrderBill;
-import com.zxu.common.domain.OrderDetail;
-import com.zxu.common.domain.OrderLogistics;
-import com.zxu.common.domain.ReceiptInfo;
-import com.zxu.common.domain.ShopCartItemInfo;
-import com.zxu.common.domain.UserInfo;
+import com.zxu.domain.OrderBill;
+import com.zxu.domain.OrderDetail;
+import com.zxu.domain.OrderLogistics;
+import com.zxu.domain.ReceiptInfo;
+import com.zxu.domain.ShopCartItemInfo;
+import com.zxu.domain.UserInfo;
 import com.zxu.dto.CreateOrderDTO;
 import com.zxu.eum.DeliveryStatus;
 import com.zxu.eum.OrderState;

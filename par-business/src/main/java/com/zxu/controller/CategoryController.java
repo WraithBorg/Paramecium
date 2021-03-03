@@ -2,7 +2,7 @@ package com.zxu.controller;
 
 
 import com.zxu.annotate.WithoutLogin;
-import com.zxu.common.domain.CategoryInfo;
+import com.zxu.domain.CategoryInfo;
 import com.zxu.constant.PageConst;
 import com.zxu.convert.CategoryInfoConvert;
 import com.zxu.mapper.CategoryInfoMapper;

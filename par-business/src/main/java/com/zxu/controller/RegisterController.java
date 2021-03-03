@@ -1,7 +1,7 @@
 package com.zxu.controller;
 
 import com.zxu.annotate.WithoutLogin;
-import com.zxu.common.domain.UserInfo;
+import com.zxu.domain.UserInfo;
 import com.zxu.dto.RegisterDTO;
 import com.zxu.mapper.UserInfoMapper;
 import com.zxu.util.CustomUtils;

@@ -1,8 +1,8 @@
 package com.zxu.controller;
 
 import com.zxu.util.SessionUtil;
-import com.zxu.common.domain.ReceiptInfo;
-import com.zxu.common.domain.UserInfo;
+import com.zxu.domain.ReceiptInfo;
+import com.zxu.domain.UserInfo;
 import com.zxu.constant.PageConst;
 import com.zxu.convert.ReceiptInfoConvert;
 import com.zxu.dto.ReceiptInfoDTO;

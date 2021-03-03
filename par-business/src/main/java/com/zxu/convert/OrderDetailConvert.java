@@ -1,6 +1,6 @@
 package com.zxu.convert;
 
-import com.zxu.common.domain.OrderDetail;
+import com.zxu.domain.OrderDetail;
 import com.zxu.constant.PageConst;
 import com.zxu.util.DDateUtil;
 import com.zxu.util.DDecimalUtil;

@@ -1,6 +1,6 @@
 package com.zxu.service.usb;
 
-import com.zxu.common.domain.UserInfo;
+import com.zxu.domain.UserInfo;
 
 public interface UserInfoService {
 

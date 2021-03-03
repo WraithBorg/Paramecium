@@ -1,7 +1,7 @@
 package com.zxu.service.usb;
 
-import com.zxu.common.domain.ReceiptInfo;
-import com.zxu.common.domain.UserInfo;
+import com.zxu.domain.ReceiptInfo;
+import com.zxu.domain.UserInfo;
 
 import java.util.List;
 
