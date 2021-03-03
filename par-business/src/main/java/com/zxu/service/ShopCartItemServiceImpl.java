@@ -7,7 +7,7 @@ import com.zxu.mapper.ItemInfoImgMapper;
 import com.zxu.mapper.ItemInfoMapper;
 import com.zxu.mapper.ShopCartItemMapper;
 import com.zxu.service.usb.ShopCartItemService;
-import com.zxu.util.CCommonUtils;
+import com.zxu.util.CustomUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -29,7 +29,7 @@ public class ShopCartItemServiceImpl implements ShopCartItemService {
      */
     @Override
     public List<ShopCartItemInfo> getShopCartInfo(String userId) {
-        List<ShopCartItemInfo> itemInfoList = shopCartItemMapper.selectByMap(CCommonUtils.ofMap(ShopCartItemInfo.t.user_id, userId));
+        List<ShopCartItemInfo> itemInfoList = shopCartItemMapper.selectByMap(CustomUtils.ofMap(ShopCartItemInfo.t.user_id, userId));
         return itemInfoList;
     }
 
@@ -38,7 +38,7 @@ public class ShopCartItemServiceImpl implements ShopCartItemService {
      */
     @Override
     public void addItem(String userId, String itemId, String amount) {
-        List<ShopCartItemInfo> cartItemInfos = shopCartItemMapper.selectByMap(CCommonUtils.ofMap(ShopCartItemInfo.t.user_id, userId, ShopCartItemInfo.t.item_id, itemId));
+        List<ShopCartItemInfo> cartItemInfos = shopCartItemMapper.selectByMap(CustomUtils.ofMap(ShopCartItemInfo.t.user_id, userId, ShopCartItemInfo.t.item_id, itemId));
         BigDecimal itemAmount = new BigDecimal(amount);
         ShopCartItemInfo cartItemInfo = null;
         if (cartItemInfos.size() > 0) {
@@ -61,7 +61,7 @@ public class ShopCartItemServiceImpl implements ShopCartItemService {
             return;
         }
         ItemInfo itemInfo = itemInfoMapper.selectById(itemId);
-        List<ItemInfoImg> itemInfoImgs = itemInfoImgMapper.selectByMap(CCommonUtils.ofMap(ItemInfoImg.t.item_id, itemId));
+        List<ItemInfoImg> itemInfoImgs = itemInfoImgMapper.selectByMap(CustomUtils.ofMap(ItemInfoImg.t.item_id, itemId));
         String itemImgUrl = null;
         if (itemInfoImgs.size() > 0) {
             itemImgUrl = itemInfoImgs.get(0).getUrl();

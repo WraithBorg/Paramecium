@@ -7,9 +7,10 @@ import com.zxu.constant.ErrCodeConst;
 import com.zxu.constant.SessionConst;
 import com.zxu.mapper.UserInfoMapper;
 import com.zxu.result.MsgResult;
+import com.zxu.security.JwtDTO;
 import com.zxu.security.JwtUtil;
 import com.zxu.service.usb.UserInfoService;
-import com.zxu.util.CCommonUtils;
+import com.zxu.util.CustomUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -33,18 +34,18 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String authCode = request.getParameter(LI_AUTH_CODE);
-        if (CCommonUtils.isBlank(authCode)) {
+        if (CustomUtils.isBlank(authCode)) {
             return true;
         }
         try {
-            UserInfo userInfo = JwtUtil.parseUser(authCode);
             userInfoMapper.selectList(null);
-            UserInfo userDB = userInfoService.getUserByTelephone(userInfo.getTelePhone());
+            UserInfo userDB = userInfoService.getUserByTelephone(JwtUtil.parseUser(authCode).getTelePhone());
             if (userDB == null) {
                 logger.error("用户账户不存在" + ErrCodeConst.A0201);
                 return false;
             }
-            JwtUtil.isVerify(authCode, userDB);
+            JwtDTO jwtDTO = JwtDTO.builder(userDB.getId(), userDB.getNickName(), userDB.getPassword(), userDB.getTelePhone());
+            JwtUtil.isVerify(authCode, jwtDTO);
             request.getSession().setAttribute(SessionConst.CURRENT_USER, userDB);
             return true;
         } catch (io.jsonwebtoken.security.SignatureException e) {

@@ -1,6 +1,6 @@
 package com.zxu.controller;
 
-import com.zxu.SessionUtil;
+import com.zxu.util.SessionUtil;
 import com.zxu.common.domain.ShopCartItemInfo;
 import com.zxu.common.domain.UserInfo;
 import com.zxu.constant.PageConst;
@@ -8,7 +8,7 @@ import com.zxu.convert.ShoppingCartItemConvert;
 import com.zxu.result.MsgResult;
 import com.zxu.service.usb.ShopCartItemService;
 import com.zxu.service.usb.UserInfoService;
-import com.zxu.util.CCommonUtils;
+import com.zxu.util.CustomUtils;
 import com.zxu.util.DDecimalUtil;
 import com.zxu.vo.ShopCartItemVO;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -79,6 +79,6 @@ public class ShopCartController {
         List<ShopCartItemVO> cartList = cartItemConvert.getShoppingCartItemVOS(cartItemInfos);
         BigDecimal sumMoney = cartItemInfos.stream().map(m -> m.getAmount().multiply(m.getPrice())).reduce(BigDecimal.ZERO, BigDecimal::add);
         BigDecimal sumNum = cartItemInfos.stream().map(ShopCartItemInfo::getAmount).reduce(BigDecimal.ZERO, BigDecimal::add);
-        return CCommonUtils.ofMap("cartList", cartList, "total_money", DDecimalUtil.format(sumMoney), "total_num", DDecimalUtil.format(sumNum));
+        return CustomUtils.ofMap("cartList", cartList, "total_money", DDecimalUtil.format(sumMoney), "total_num", DDecimalUtil.format(sumNum));
     }
 }

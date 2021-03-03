@@ -2,7 +2,7 @@ package com.zxu.controller;
 
 import com.zxu.constant.PageConst;
 import com.zxu.result.MsgResult;
-import com.zxu.util.CCommonUtils;
+import com.zxu.util.CustomUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,7 +23,7 @@ public class NoticeInfoController {
      */
     @GetMapping("/notice/mynotice")
     public MsgResult mynotice() {
-        Map data = CCommonUtils.ofMap("data", new ArrayList<>(), "pagelist", false, "rscount", 0);
+        Map data = CustomUtils.ofMap("data", new ArrayList<>(), "pagelist", false, "rscount", 0);
         return MsgResult.doneUrl(data, PageConst.MY_NOTICE);
     }
 }

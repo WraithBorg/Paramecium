@@ -1,6 +1,6 @@
 package com.zxu.controller;
 
-import com.zxu.SessionUtil;
+import com.zxu.util.SessionUtil;
 import com.zxu.common.domain.OrderBill;
 import com.zxu.common.domain.ReceiptInfo;
 import com.zxu.common.domain.ShopCartItemInfo;
@@ -18,7 +18,7 @@ import com.zxu.service.usb.OrderBillService;
 import com.zxu.service.usb.ReceiptInfoService;
 import com.zxu.service.usb.ShopCartItemService;
 import com.zxu.service.usb.UserInfoService;
-import com.zxu.util.CCommonUtils;
+import com.zxu.util.CustomUtils;
 import com.zxu.vo.ConfirmDetailVO;
 import com.zxu.vo.OrderBill4ListVO;
 import com.zxu.vo.ReceiptInfoVO;
@@ -80,7 +80,7 @@ public class OrderBillController {
         BigDecimal goodsMoney = totalMoney;
         // 设置默认值
         String defaultAddressId = user_address_id;// 默认收货地址
-        if (CCommonUtils.isBlank(defaultAddressId) && receiptVOS.size() > 0) {
+        if (CustomUtils.isBlank(defaultAddressId) && receiptVOS.size() > 0) {
             defaultAddressId = receiptVOS.get(0).getId();
         }
         String defaultPayType = null; // 默认支付方式
@@ -111,7 +111,7 @@ public class OrderBillController {
         UserInfo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
         List<OrderBill> myOrder = orderBillService.getMyOrder(defaultUser.getId(), type);
         List<OrderBill4ListVO> orderBillVOS = orderBill4ListConvert.getOrderBill4ListVOS(myOrder);
-        Map<String, Object> data = CCommonUtils.ofMap("type", type, "per_page", 0, "list", orderBillVOS);
+        Map<String, Object> data = CustomUtils.ofMap("type", type, "per_page", 0, "list", orderBillVOS);
         return MsgResult.doneUrl(data, PageConst.ORDER_LIST);
     }
 

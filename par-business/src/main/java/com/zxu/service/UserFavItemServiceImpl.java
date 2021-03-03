@@ -3,7 +3,7 @@ package com.zxu.service;
 import com.zxu.common.domain.UserFavItemInfo;
 import com.zxu.mapper.UserFavItemMapper;
 import com.zxu.service.usb.UserFavItemService;
-import com.zxu.util.CCommonUtils;
+import com.zxu.util.CustomUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -17,7 +17,7 @@ public class UserFavItemServiceImpl implements UserFavItemService {
 
     @Override
     public Integer hasFav(String userId, String itemId) {
-        List<UserFavItemInfo> userFavItemInfos = userFavItemMapper.selectByMap(CCommonUtils.ofMap(UserFavItemInfo.t.user_id, userId, UserFavItemInfo.t.item_id, itemId));
+        List<UserFavItemInfo> userFavItemInfos = userFavItemMapper.selectByMap(CustomUtils.ofMap(UserFavItemInfo.t.user_id, userId, UserFavItemInfo.t.item_id, itemId));
         if (userFavItemInfos.size() > 0) {
             return 1;
         }
@@ -26,7 +26,7 @@ public class UserFavItemServiceImpl implements UserFavItemService {
 
     @Override
     public String favItem(String userId, String itemId) {
-        List<UserFavItemInfo> userFavItemInfos = userFavItemMapper.selectByMap(CCommonUtils.ofMap(UserFavItemInfo.t.user_id, userId, UserFavItemInfo.t.item_id, itemId));
+        List<UserFavItemInfo> userFavItemInfos = userFavItemMapper.selectByMap(CustomUtils.ofMap(UserFavItemInfo.t.user_id, userId, UserFavItemInfo.t.item_id, itemId));
         if (userFavItemInfos.size() == 0) {
             UserFavItemInfo info = new UserFavItemInfo();
             info.setUserId(userId);

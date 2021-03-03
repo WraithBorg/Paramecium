@@ -6,7 +6,7 @@ import com.zxu.common.domain.UserInfo;
 import com.zxu.constant.PageConst;
 import com.zxu.mapper.ShopCartItemMapper;
 import com.zxu.service.usb.UserInfoService;
-import com.zxu.util.CCommonUtils;
+import com.zxu.util.CustomUtils;
 import com.zxu.util.DDateUtil;
 import com.zxu.util.DDecimalUtil;
 import com.zxu.vo.ItemInfo4IndexVO;
@@ -55,7 +55,7 @@ public class ItemInfoConvert {
         itemInfoVO.setDescription(itemInfo.getName());
         itemInfoVO.setId(itemInfo.getId());
         itemInfoVO.setImgsdata(itemInfo.getDefaultImg());
-        if (CCommonUtils.isNotBlank(itemInfo.getDefaultImg())) {
+        if (CustomUtils.isNotBlank(itemInfo.getDefaultImg())) {
             itemInfoVO.setImgurl(PageConst.IMG_PATH + "hot_book.png");
         }else {
             itemInfoVO.setImgurl(PageConst.IMG_PATH + "hot_book.png");
@@ -103,7 +103,7 @@ public class ItemInfoConvert {
         ItemInfo4IndexVO itemInfoVO = new ItemInfo4IndexVO();
         itemInfoVO.setBuy_num(itemInfo.getBuyNum());
         itemInfoVO.setId(itemInfo.getId());
-        if (CCommonUtils.isNotBlank(itemInfo.getDefaultImg())) {
+        if (CustomUtils.isNotBlank(itemInfo.getDefaultImg())) {
             itemInfoVO.setImgurl( PageConst.IMG_PATH + "index_flash_01.png");
         }else{
             itemInfoVO.setImgurl( PageConst.IMG_PATH + "index_flash_01.png");

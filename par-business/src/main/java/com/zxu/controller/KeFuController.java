@@ -1,6 +1,6 @@
 package com.zxu.controller;
 
-import com.zxu.SessionUtil;
+import com.zxu.util.SessionUtil;
 import com.zxu.common.domain.KeFuLogInfo;
 import com.zxu.common.domain.UserInfo;
 import com.zxu.constant.PageConst;
@@ -10,7 +10,7 @@ import com.zxu.mapper.KeFuLogMapper;
 import com.zxu.mapper.UserInfoMapper;
 import com.zxu.result.MsgResult;
 import com.zxu.service.usb.KeFuLogService;
-import com.zxu.util.CCommonUtils;
+import com.zxu.util.CustomUtils;
 import com.zxu.vo.KeFuLogVO;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,7 +48,7 @@ public class KeFuController {
         UserInfo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
         List<KeFuLogInfo> list = keFuLogService.getMyLog(currentUser);
         List<KeFuLogVO> vos = keFuLogConvert.getKeFuLogVOS(list);
-        Map data = CCommonUtils.ofMap("list", vos);
+        Map data = CustomUtils.ofMap("list", vos);
         return MsgResult.doneUrl(data, PageConst.KEFU_INDEX);
     }
 

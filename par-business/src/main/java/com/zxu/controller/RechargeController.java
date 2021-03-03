@@ -2,7 +2,7 @@ package com.zxu.controller;
 
 import com.zxu.constant.PageConst;
 import com.zxu.result.MsgResult;
-import com.zxu.util.CCommonUtils;
+import com.zxu.util.CustomUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,7 +23,7 @@ public class RechargeController {
      */
     @GetMapping("/recharge/myrecharge")
     public MsgResult myRecharge() {
-        Map data = CCommonUtils.ofMap("data", new ArrayList<>(), "pagelist", false, "rscount", 0, "per_page", 0);
+        Map data = CustomUtils.ofMap("data", new ArrayList<>(), "pagelist", false, "rscount", 0, "per_page", 0);
         return MsgResult.doneUrl(data, PageConst.RECHARGE_LOG);
     }
 //    dateline: 1594169134

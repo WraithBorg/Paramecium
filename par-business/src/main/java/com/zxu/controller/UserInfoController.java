@@ -1,6 +1,6 @@
 package com.zxu.controller;
 
-import com.zxu.SessionUtil;
+import com.zxu.util.SessionUtil;
 import com.zxu.common.domain.UserInfo;
 import com.zxu.constant.PageConst;
 import com.zxu.convert.UserInfoConvert;
@@ -10,7 +10,7 @@ import com.zxu.dto.UserInfoDTO;
 import com.zxu.mapper.UserInfoMapper;
 import com.zxu.result.MsgResult;
 import com.zxu.service.usb.UserInfoService;
-import com.zxu.util.CCommonUtils;
+import com.zxu.util.CustomUtils;
 import com.zxu.vo.UserInfoVO;
 import com.zxu.vo.UserPassVO;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,7 +45,7 @@ public class UserInfoController {
     public MsgResult set() {
         UserInfo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
         UserInfoVO userInfoVO = userInfoConvert.getUserVO(defaultUser);
-        Map data = CCommonUtils.ofMap("data", userInfoVO);
+        Map data = CustomUtils.ofMap("data", userInfoVO);
         return MsgResult.doneUrl(data, PageConst.USER_SET_SHOW);
     }
 
@@ -58,7 +58,7 @@ public class UserInfoController {
     public MsgResult info() {
         UserInfo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
         UserInfoVO userInfoVO = userInfoConvert.getUserVO(defaultUser);
-        Map data = CCommonUtils.ofMap("data", userInfoVO);
+        Map data = CustomUtils.ofMap("data", userInfoVO);
         return MsgResult.doneUrl(data, PageConst.USER_INFO_SHOW);
     }
 
@@ -82,7 +82,7 @@ public class UserInfoController {
     public MsgResult user_head() {
         UserInfo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
         UserPassVO userPassVO = userInfoConvert.getUserPassVO(defaultUser);
-        Map data = CCommonUtils.ofMap("data", userPassVO);
+        Map data = CustomUtils.ofMap("data", userPassVO);
         return MsgResult.doneUrl(data, PageConst.USER_PWD_SHOW);
     }
 
@@ -96,7 +96,7 @@ public class UserInfoController {
     public MsgResult password() {
         UserInfo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
         UserPassVO userPassVO = userInfoConvert.getUserPassVO(defaultUser);
-        Map data = CCommonUtils.ofMap("data", userPassVO);
+        Map data = CustomUtils.ofMap("data", userPassVO);
         return MsgResult.doneUrl(data, PageConst.USER_PWD_SHOW);
     }
 
@@ -117,7 +117,7 @@ public class UserInfoController {
         defaultUser.setPassword(modifyPassDTO.getPassword());
         userInfoMapper.updateById(defaultUser);
         UserPassVO userPassVO = userInfoConvert.getUserPassVO(defaultUser);
-        Map data = CCommonUtils.ofMap("data", userPassVO);
+        Map data = CustomUtils.ofMap("data", userPassVO);
         return MsgResult.doneUrl(data, PageConst.USER_PWD_SHOW);
     }
 
@@ -130,7 +130,7 @@ public class UserInfoController {
     public MsgResult paypwd() {
         UserInfo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
         UserPassVO userPassVO = userInfoConvert.getUserPassVO(defaultUser);
-        Map data = CCommonUtils.ofMap("data", userPassVO);
+        Map data = CustomUtils.ofMap("data", userPassVO);
         return MsgResult.doneUrl(data, PageConst.USER_PAY_PWD_SHOW);
     }
 

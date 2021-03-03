@@ -11,8 +11,8 @@ import com.zxu.mapper.CategoryInfoMapper;
 import com.zxu.mapper.ItemInfoMapper;
 import com.zxu.result.MsgResult;
 import com.zxu.service.usb.ItemInfoService;
-import com.zxu.util.CCommonUtils;
-import com.zxu.SessionUtil;
+import com.zxu.util.CustomUtils;
+import com.zxu.util.SessionUtil;
 import com.zxu.vo.Category4IndexVO;
 import com.zxu.vo.Flash4IndexVO;
 import com.zxu.vo.ItemInfo4IndexVO;
@@ -69,7 +69,7 @@ public class IndexController {
         // 网站信息
         Site4IndexVO site = new Site4IndexVO();
         //
-        Map<Object, Object> data = CCommonUtils.ofMapN(
+        Map<Object, Object> data = CustomUtils.ofMapN(
                 "adList", adList
                 , "bmList", bmList//首页：必买好货
                 , "flashList", flashList//首页：轮播图

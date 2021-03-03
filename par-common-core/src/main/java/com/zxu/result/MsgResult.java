@@ -2,7 +2,7 @@ package com.zxu.result;
 
 
 import com.zxu.constant.PageConst;
-import com.zxu.util.CCommonUtils;
+import com.zxu.util.CustomUtils;
 import com.zxu.util.SprBeanUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -73,7 +73,7 @@ public class MsgResult<T> {
     }
     @SuppressWarnings("unchecked")
     public static <T> MsgResult doneUrl(String datatype, T data, String url) {
-        return new MsgResult(CCommonUtils.ofMap(datatype, data),   null, null,MsgResultType.SUCCESS,url);
+        return new MsgResult(CustomUtils.ofMap(datatype, data),   null, null,MsgResultType.SUCCESS,url);
     }
     public static <T> MsgResult<T> done(T data, String message) {
         return new MsgResult<>(data, message, null, MsgResultType.SUCCESS);

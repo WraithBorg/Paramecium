@@ -3,7 +3,7 @@ package com.zxu.convert;
 import com.zxu.FfileServer;
 import com.zxu.common.domain.UserInfo;
 import com.zxu.constant.PageConst;
-import com.zxu.util.CCommonUtils;
+import com.zxu.util.CustomUtils;
 import com.zxu.vo.UserInfoVO;
 import com.zxu.vo.UserPassVO;
 import org.springframework.stereotype.Component;
@@ -18,8 +18,8 @@ public class UserInfoConvert {
 
     public UserInfoVO getUserVO(UserInfo userInfo) {
         UserInfoVO vo = new UserInfoVO();
-        vo.setBirthday(CCommonUtils.formatDate(new Date()));
-        vo.setCreatetime(CCommonUtils.formatDate(new Date()));
+        vo.setBirthday(CustomUtils.formatDate(new Date()));
+        vo.setCreatetime(CustomUtils.formatDate(new Date()));
         vo.setFollow_num(0);
         vo.setFollowed_num(0);
         vo.setGender(0);
@@ -27,7 +27,7 @@ public class UserInfoConvert {
         vo.setGrade(0);
         vo.setInvite_userid(0L);
         vo.setIs_auth(0);
-        vo.setLasttime(CCommonUtils.formatDate(new Date()));
+        vo.setLasttime(CustomUtils.formatDate(new Date()));
         vo.setMoney("0.00");
         vo.setNickname(userInfo.getNickName());
         vo.setStatus(10);

@@ -1,6 +1,8 @@
 package com.zxu.controller;
 
-import com.zxu.SessionUtil;
+import com.zxu.constant.CConstant;
+import com.zxu.security.JwtDTO;
+import com.zxu.util.SessionUtil;
 import com.zxu.annotate.WithoutLogin;
 import com.zxu.common.domain.UserInfo;
 import com.zxu.constant.PageConst;
@@ -11,7 +13,7 @@ import com.zxu.mapper.UserInfoMapper;
 import com.zxu.result.MsgResult;
 import com.zxu.security.JwtUtil;
 import com.zxu.service.usb.UserInfoService;
-import com.zxu.util.CCommonUtils;
+import com.zxu.util.CustomUtils;
 import com.zxu.vo.UserInfoVO;
 import com.zxu.vo.UserMenuVO;
 import org.slf4j.Logger;
@@ -47,7 +49,7 @@ public class LoginController {
     public MsgResult loginsave(LoginDTO loginDTO) {
         // validate
         String telephone = loginDTO.getTelephone();
-        List<UserInfo> v_telephone = userInfoMapper.selectByMap(CCommonUtils.ofMap(UserInfo.t.telephone, telephone));
+        List<UserInfo> v_telephone = userInfoMapper.selectByMap(CustomUtils.ofMap(UserInfo.t.telephone, telephone));
         if (v_telephone.size() == 0) {
             return MsgResult.fail("账号不存在");
         }
@@ -56,8 +58,9 @@ public class LoginController {
             return MsgResult.fail("密码错误");
         }
         //
-        String jwtToken = JwtUtil.createJWT(1000 * 60, userInfo);
-        Map<String, String> data = CCommonUtils.ofMap(
+        JwtDTO dto = JwtDTO.builder(userInfo.getId(), userInfo.getNickName(), userInfo.getPassword(), userInfo.getTelePhone());
+        String jwtToken = JwtUtil.createJWT(1000 * 60, dto);
+        Map<String, String> data = CustomUtils.ofMap(
                 "authcode", jwtToken,
                 "authcodeLong", jwtToken,
                 "backurl", "\\/index.php");
@@ -92,7 +95,7 @@ public class LoginController {
             return MsgResult.fail("未登录");
         }
         UserInfoVO userInfoVO = userInfoConvert.getUserVO(defaultUser);
-        Map data = CCommonUtils.ofMap("data", userInfoVO, "navList", UserMenuVO.getNavList());
+        Map data = CustomUtils.ofMap("data", userInfoVO, "navList", UserMenuVO.getNavList());
         return MsgResult.doneUrl(data,PageConst.USER_INDEX);
     }
 

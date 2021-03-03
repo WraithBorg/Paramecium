@@ -19,7 +19,7 @@ import com.zxu.mapper.ShopCartItemMapper;
 import com.zxu.mapper.UserInfoMapper;
 import com.zxu.service.usb.OrderBillService;
 import com.zxu.util.BillNoUtil;
-import com.zxu.util.CCommonUtils;
+import com.zxu.util.CustomUtils;
 import com.zxu.util.DDecimalUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -137,8 +137,8 @@ public class OrderBillServiceImpl implements OrderBillService {
         OrderBill orderBill = billMapper.selectById(id);
         if (orderBill.getState().equals(OrderState.CANCELLED.id)) {
             billMapper.deleteById(id);
-            logisticsMapper.deleteByMap(CCommonUtils.ofMap(OrderLogistics.t.order_id, id));
-            detailMapper.deleteByMap(CCommonUtils.ofMap(OrderLogistics.t.order_id, id));
+            logisticsMapper.deleteByMap(CustomUtils.ofMap(OrderLogistics.t.order_id, id));
+            detailMapper.deleteByMap(CustomUtils.ofMap(OrderLogistics.t.order_id, id));
         }
     }
 }

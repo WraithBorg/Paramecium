@@ -27,10 +27,10 @@ import java.util.stream.Collectors;
 /**
  * 自定义工具类
  */
-public class CCommonUtils {
-    private static final Logger logger = LoggerFactory.getLogger(CCommonUtils.class);
+public class CustomUtils {
+    private static final Logger logger = LoggerFactory.getLogger(CustomUtils.class);
 
-    private CCommonUtils() {
+    private CustomUtils() {
 
     }
 

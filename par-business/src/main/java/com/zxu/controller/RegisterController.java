@@ -4,7 +4,7 @@ import com.zxu.annotate.WithoutLogin;
 import com.zxu.common.domain.UserInfo;
 import com.zxu.dto.RegisterDTO;
 import com.zxu.mapper.UserInfoMapper;
-import com.zxu.util.CCommonUtils;
+import com.zxu.util.CustomUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -50,23 +50,23 @@ public class RegisterController {
     public Object regsave(RegisterDTO registerDTO) {
         logger.info("用戶註冊註冊註冊。注册");
         // validate
-        if (CCommonUtils.isBlank(registerDTO.getNickname())) {
-            return CCommonUtils.ofMap("error", 1, "message", "请填写昵称");
+        if (CustomUtils.isBlank(registerDTO.getNickname())) {
+            return CustomUtils.ofMap("error", 1, "message", "请填写昵称");
         }
-        if (CCommonUtils.isBlank(registerDTO.getTelephone())) {
-            return CCommonUtils.ofMap("error", 1, "message", "请填写手机号");
+        if (CustomUtils.isBlank(registerDTO.getTelephone())) {
+            return CustomUtils.ofMap("error", 1, "message", "请填写手机号");
         }
-        if (CCommonUtils.isBlank(registerDTO.getPassword())) {
-            return CCommonUtils.ofMap("error", 1, "message", "请填写密码");
+        if (CustomUtils.isBlank(registerDTO.getPassword())) {
+            return CustomUtils.ofMap("error", 1, "message", "请填写密码");
         }
 
-        List<UserInfo> v_telePhone = userInfoMapper.selectByMap(CCommonUtils.ofMap(UserInfo.t.telephone, registerDTO.getTelephone()));
+        List<UserInfo> v_telePhone = userInfoMapper.selectByMap(CustomUtils.ofMap(UserInfo.t.telephone, registerDTO.getTelephone()));
         if (v_telePhone.size() > 0) {
-            return CCommonUtils.ofMap("error", 1, "message", "该手机号已注册");
+            return CustomUtils.ofMap("error", 1, "message", "该手机号已注册");
         }
-        List<UserInfo> v_nickName = userInfoMapper.selectByMap(CCommonUtils.ofMap(UserInfo.t.nickname, registerDTO.getNickname()));
+        List<UserInfo> v_nickName = userInfoMapper.selectByMap(CustomUtils.ofMap(UserInfo.t.nickname, registerDTO.getNickname()));
         if (v_nickName.size() > 0) {
-            return CCommonUtils.ofMap("error", 1, "message", "该昵称已注册");
+            return CustomUtils.ofMap("error", 1, "message", "该昵称已注册");
         }
 
         // install
@@ -77,10 +77,10 @@ public class RegisterController {
         // save
         int insert = userInfoMapper.insert(userInfo);
         if (insert > 0) {
-            Map data = CCommonUtils.ofMap("authcode", "zxcvb21345");
-            return CCommonUtils.ofMap("error", 0, "data", data);
+            Map data = CustomUtils.ofMap("authcode", "zxcvb21345");
+            return CustomUtils.ofMap("error", 0, "data", data);
         } else {
-            return CCommonUtils.ofMap("error", 1, "message", "注册失败");
+            return CustomUtils.ofMap("error", 1, "message", "注册失败");
         }
     }
 }

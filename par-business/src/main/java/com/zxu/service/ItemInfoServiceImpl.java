@@ -5,7 +5,7 @@ import com.zxu.common.domain.ItemInfoImg;
 import com.zxu.mapper.ItemInfoImgMapper;
 import com.zxu.mapper.ItemInfoMapper;
 import com.zxu.service.usb.ItemInfoService;
-import com.zxu.util.CCommonUtils;
+import com.zxu.util.CustomUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -27,7 +27,7 @@ public class ItemInfoServiceImpl implements ItemInfoService {
     @Override
     public ItemInfo getItemWithImg(String id) {
         ItemInfo itemInfo = itemInfoMapper.selectById(id);
-        List<ItemInfoImg> itemInfoImgs = itemInfoImgMapper.selectByMap(CCommonUtils.ofMap(ItemInfoImg.t.item_id, id));
+        List<ItemInfoImg> itemInfoImgs = itemInfoImgMapper.selectByMap(CustomUtils.ofMap(ItemInfoImg.t.item_id, id));
         if (itemInfoImgs.size() > 0) {
             itemInfo.setDefaultImg(itemInfoImgs.get(0).getUrl());
         }
@@ -41,7 +41,7 @@ public class ItemInfoServiceImpl implements ItemInfoService {
     public List<ItemInfo> selectListWithImg() {
         List<ItemInfo> itemInfos = itemInfoMapper.selectList(null);
         itemInfos.forEach(m -> {
-            List<ItemInfoImg> itemInfoImgs = itemInfoImgMapper.selectByMap(CCommonUtils.ofMap(ItemInfoImg.t.item_id, m.getId(), ItemInfoImg.t.default_flag, "1"));
+            List<ItemInfoImg> itemInfoImgs = itemInfoImgMapper.selectByMap(CustomUtils.ofMap(ItemInfoImg.t.item_id, m.getId(), ItemInfoImg.t.default_flag, "1"));
             if (itemInfoImgs.size() > 0) {
                 m.setDefaultImg(itemInfoImgs.get(0).getUrl());
             }
@@ -53,7 +53,7 @@ public class ItemInfoServiceImpl implements ItemInfoService {
     public List<ItemInfo> selectListWithImg(List<ItemInfo> itemInfos) {
 
         itemInfos.forEach(m -> {
-            List<ItemInfoImg> itemInfoImgs = itemInfoImgMapper.selectByMap(CCommonUtils.ofMap(ItemInfoImg.t.item_id, m.getId(), ItemInfoImg.t.default_flag, "1"));
+            List<ItemInfoImg> itemInfoImgs = itemInfoImgMapper.selectByMap(CustomUtils.ofMap(ItemInfoImg.t.item_id, m.getId(), ItemInfoImg.t.default_flag, "1"));
             if (itemInfoImgs.size() > 0) {
                 m.setDefaultImg(itemInfoImgs.get(0).getUrl());
             }

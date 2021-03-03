@@ -1,6 +1,6 @@
 package com.zxu.controller;
 
-import com.zxu.SessionUtil;
+import com.zxu.util.SessionUtil;
 import com.zxu.chip.MultipartContext;
 import com.zxu.common.domain.UserInfo;
 import com.zxu.constant.PageConst;
@@ -9,7 +9,7 @@ import com.zxu.mapper.UserInfoMapper;
 import com.zxu.result.MsgResult;
 import com.zxu.service.usb.UserInfoService;
 import com.zxu.sftp.SsFtpInstance;
-import com.zxu.util.CCommonUtils;
+import com.zxu.util.CustomUtils;
 import com.zxu.vo.UserPassVO;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -60,7 +60,7 @@ public class UploadController {
             return MsgResult.fail("获取文件流失败！");
         }
         UserPassVO userPassVO = userInfoConvert.getUserPassVO(currentUser);
-        Map data = CCommonUtils.ofMap("data", userPassVO);
+        Map data = CustomUtils.ofMap("data", userPassVO);
         return MsgResult.doneUrl(data, PageConst.USER_PWD_SHOW);
     }
 

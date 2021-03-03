@@ -1,7 +1,7 @@
 package com.zxu.security;
 
 import com.alibaba.fastjson.JSON;
-import com.zxu.util.CCommonUtils;
+import com.zxu.util.CustomUtils;
 
 import java.util.Map;
 
@@ -28,11 +28,11 @@ public class DockBrige {
         String uKey = AESTools.getUKey();//生成AES密钥
         String return_publicKeyEncrypt = RSATools.publicKeyEncrypt(publicKey, uKey);// 利用公钥 对AES密钥 进行RSA加密
         // AES加密传输数据
-        Map<String, String> userMap = CCommonUtils.ofMap("userId", "a007", "userName", "admin", "userPwd", "0000");
+        Map<String, String> userMap = CustomUtils.ofMap("userId", "a007", "userName", "admin", "userPwd", "0000");
         String userInfo = JSON.toJSONString(userMap);
         String return_encryptMsg = AESTools.encryptMsg(userInfo, uKey);
         // 返回数据
-        return CCommonUtils.ofMap("header_ukey", return_publicKeyEncrypt,"body_data",return_encryptMsg);
+        return CustomUtils.ofMap("header_ukey", return_publicKeyEncrypt,"body_data",return_encryptMsg);
     }
     /**
      *   dock方对接thirdparty方，并接受thirdparty的传输数据

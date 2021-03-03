@@ -6,7 +6,7 @@ import com.zxu.common.domain.OrderLogistics;
 import com.zxu.eum.DeliveryStatus;
 import com.zxu.mapper.OrderDetailMapper;
 import com.zxu.mapper.OrderLogisticsMapper;
-import com.zxu.util.CCommonUtils;
+import com.zxu.util.CustomUtils;
 import com.zxu.vo.OrderBill4ListVO;
 import com.zxu.vo.OrderBillAddrVO;
 import com.zxu.vo.OrderDetailVO;
@@ -44,7 +44,7 @@ public class OrderBill4ListConvert {
             vo.setAddr(orderBillAddrVO);
         }
         // 商品明细
-        List<OrderDetail> orderDetails = orderDetailMapper.selectByMap(CCommonUtils.ofMap(OrderDetail.t.order_id, info.getId()));
+        List<OrderDetail> orderDetails = orderDetailMapper.selectByMap(CustomUtils.ofMap(OrderDetail.t.order_id, info.getId()));
         List<OrderDetailVO> orderDetailVOS = orderDetailConvert.getOrderDetailVOS(orderDetails);
         vo.setProlist(orderDetailVOS);
         return vo;

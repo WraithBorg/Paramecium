@@ -1,6 +1,6 @@
 package com.zxu.controller;
 
-import com.zxu.SessionUtil;
+import com.zxu.util.SessionUtil;
 import com.zxu.annotate.WithoutLogin;
 import com.zxu.common.domain.CategoryInfo;
 import com.zxu.common.domain.ItemInfo;
@@ -16,7 +16,7 @@ import com.zxu.mapper.UserInfoMapper;
 import com.zxu.result.MsgResult;
 import com.zxu.service.usb.ItemInfoService;
 import com.zxu.service.usb.UserFavItemService;
-import com.zxu.util.CCommonUtils;
+import com.zxu.util.CustomUtils;
 import com.zxu.vo.CategoryVO;
 import com.zxu.vo.ItemInfoVO;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -68,15 +68,15 @@ public class ItemInfoController {
 
         // category
         Map catMap = null;
-        if (CCommonUtils.isNotBlank(catid)) {
+        if (CustomUtils.isNotBlank(catid)) {
             CategoryInfo catDB = categoryInfoMapper.selectById(catid);
-            catMap = CCommonUtils.ofMap("catid", catDB.getId(), "pid", catDB.getPid(), "title", catDB.getName());
-            itemInfos = itemInfoMapper.selectByMap(CCommonUtils.ofMap(ItemInfo.t.category_id, catid));
+            catMap = CustomUtils.ofMap("catid", catDB.getId(), "pid", catDB.getPid(), "title", catDB.getName());
+            itemInfos = itemInfoMapper.selectByMap(CustomUtils.ofMap(ItemInfo.t.category_id, catid));
         } else {
             itemInfos = itemInfoMapper.selectList(null);
         }
         itemInfos.forEach(m -> {
-            List<ItemInfoImg> itemInfoImgs = itemInfoImgMapper.selectByMap(CCommonUtils.ofMap(ItemInfoImg.t.item_id, m.getId(), ItemInfoImg.t.default_flag, "1"));
+            List<ItemInfoImg> itemInfoImgs = itemInfoImgMapper.selectByMap(CustomUtils.ofMap(ItemInfoImg.t.item_id, m.getId(), ItemInfoImg.t.default_flag, "1"));
             if (itemInfoImgs.size() > 0) {
                 m.setDefaultImg(itemInfoImgs.get(0).getUrl());
             }
@@ -84,7 +84,7 @@ public class ItemInfoController {
         List<ItemInfoVO> list = itemInfoConvert.getItemInfoVOS(currentUser, itemInfos);
 
         // category
-        Map data = CCommonUtils.ofMapN(
+        Map data = CustomUtils.ofMapN(
                 "cat", catMap,
                 "catList", "",
                 "list", list,
@@ -108,7 +108,7 @@ public class ItemInfoController {
         //
         List<ItemInfo> itemInfos = itemInfoService.selectListWithImg();
         List<ItemInfoVO> list = itemInfoConvert.getItemInfoVOS(currentUser, itemInfos);
-        Map data = CCommonUtils.ofMapN(
+        Map data = CustomUtils.ofMapN(
                 "rscount", 0,
                 "per_page", 0,
                 "pagelist", false,
@@ -127,9 +127,9 @@ public class ItemInfoController {
         ItemInfo itemInfo = infoService.getItemWithImg(id);
         ItemInfoVO itemInfoVO = itemInfoConvert.getItemInfoVO(currentUser, itemInfo);
 
-        List<ItemInfoImg> itemInfoImgs = itemInfoImgMapper.selectByMap(CCommonUtils.ofMap(ItemInfoImg.t.item_id, id));
+        List<ItemInfoImg> itemInfoImgs = itemInfoImgMapper.selectByMap(CustomUtils.ofMap(ItemInfoImg.t.item_id, id));
         List<String> imgsdata = itemInfoImgs.stream().map(m -> {
-            if (CCommonUtils.isBlank(m.getUrl())) {
+            if (CustomUtils.isBlank(m.getUrl())) {
                 return null;
             }
             return PageConst.IMG_PATH + "index_flash_01.png";
@@ -143,7 +143,7 @@ public class ItemInfoController {
             hasFav = userFavInfoService.hasFav(defaultUser.getId(), itemInfo.getId());
         }
 
-        Map dataMap = CCommonUtils.ofMapN(
+        Map dataMap = CustomUtils.ofMapN(
                 "cart_amount", itemInfoVO.getCart_amount(),
                 "data", itemInfoVO,
                 "fieldsList", null,
@@ -170,15 +170,15 @@ public class ItemInfoController {
     public MsgResult raty(@RequestParam String id, @RequestParam String limit) {
         ArrayList<Object> list = new ArrayList<>();
 //        UserInfo userInfo = SessionUtil.getCurrentUser(httpServletRequest);
-        list.add(CCommonUtils.ofMap("user_head", PageConst.IMG_PATH + "userInfo.getHeadImgUrl()",
+        list.add(CustomUtils.ofMap("user_head", PageConst.IMG_PATH + "userInfo.getHeadImgUrl()",
                 "nickname", "张三",
                 "raty_grade", "3",
                 "raty_content", "这玩意真好"));
-        list.add(CCommonUtils.ofMap("user_head", PageConst.IMG_PATH + ":userInfo.getHeadImgUrl()",
+        list.add(CustomUtils.ofMap("user_head", PageConst.IMG_PATH + ":userInfo.getHeadImgUrl()",
                 "nickname", "李四",
                 "raty_grade", "3",
                 "raty_content", "这玩意真垃圾"));
-        Map dataMap = CCommonUtils.ofMapN("list", list, "productid", id, "rscount", 2);
+        Map dataMap = CustomUtils.ofMapN("list", list, "productid", id, "rscount", 2);
         return MsgResult.doneUrl(dataMap, PageConst.PRODUCT_SHOW + id);
     }
 
@@ -195,7 +195,7 @@ public class ItemInfoController {
         //
         List<ItemInfo> itemInfos = itemInfoService.selectListWithImg();
         List<ItemInfoVO> list = itemInfoConvert.getItemInfoVOS(currentUser, itemInfos);
-        Map data = CCommonUtils.ofMapN(
+        Map data = CustomUtils.ofMapN(
                 "rscount", list.size(),
                 "per_page", 0,
                 "pagelist", false,

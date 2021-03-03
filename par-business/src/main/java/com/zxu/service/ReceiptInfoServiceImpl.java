@@ -5,7 +5,7 @@ import com.zxu.common.domain.UserInfo;
 import com.zxu.mapper.ReceiptInfoMapper;
 import com.zxu.service.usb.ReceiptInfoService;
 import com.zxu.service.usb.UserInfoService;
-import com.zxu.util.CCommonUtils;
+import com.zxu.util.CustomUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -44,7 +44,7 @@ public class ReceiptInfoServiceImpl implements ReceiptInfoService {
 
     @Override
     public List<ReceiptInfo> selectList(String userId) {
-        List<ReceiptInfo> receiptInfoList = receiptInfoMapper.selectByMap(CCommonUtils.ofMap(ReceiptInfo.t.user_id, userId));
+        List<ReceiptInfo> receiptInfoList = receiptInfoMapper.selectByMap(CustomUtils.ofMap(ReceiptInfo.t.user_id, userId));
         return receiptInfoList;
     }
 }

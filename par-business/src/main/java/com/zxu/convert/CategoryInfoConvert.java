@@ -2,7 +2,7 @@ package com.zxu.convert;
 
 import com.zxu.common.domain.CategoryInfo;
 import com.zxu.constant.PageConst;
-import com.zxu.util.CCommonUtils;
+import com.zxu.util.CustomUtils;
 import com.zxu.vo.Category4IndexVO;
 import com.zxu.vo.CategoryVO;
 import org.springframework.stereotype.Component;
@@ -33,7 +33,7 @@ public class CategoryInfoConvert {
         categoryVO.setDescription(categoryInfo.getName());
         categoryVO.setEx_table_id(0L);
 
-        if (CCommonUtils.isNotBlank(categoryInfo.getImgUrl())) {
+        if (CustomUtils.isNotBlank(categoryInfo.getImgUrl())) {
             categoryVO.setImgurl(PageConst.IMG_PATH + "index_flash_01.png");
         }
 
