@@ -10,6 +10,8 @@ public class CConstant {
     public static final String USER_NAME = "USER_NAME";
     public static final String TELEPHONE = "telePhone";
     public static final String PASSWORD = "password";
+    public static final String AMOUNT = "amount";
+    public static final String COMMODITY_CODE = "commodityCode";
     public static final HashMap PAY_TYPE = new HashMap(){{
         put("alipay", "支付宝");
     }};

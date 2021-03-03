@@ -10,7 +10,9 @@ import org.springframework.stereotype.Component;
 @Component
 @PropertySource("classpath:access-account.properties")
 public class AccessAccount {
-    public static final String GET = "get";
+    public static final String GET_INFO = "getInfo";
+    public static final String DEDUCT = "deduct";
+    public static final String CHARGE = "charge";
     public static String HOST;
 
     @Value("${account.host}")

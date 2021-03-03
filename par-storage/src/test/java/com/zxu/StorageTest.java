@@ -17,7 +17,5 @@ public class StorageTest {
     private StorageService storageService;
     @Test
     public void testGet() {
-        StorageDo account = storageService.get();
-        System.out.println(JSON.toJSONString(account));
     }
 }

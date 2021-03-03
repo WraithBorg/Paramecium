@@ -11,5 +11,11 @@
 
     <artifactId>par-common-api</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.zxu</groupId>
+            <artifactId>par-common-core</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+    </dependencies>
 </project>

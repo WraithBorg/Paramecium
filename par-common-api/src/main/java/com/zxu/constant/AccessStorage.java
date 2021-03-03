@@ -10,7 +10,9 @@ import org.springframework.stereotype.Component;
 @Component
 @PropertySource("classpath:access-storage.properties")
 public class AccessStorage {
-    public static final String GET = "get";
+    public static final String QUERY_INVENTORY = "queryInventory";
+    public static final String PLUS_INVENTORY = "plusInventory";
+    public static final String MINUS_INVENTORY = "minusInventory";
     public static String HOST;
 
     @Value("${storage.host}")
