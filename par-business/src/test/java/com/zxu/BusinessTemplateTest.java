@@ -18,7 +18,7 @@ import java.util.Map;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-public class BusinessTemplate {
+public class BusinessTemplateTest {
     @Resource
     private AccountClient accountClient;
     @Resource

@@ -1,24 +1,22 @@
 package com.zxu.controller;
 
-import com.zxu.util.SessionUtil;
-import com.zxu.domain.OrderBillDo;
-import com.zxu.domain.ReceiptDo;
-import com.zxu.domain.ShopCartItemDo;
-import com.zxu.domain.UserDo;
 import com.zxu.constant.CConstant;
 import com.zxu.constant.PageConst;
 import com.zxu.convert.OrderBill4ListConvert;
 import com.zxu.convert.ReceiptInfoConvert;
 import com.zxu.convert.ShoppingCartItemConvert;
 import com.zxu.convert.ShowOrderGroupConvert;
+import com.zxu.domain.OrderBillDo;
+import com.zxu.domain.ReceiptDo;
+import com.zxu.domain.ShopCartItemDo;
+import com.zxu.domain.UserDo;
 import com.zxu.dto.CreateOrderDTO;
-import com.zxu.mapper.OrderBillMapper;
 import com.zxu.result.MsgResult;
 import com.zxu.service.usb.OrderBillService;
 import com.zxu.service.usb.ReceiptInfoService;
 import com.zxu.service.usb.ShopCartItemService;
-import com.zxu.service.usb.UserInfoService;
 import com.zxu.util.CustomUtils;
+import com.zxu.util.SessionUtil;
 import com.zxu.vo.ConfirmDetailVO;
 import com.zxu.vo.OrderBill4ListVO;
 import com.zxu.vo.ReceiptInfoVO;
@@ -45,15 +43,11 @@ public class OrderBillController {
     @Resource
     private ReceiptInfoService receiptInfoService;
     @Resource
-    private UserInfoService userInfoService;
-    @Resource
     private ShopCartItemService shopCartItemService;
     @Resource
     private ShoppingCartItemConvert cartItemConvert;
     @Resource
     private OrderBillService orderBillService;
-    @Resource
-    private OrderBillMapper orderBillMapper;
     @Resource
     private OrderBill4ListConvert orderBill4ListConvert;
     @Resource

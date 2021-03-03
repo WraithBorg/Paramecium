@@ -1,6 +1,10 @@
 package com.zxu.service;
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.zxu.client.AccountClient;
+import com.zxu.client.StorageClient;
+import com.zxu.constant.CConstant;
 import com.zxu.domain.OrderBillDo;
 import com.zxu.domain.OrderDetailDo;
 import com.zxu.domain.OrderLogisticsDo;
@@ -28,6 +32,7 @@ import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -41,11 +46,14 @@ public class OrderBillServiceImpl implements OrderBillService {
     @Resource
     private OrderBillMapper billMapper;
     @Resource
-    private UserInfoMapper userInfoMapper;
-    @Resource
     private ShopCartItemMapper shopCartItemMapper;
     @Resource
     private ReceiptInfoMapper receiptInfoMapper;
+
+    @Resource
+    private AccountClient accountClient;
+    @Resource
+    private StorageClient storageClient;
 
     /**
      * 创建订单
@@ -108,6 +116,12 @@ public class OrderBillServiceImpl implements OrderBillService {
         logisticsMapper.insert(logistics);
         // 下单完成 清空购物车
         cartItemInfos.forEach(m -> shopCartItemMapper.deleteById(m.getId()));
+        // 减库存
+        Map map3 = CustomUtils.ofMap(CConstant.COMMODITY_CODE, "160", CConstant.AMOUNT, 7);
+        storageClient.minusInventory(JSON.toJSONString(map3));
+        // 扣钱
+        Map map2 = CustomUtils.ofMap(CConstant.USER_ID, "3", CConstant.AMOUNT, new BigDecimal(12));
+        accountClient.deduct(JSON.toJSONString(map2));
     }
 
 
