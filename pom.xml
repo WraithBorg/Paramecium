@@ -11,6 +11,9 @@
         <module>par-common-mysql</module>
         <module>par-common-redis</module>
         <module>par-common-mongo</module>
+        <module>par-account</module>
+        <module>par-order</module>
+        <module>par-storage</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
