@@ -14,6 +14,7 @@
         <module>par-account</module>
         <module>par-order</module>
         <module>par-storage</module>
+        <module>par-common-seata</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -28,29 +29,32 @@
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
+        <seata.version>1.3.0</seata.version>
     </properties>
     <dependencies>
+        <!-- web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
+        <!-- test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- junit -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+        <!-- json -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>1.2.73</version>
 		</dependency>
-
         <!-- jwt -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>

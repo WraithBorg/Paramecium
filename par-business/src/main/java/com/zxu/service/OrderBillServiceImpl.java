@@ -21,10 +21,15 @@ import com.zxu.mapper.OrderLogisticsMapper;
 import com.zxu.mapper.ReceiptInfoMapper;
 import com.zxu.mapper.ShopCartItemMapper;
 import com.zxu.mapper.UserInfoMapper;
+import com.zxu.result.DockResult;
 import com.zxu.service.usb.OrderBillService;
 import com.zxu.util.BillNoUtil;
 import com.zxu.util.CustomUtils;
 import com.zxu.util.DDecimalUtil;
+import io.seata.core.context.RootContext;
+import io.seata.spring.annotation.GlobalTransactional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,6 +44,8 @@ import java.util.stream.Collectors;
 @Service
 @Transactional
 public class OrderBillServiceImpl implements OrderBillService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(OrderBillServiceImpl.class);
+
     @Resource
     private OrderLogisticsMapper logisticsMapper;
     @Resource
@@ -58,9 +65,32 @@ public class OrderBillServiceImpl implements OrderBillService {
     /**
      * 创建订单
      */
+    @GlobalTransactional
     @Override
     public void createOrder(UserDo currentUser, CreateOrderDTO dto) {
 
+        LOGGER.info("purchase begin ... xid: " + RootContext.getXID());
+        // 创建订单
+        List<ShopCartItemDo> cartItemInfos = createOrderBillInfo(currentUser, dto);
+        // 下单完成 清空购物车
+        cartItemInfos.forEach(m -> shopCartItemMapper.deleteById(m.getId()));
+        
+        // 减库存
+        Map map3 = CustomUtils.ofMap(CConstant.COMMODITY_CODE, "160", CConstant.AMOUNT, 10);
+        DockResult inventoryRes = storageClient.minusInventory(JSON.toJSONString(map3));
+        if (inventoryRes.error()){
+            throw new RuntimeException(inventoryRes.getMessage());
+        }
+        
+        // 扣钱
+        Map map2 = CustomUtils.ofMap(CConstant.USER_ID, "3", CConstant.AMOUNT, new BigDecimal(10));
+        DockResult accountRes = accountClient.deduct(JSON.toJSONString(map2));
+        if (accountRes.error()){
+            throw new RuntimeException(accountRes.getMessage());
+        }
+    }
+
+    private List<ShopCartItemDo> createOrderBillInfo(UserDo currentUser, CreateOrderDTO dto) {
         // Prepared
         List<String> cartIds = dto.getCartid();
         List<ShopCartItemDo> cartItemInfos = cartIds.stream().map(s -> shopCartItemMapper.selectById(s)).collect(Collectors.toList());
@@ -114,14 +144,7 @@ public class OrderBillServiceImpl implements OrderBillService {
         logistics.setCreateTime(new Date());
         logistics.setUpdateTime(new Date());
         logisticsMapper.insert(logistics);
-        // 下单完成 清空购物车
-        cartItemInfos.forEach(m -> shopCartItemMapper.deleteById(m.getId()));
-        // 减库存
-        Map map3 = CustomUtils.ofMap(CConstant.COMMODITY_CODE, "160", CConstant.AMOUNT, 7);
-        storageClient.minusInventory(JSON.toJSONString(map3));
-        // 扣钱
-        Map map2 = CustomUtils.ofMap(CConstant.USER_ID, "3", CConstant.AMOUNT, new BigDecimal(12));
-        accountClient.deduct(JSON.toJSONString(map2));
+        return cartItemInfos;
     }
 
 

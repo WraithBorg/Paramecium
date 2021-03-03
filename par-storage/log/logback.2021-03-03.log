@@ -1,0 +1,9 @@
+13:40:11.892 logback [main] INFO  com.zxu.StorageTest - Starting StorageTest using Java 1.8.0_211 on PKGHRBLUXQKPXFP with PID 27360 (started by Administrator in D:\zxu_work_space\zxu_github\Paramecium\par-storage)
+13:40:11.894 logback [main] INFO  com.zxu.StorageTest - No active profile set, falling back to default profiles: default
+13:40:14.924 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+13:40:15.534 logback [main] INFO  com.zxu.StorageTest - Started StorageTest in 4.474 seconds (JVM running for 6.231)
+13:40:15.828 logback [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+13:40:16.108 logback [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+13:40:16.273 logback [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+13:40:16.275 logback [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13:40:16.292 logback [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

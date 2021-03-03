@@ -43,6 +43,10 @@ public class AccountController {
     public DockResult deduct(@RequestBody Map map) {
         String userId = (String) map.get(CConstant.USER_ID);
         BigDecimal amount = new BigDecimal(String.valueOf(map.get(CConstant.AMOUNT)));
+        AccountDo account = accountService.getAccount(userId);
+        if (amount.compareTo(account.getMoney()) > 0) {
+            return DockResult.fail("余额不足下单失败");
+        }
         accountService.deduct(userId, amount);
         return DockResult.done();
     }

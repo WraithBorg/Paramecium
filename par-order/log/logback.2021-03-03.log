@@ -1,0 +1,18 @@
+13:40:29.898 logback [main] INFO  com.zxu.OrderTest - Starting OrderTest using Java 1.8.0_211 on PKGHRBLUXQKPXFP with PID 8808 (started by Administrator in D:\zxu_work_space\zxu_github\Paramecium\par-order)
+13:40:29.929 logback [main] INFO  com.zxu.OrderTest - No active profile set, falling back to default profiles: default
+13:40:33.047 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+13:40:33.622 logback [main] INFO  com.zxu.OrderTest - Started OrderTest in 4.435 seconds (JVM running for 6.428)
+13:40:33.912 logback [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+13:40:34.173 logback [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+13:40:34.260 logback [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+13:40:34.261 logback [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13:40:34.271 logback [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+13:40:59.750 logback [main] INFO  com.zxu.OrderTest - Starting OrderTest using Java 1.8.0_211 on PKGHRBLUXQKPXFP with PID 28084 (started by Administrator in D:\zxu_work_space\zxu_github\Paramecium\par-order)
+13:40:59.762 logback [main] INFO  com.zxu.OrderTest - No active profile set, falling back to default profiles: default
+13:41:02.783 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+13:41:03.655 logback [main] INFO  com.zxu.OrderTest - Started OrderTest in 4.663 seconds (JVM running for 5.796)
+13:41:03.900 logback [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+13:41:04.148 logback [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+13:41:04.298 logback [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+13:41:04.299 logback [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13:41:04.308 logback [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
