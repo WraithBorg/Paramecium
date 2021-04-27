@@ -23,9 +23,7 @@ public class BusinessRedis {
     private StringRedisTemplate stringRedisTemplate;
     @Test
     public void testSave() {
-        Map map = new HashMap();
-        map.put("name", "张三");
-        ValueOperations vOps = stringRedisTemplate.opsForValue();
-        vOps.set("33333" , "张三", 6000L, TimeUnit.SECONDS);
+        Object val = this.redisTemplate.opsForValue().get("enterpriseTopic");
+        System.out.println(val);
     }
 }

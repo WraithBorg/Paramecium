@@ -51,10 +51,10 @@ public class SsFtpServe {
      *
      * @return
      */
-    public ChannelSftp connect() {
+    private ChannelSftp connect() {
       return   connect(defaultSsftpConfig);
     }
-    public ChannelSftp connect(SsFtpConfig sftpConfig) {
+    private ChannelSftp connect(SsFtpConfig sftpConfig) {
         ChannelSftp sftp = null;
         try {
             JSch jsch = new JSch();

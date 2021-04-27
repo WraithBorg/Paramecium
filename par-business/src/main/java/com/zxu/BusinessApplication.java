@@ -9,5 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BusinessApplication {
     public static void main(String[] args) {
         SpringApplication.run(BusinessApplication.class, args);
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> System.out.println("资源回收")));
+        
     }
 }
