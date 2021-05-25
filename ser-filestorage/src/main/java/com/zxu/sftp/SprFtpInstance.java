@@ -6,7 +6,6 @@ import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
 import com.jcraft.jsch.SftpException;
 import com.zxu.result.DockResult;
-import com.zxu.util.FileStorageUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -28,6 +27,7 @@ public class SprFtpInstance {
     private SprFtpConfig sftpConfig;
     private long count1 = 0;
     private ChannelSftp sftpInstance;
+
     /**
      * 获取sftp连接对象
      */
@@ -80,6 +80,30 @@ public class SprFtpInstance {
     /**
      * 上传图片
      */
+    public void upload4InputStream (InputStream inputStream, String filePath, String fileName) {
+        filePath = SprFileServer.getImgFolderPath() + filePath;
+        try {
+            getFtpInstance().cd(filePath);
+        } catch (SftpException e) {
+            try {
+                getFtpInstance().mkdir(filePath);
+                getFtpInstance().cd(filePath);
+            } catch (SftpException e1) {
+                throw new RuntimeException("ftp创建文件路径失败" + filePath);
+            }
+        }
+        try {
+            getFtpInstance().put(inputStream, fileName);
+        } catch (Exception e) {
+            throw new RuntimeException("sftp异常" + e);
+        } finally {
+            closeStream(inputStream, null);
+        }
+    }
+
+    /**
+     * 上传图片
+     */
     public void upload4InputStream (InputStream inputStream, String fileName) {
         String directory = SprFileServer.getImgFolderPath();
         try {
@@ -124,9 +148,10 @@ public class SprFtpInstance {
     /**
      * 删除文件
      */
-    public DockResult deleteFile (String fileName) {
+    public DockResult deleteFile (String filePath, String fileName) {
         try {
-            getFtpInstance().rm(SprFileServer.getImgFolderPath() + fileName);
+            getFtpInstance().cd(SprFileServer.getImgFolderPath()+filePath);
+            getFtpInstance().rm(fileName);
             return DockResult.done();
         } catch (SftpException e) {
             LOGGER.error(e.getMessage(), e);

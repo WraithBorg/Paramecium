@@ -1,9 +1,10 @@
 package com.zxu.convert;
 
+import com.zxu.constant.PageConst;
+import com.zxu.constant.UploadConst;
 import com.zxu.domain.ItemDo;
 import com.zxu.domain.ShopCartItemDo;
 import com.zxu.domain.UserDo;
-import com.zxu.constant.PageConst;
 import com.zxu.mapper.ShopCartItemMapper;
 import com.zxu.service.usb.UserInfoService;
 import com.zxu.util.CustomUtils;
@@ -28,20 +29,20 @@ public class ItemInfoConvert {
     @Resource
     private UserInfoService userInfoService;
 
-    public List<ItemInfoVO> getItemInfoVOS(UserDo currentUser, List<ItemDo> itemInfos) {
-        List<ItemInfoVO> itemInfoVOS = itemInfos.stream().map(m -> getItemInfoVO(currentUser,m)).collect(Collectors.toList());
+    public List<ItemInfoVO> getItemInfoVOS (UserDo currentUser, List<ItemDo> itemInfos) {
+        List<ItemInfoVO> itemInfoVOS = itemInfos.stream().map(m -> getItemInfoVO(currentUser, m)).collect(Collectors.toList());
         return itemInfoVOS;
     }
 
-    public ItemInfoVO getItemInfoVO(UserDo currentUser, ItemDo itemInfo) {
+    public ItemInfoVO getItemInfoVO (UserDo currentUser, ItemDo itemInfo) {
         Integer cartAmount;
-        if (currentUser == null){
+        if (currentUser == null) {
             cartAmount = 0;
-        }else {
+        } else {
             ShopCartItemDo cartItemInfo = shopCartItemMapper.getByUserItem(itemInfo.getId(), currentUser.getId());
-            if(cartItemInfo == null){
+            if (cartItemInfo == null) {
                 cartAmount = 0;
-            }else {
+            } else {
                 cartAmount = DDecimalUtil.toInt(cartItemInfo.getAmount());
             }
         }
@@ -56,9 +57,9 @@ public class ItemInfoConvert {
         itemInfoVO.setId(itemInfo.getId());
         itemInfoVO.setImgsdata(itemInfo.getDefaultImg());
         if (CustomUtils.isNotBlank(itemInfo.getDefaultImg())) {
-            itemInfoVO.setImgurl(PageConst.IMG_PATH + "hot_book.png");
-        }else {
-            itemInfoVO.setImgurl(PageConst.IMG_PATH + "hot_book.png");
+            itemInfoVO.setImgurl(PageConst.IMG_PATH + UploadConst.ITEM_IMAGE + "hot_book.png");
+        } else {
+            itemInfoVO.setImgurl(PageConst.IMG_PATH + UploadConst.ITEM_IMAGE + "hot_book.png");
         }
 
         itemInfoVO.setIncart(cartAmount > 0 ? 1 : 0);
@@ -94,19 +95,19 @@ public class ItemInfoConvert {
         return itemInfoVO;
     }
 
-    public List<ItemInfo4IndexVO> getItemInfo4IndexVOS(List<ItemDo> itemInfos) {
-        List<ItemInfo4IndexVO> itemInfoVOS = itemInfos.stream().map(this :: getItemInfo4IndexVO).collect(Collectors.toList());
+    public List<ItemInfo4IndexVO> getItemInfo4IndexVOS (List<ItemDo> itemInfos) {
+        List<ItemInfo4IndexVO> itemInfoVOS = itemInfos.stream().map(this::getItemInfo4IndexVO).collect(Collectors.toList());
         return itemInfoVOS;
     }
 
-    public ItemInfo4IndexVO getItemInfo4IndexVO(ItemDo itemInfo) {
+    public ItemInfo4IndexVO getItemInfo4IndexVO (ItemDo itemInfo) {
         ItemInfo4IndexVO itemInfoVO = new ItemInfo4IndexVO();
         itemInfoVO.setBuy_num(itemInfo.getBuyNum());
         itemInfoVO.setId(itemInfo.getId());
         if (CustomUtils.isNotBlank(itemInfo.getDefaultImg())) {
-            itemInfoVO.setImgurl( PageConst.IMG_PATH + "index_flash_01.png");
-        }else{
-            itemInfoVO.setImgurl( PageConst.IMG_PATH + "index_flash_01.png");
+            itemInfoVO.setImgurl(PageConst.IMG_PATH + UploadConst.ITEM_IMAGE + "index_flash_01.png");
+        } else {
+            itemInfoVO.setImgurl(PageConst.IMG_PATH + UploadConst.ITEM_IMAGE + "index_flash_01.png");
         }
 
         itemInfoVO.setPrice(DDecimalUtil.format(itemInfo.getPrice()));

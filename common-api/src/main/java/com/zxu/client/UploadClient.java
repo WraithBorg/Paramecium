@@ -2,7 +2,6 @@ package com.zxu.client;
 
 import com.zxu.constant.Hosts4Access;
 import com.zxu.constant.MediaTypeConst;
-import com.zxu.constant.Uri4Storage;
 import com.zxu.constant.Uri4Upload;
 import com.zxu.result.DockResult;
 import org.slf4j.Logger;
@@ -17,17 +16,17 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.annotation.Resource;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
 @Component
 public class UploadClient {
     private static final Logger LOGGER = LoggerFactory.getLogger(AccountClient.class);
-    
-    // 上传文件
-    public DockResult uploadFile (MultipartFile uploadFile) {
-        String url = Hosts4Access.fileStorageHosts + Uri4Upload.UPLOAD;
+
+    /**
+     * 上传文件
+     */
+    public DockResult uploadFile (String filePath, MultipartFile uploadFile) {
+        String url = Hosts4Access.fileStorageHosts + Uri4Upload.UPLOAD.replace("{filePath}", filePath);
         String filename = uploadFile.getOriginalFilename();
         HttpHeaders headers = new HttpHeaders();
         MediaType type = MediaType.parseMediaType(MediaTypeConst.FORM_DATA);
@@ -39,13 +38,30 @@ public class UploadClient {
         DockResult result = getRestemplate().postForObject(url, files, DockResult.class);
         return result;
     }
-    
+
+    /**
+     * 替换文件
+     */
+    public DockResult replaceFile (String filePath, String originalName,MultipartFile uploadFile) {
+        String url = Hosts4Access.fileStorageHosts + Uri4Upload.REPLACE.replace("{filePath}", filePath).replace("{originalName}",originalName);
+        String filename = uploadFile.getOriginalFilename();
+        HttpHeaders headers = new HttpHeaders();
+        MediaType type = MediaType.parseMediaType(MediaTypeConst.FORM_DATA);
+        headers.setContentType(type);
+        MultiValueMap<String, Object> form = new LinkedMultiValueMap<>();
+        form.add("file", uploadFile.getResource());
+        form.add("filename", filename);
+        HttpEntity<MultiValueMap<String, Object>> files = new HttpEntity<>(form, headers);
+        DockResult result = getRestemplate().postForObject(url, files, DockResult.class);
+        return result;
+    }
+
     // 删除文件
     public DockResult deleteFile (String fileName) {
         return DockResult.done();
     }
 
-    private RestTemplate getRestemplate() {
+    private RestTemplate getRestemplate () {
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new StringHttpMessageConverter(StandardCharsets.UTF_8));
         return restTemplate;

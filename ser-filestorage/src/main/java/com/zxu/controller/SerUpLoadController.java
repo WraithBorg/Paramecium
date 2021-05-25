@@ -30,10 +30,10 @@ public class SerUpLoadController {
      */
     @ResponseBody
     @PostMapping(Uri4Upload.UPLOAD)
-    public DockResult serve4Upload (@RequestParam("file") MultipartFile file) {
+    public DockResult serve4Upload (@PathVariable("filePath") String filePath, @RequestParam("file") MultipartFile file) {
         String fileName = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
         try {
-            sprFtpInstance.upload4InputStream(file.getInputStream(), fileName);
+            sprFtpInstance.upload4InputStream(file.getInputStream(), filePath, fileName);
             return DockResult.done(CustomUtils.ofMap("url", fileName));
         } catch (IOException e) {
             LOGGER.error(e.getMessage(), e);
@@ -42,11 +42,20 @@ public class SerUpLoadController {
     }
 
     /**
-     * 删除文件
+     * 替换文件
      */
     @ResponseBody
-    @RequestMapping(value = "/serve/delete/{fileName}", method = RequestMethod.DELETE)
-    public DockResult serve4Upload (@PathVariable("fileName") String fileName) {
-        return sprFtpInstance.deleteFile(fileName);
+    @PostMapping(Uri4Upload.REPLACE)
+    public DockResult serve4Replace (@PathVariable("filePath") String filePath, @PathVariable("originalName") String originalName,
+                                     @RequestParam("file") MultipartFile file) {
+        String fileName = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
+        try {
+            sprFtpInstance.deleteFile(filePath,originalName);
+            sprFtpInstance.upload4InputStream(file.getInputStream(), filePath, fileName);
+            return DockResult.done(CustomUtils.ofMap("url", fileName));
+        } catch (IOException e) {
+            LOGGER.error(e.getMessage(), e);
+            return DockResult.fail(e.getMessage());
+        }
     }
 }

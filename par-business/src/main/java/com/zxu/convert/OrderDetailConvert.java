@@ -1,7 +1,8 @@
 package com.zxu.convert;
 
-import com.zxu.domain.OrderDetailDo;
 import com.zxu.constant.PageConst;
+import com.zxu.constant.UploadConst;
+import com.zxu.domain.OrderDetailDo;
 import com.zxu.util.DDateUtil;
 import com.zxu.util.DDecimalUtil;
 import com.zxu.vo.OrderDetailVO;
@@ -14,13 +15,13 @@ import java.util.stream.Collectors;
 @Component
 public class OrderDetailConvert {
 
-    OrderDetailVO getOrderDetailVO(OrderDetailDo info) {
+    OrderDetailVO getOrderDetailVO (OrderDetailDo info) {
 
         OrderDetailVO vo = new OrderDetailVO();
         vo.setAmount(info.getAmount());
         vo.setCreatetime(DDateUtil.format(info.getCreateTime()));
         vo.setId(info.getId());
-        vo.setImgurl(PageConst.IMG_PATH + "index_flash_01.png");
+        vo.setImgurl(PageConst.IMG_PATH + UploadConst.ITEM_IMAGE + "index_flash_01.png");
         vo.setPrice(DDecimalUtil.format(info.getItemPrice()));
         vo.setProductid(info.getItemId());
         vo.setTitle(info.getItemName());
@@ -36,7 +37,7 @@ public class OrderDetailConvert {
         return vo;
     }
 
-    List<OrderDetailVO> getOrderDetailVOS(List<OrderDetailDo> infos) {
+    List<OrderDetailVO> getOrderDetailVOS (List<OrderDetailDo> infos) {
         List<OrderDetailVO> collect = infos.stream().map(this::getOrderDetailVO).collect(Collectors.toList());
         return collect;
     }

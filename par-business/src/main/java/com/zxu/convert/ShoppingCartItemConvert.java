@@ -1,7 +1,8 @@
 package com.zxu.convert;
 
-import com.zxu.domain.ShopCartItemDo;
 import com.zxu.constant.PageConst;
+import com.zxu.constant.UploadConst;
+import com.zxu.domain.ShopCartItemDo;
 import com.zxu.util.DDateUtil;
 import com.zxu.util.DDecimalUtil;
 import com.zxu.vo.ShopCartItemVO;
@@ -14,13 +15,13 @@ import java.util.stream.Collectors;
 public class ShoppingCartItemConvert {
 
 
-    public ShopCartItemVO getShoppingCartItemVO(ShopCartItemDo info) {
+    public ShopCartItemVO getShoppingCartItemVO (ShopCartItemDo info) {
         ShopCartItemVO vo = new ShopCartItemVO();
         vo.setAmount(DDecimalUtil.toInt(info.getAmount()));
         vo.setCreatetime(DDateUtil.format(info.getCreateTime()));
         vo.setEtime(0);
         vo.setId(info.getId());
-        vo.setImgurl(PageConst.IMG_PATH + "index_flash_01.png");
+        vo.setImgurl(PageConst.IMG_PATH + UploadConst.ITEM_IMAGE + "index_flash_01.png");
         vo.setKs_title("");
         vo.setKsid(0L);
         vo.setOtype("");
@@ -35,7 +36,7 @@ public class ShoppingCartItemConvert {
         return vo;
     }
 
-    public List<ShopCartItemVO> getShoppingCartItemVOS(List<ShopCartItemDo> cartItemInfos) {
+    public List<ShopCartItemVO> getShoppingCartItemVOS (List<ShopCartItemDo> cartItemInfos) {
         List<ShopCartItemVO> shopCartItemVOS = cartItemInfos.stream().map(m -> getShoppingCartItemVO(m)).collect(Collectors.toList());
         return shopCartItemVOS;
     }

@@ -3,6 +3,7 @@ package com.zxu.controller;
 import com.zxu.chip.MultipartContext;
 import com.zxu.client.UploadClient;
 import com.zxu.constant.PageConst;
+import com.zxu.constant.UploadConst;
 import com.zxu.convert.UserInfoConvert;
 import com.zxu.domain.UserDo;
 import com.zxu.mapper.UserInfoMapper;
@@ -51,10 +52,15 @@ public class UploadController {
     public MsgResult uploadUserHead (@RequestParam("upimg") MultipartFile uploadFile) {
         UserDo currentUser = SessionUtil.getCurrentUser(httpServletRequest);
         try {
-            DockResult dockResult = uploadClient.uploadFile(uploadFile);
-            if (dockResult.error()) return MsgResult.fail(dockResult.getMessage());
             currentUser = userInfoMapper.selectById(currentUser.getId());
-            currentUser.setHeadImgUrl((String) ((HashMap)dockResult.getData()).get("url"));
+            DockResult dockResult;
+            if (CustomUtils.isBlank(currentUser.getHeadImgUrl())) {
+                dockResult = uploadClient.uploadFile(UploadConst.HEAD_IMAGE, uploadFile);
+            } else {
+                dockResult = uploadClient.replaceFile(UploadConst.HEAD_IMAGE, currentUser.getHeadImgUrl(), uploadFile);
+            }
+            if (dockResult.error()) return MsgResult.fail(dockResult.getMessage());
+            currentUser.setHeadImgUrl((String) ((HashMap) dockResult.getData()).get("url"));
             userInfoMapper.updateById(currentUser);
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);

@@ -1,5 +1,6 @@
 package com.zxu.controller;
 
+import com.zxu.constant.UploadConst;
 import com.zxu.util.SessionUtil;
 import com.zxu.annotate.WithoutLogin;
 import com.zxu.domain.CategoryDo;
@@ -132,7 +133,7 @@ public class ItemInfoController {
             if (CustomUtils.isBlank(m.getUrl())) {
                 return null;
             }
-            return PageConst.IMG_PATH + "index_flash_01.png";
+            return PageConst.IMG_PATH+ UploadConst.ITEM_IMAGE + "index_flash_01.png";
         }).collect(Collectors.toList());
         // 查看是否该商品是否在收藏夹里
         UserDo defaultUser = SessionUtil.getCurrentUser(httpServletRequest);
@@ -170,11 +171,11 @@ public class ItemInfoController {
     public MsgResult raty(@RequestParam String id, @RequestParam String limit) {
         ArrayList<Object> list = new ArrayList<>();
 //        UserInfo userInfo = SessionUtil.getCurrentUser(httpServletRequest);
-        list.add(CustomUtils.ofMap("user_head", PageConst.IMG_PATH + "userInfo.getHeadImgUrl()",
+        list.add(CustomUtils.ofMap("user_head", PageConst.IMG_PATH + UploadConst.HEAD_IMAGE+ "userInfo.getHeadImgUrl()",
                 "nickname", "张三",
                 "raty_grade", "3",
                 "raty_content", "这玩意真好"));
-        list.add(CustomUtils.ofMap("user_head", PageConst.IMG_PATH + ":userInfo.getHeadImgUrl()",
+        list.add(CustomUtils.ofMap("user_head", PageConst.IMG_PATH + UploadConst.HEAD_IMAGE+ ":userInfo.getHeadImgUrl()",
                 "nickname", "李四",
                 "raty_grade", "3",
                 "raty_content", "这玩意真垃圾"));

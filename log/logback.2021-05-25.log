@@ -2310,3 +2310,334 @@ java.lang.NullPointerException: null
 10:03:18.291 logback [NettyClientSelector_TMROLE_1_1] INFO  i.s.c.rpc.netty.NettyPoolableFactory - will destroy channel:[id: 0x583acc41, L:/127.0.0.1:54899 ! R:/127.0.0.1:8091]
 10:03:18.291 logback [NettyClientSelector_TMROLE_1_1] INFO  i.s.c.r.n.AbstractNettyRemotingClient - ChannelHandlerContext(AbstractNettyRemotingClient$ClientHandler#0, [id: 0x583acc41, L:/127.0.0.1:54899 ! R:/127.0.0.1:8091]) will closed
 10:03:18.291 logback [NettyClientSelector_TMROLE_1_1] INFO  i.s.c.r.n.AbstractNettyRemotingClient - ChannelHandlerContext(AbstractNettyRemotingClient$ClientHandler#0, [id: 0x583acc41, L:/127.0.0.1:54899 ! R:/127.0.0.1:8091]) will closed
+10:07:53.406 logback [main] INFO  com.zxu.BusinessApplication - Starting BusinessApplication using Java 1.8.0_211 on PKGHRBLUXQKPXFP with PID 12028 (D:\zxu_work_space\zxu_github\Paramecium\par-business\target\classes started by Administrator in D:\zxu_work_space\zxu_github\Paramecium)
+10:07:53.410 logback [main] INFO  com.zxu.BusinessApplication - The following profiles are active: prod
+10:07:54.296 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+10:07:54.297 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+10:07:54.323 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 20 ms. Found 0 MongoDB repository interfaces.
+10:07:54.337 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+10:07:54.339 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+10:07:54.359 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+10:07:54.618 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'io.seata.spring.boot.autoconfigure.SeataAutoConfiguration' of type [io.seata.spring.boot.autoconfigure.SeataAutoConfiguration$$EnhancerBySpringCGLIB$$8008d5fd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+10:07:54.632 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'springApplicationContextProvider' of type [io.seata.spring.boot.autoconfigure.provider.SpringApplicationContextProvider] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+10:07:54.667 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'failureHandler' of type [io.seata.tm.api.DefaultFailureHandlerImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+10:07:54.702 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.cloud.alibaba.seata-io.seata.spring.boot.autoconfigure.properties.SpringCloudAlibabaConfiguration' of type [io.seata.spring.boot.autoconfigure.properties.SpringCloudAlibabaConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+10:07:54.706 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'seata-io.seata.spring.boot.autoconfigure.properties.SeataProperties' of type [io.seata.spring.boot.autoconfigure.properties.SeataProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+10:07:54.707 logback [main] INFO  i.s.s.b.a.SeataAutoConfiguration - Automatically configure Seata
+10:07:54.759 logback [main] INFO  io.seata.config.ConfigurationFactory - load Configuration:FileConfiguration$$EnhancerByCGLIB$$862af1eb
+10:07:54.767 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'configProperties' of type [io.seata.spring.boot.autoconfigure.properties.config.ConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+10:07:54.771 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'configFileProperties' of type [io.seata.spring.boot.autoconfigure.properties.config.ConfigFileProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+10:07:54.772 logback [main] INFO  io.seata.config.ConfigurationFactory - load Configuration:FileConfiguration$$EnhancerByCGLIB$$862af1eb
+10:07:54.856 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'serviceProperties' of type [io.seata.spring.boot.autoconfigure.properties.client.ServiceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+10:07:54.861 logback [main] INFO  i.s.s.a.GlobalTransactionScanner - Initializing Global Transaction Clients ... 
+10:07:54.870 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'threadFactoryProperties' of type [io.seata.spring.boot.autoconfigure.properties.client.ThreadFactoryProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+10:07:54.875 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'transportProperties' of type [io.seata.spring.boot.autoconfigure.properties.client.TransportProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+10:07:54.963 logback [main] INFO  i.s.c.rpc.netty.NettyClientBootstrap - NettyClientBootstrap has started
+10:07:54.963 logback [main] INFO  i.s.s.a.GlobalTransactionScanner - Transaction Manager Client is initialized. applicationId[business-service] txServiceGroup[my_test_tx_group]
+10:07:54.975 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'rmProperties' of type [io.seata.spring.boot.autoconfigure.properties.client.RmProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+10:07:54.976 logback [main] INFO  io.seata.rm.datasource.AsyncWorker - Async Commit Buffer Limit: 1000
+10:07:54.977 logback [main] INFO  i.s.r.d.xa.ResourceManagerXA - ResourceManagerXA init ...
+10:07:54.986 logback [main] INFO  i.s.c.rpc.netty.NettyClientBootstrap - NettyClientBootstrap has started
+10:07:54.986 logback [main] INFO  i.s.s.a.GlobalTransactionScanner - Resource Manager is initialized. applicationId[business-service] txServiceGroup[my_test_tx_group]
+10:07:54.986 logback [main] INFO  i.s.s.a.GlobalTransactionScanner - Global Transaction Clients are initialized. 
+10:07:55.383 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+10:07:55.394 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+10:07:55.394 logback [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+10:07:55.394 logback [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+10:07:55.557 logback [main] INFO  o.a.c.c.C.[.[localhost].[/star] - Initializing Spring embedded WebApplicationContext
+10:07:55.558 logback [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2088 ms
+10:07:55.739 logback [main] INFO  i.s.s.a.d.SeataAutoDataSourceProxyCreator - Auto proxy of [dataSource]
+10:07:56.897 logback [main] INFO  i.s.s.a.GlobalTransactionScanner - Bean[com.zxu.service.OrderBillServiceImpl$$EnhancerBySpringCGLIB$$bb45c360] with name [orderBillServiceImpl] would use interceptor [io.seata.spring.annotation.GlobalTransactionalInterceptor]
+10:07:57.357 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+10:07:57.552 logback [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+10:07:58.198 logback [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+10:07:58.297 logback [main] INFO  i.s.c.r.n.NettyClientChannelManager - will connect to 127.0.0.1:8091
+10:07:58.297 logback [main] INFO  i.s.c.r.netty.RmNettyRemotingClient - RM will register :jdbc:mysql://192.168.27.25:3306/gaea
+10:07:58.301 logback [main] INFO  i.s.c.rpc.netty.NettyPoolableFactory - NettyPool create channel to transactionRole:RMROLE,address:127.0.0.1:8091,msg:< RegisterRMRequest{resourceIds='jdbc:mysql://192.168.27.25:3306/gaea', applicationId='business-service', transactionServiceGroup='my_test_tx_group'} >
+10:07:58.919 logback [main] INFO  i.s.c.r.netty.RmNettyRemotingClient - register RM success. client version:1.3.0, server version:1.3.0,channel:[id: 0x685e79da, L:/127.0.0.1:55815 - R:/127.0.0.1:8091]
+10:07:58.927 logback [main] INFO  i.s.c.rpc.netty.NettyPoolableFactory - register success, cost 66 ms, version:1.3.0,role:RMROLE,channel:[id: 0x685e79da, L:/127.0.0.1:55815 - R:/127.0.0.1:8091]
+10:07:59.097 logback [main] INFO  org.mongodb.driver.cluster - Cluster created with settings {hosts=[192.168.27.25:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+10:07:59.191 logback [cluster-rtt-ClusterId{value='60ac5bff62474679b8edd0fb', description='null'}-192.168.27.25:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:11}] to 192.168.27.25:27017
+10:07:59.192 logback [cluster-ClusterId{value='60ac5bff62474679b8edd0fb', description='null'}-192.168.27.25:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:12}] to 192.168.27.25:27017
+10:07:59.193 logback [cluster-ClusterId{value='60ac5bff62474679b8edd0fb', description='null'}-192.168.27.25:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=192.168.27.25:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=26379900}
+10:07:59.495 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+10:07:59.511 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path '/star'
+10:07:59.524 logback [main] INFO  com.zxu.BusinessApplication - Started BusinessApplication in 7.176 seconds (JVM running for 8.365)
+10:08:11.055 logback [http-nio-8888-exec-1] INFO  o.a.c.c.C.[.[localhost].[/star] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:08:11.055 logback [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+10:08:11.056 logback [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+10:08:11.641 logback [http-nio-8888-exec-2] ERROR com.zxu.interceptor.LoginInterceptor - 登录信息失效，请重新登录！A0210
+10:08:13.618 logback [http-nio-8888-exec-3] ERROR com.zxu.interceptor.LoginInterceptor - 登录信息失效，请重新登录！A0210
+10:08:54.959 logback [timeoutChecker_1_1] INFO  i.s.c.r.n.NettyClientChannelManager - will connect to 127.0.0.1:8091
+10:08:54.961 logback [timeoutChecker_1_1] INFO  i.s.c.rpc.netty.NettyPoolableFactory - NettyPool create channel to transactionRole:TMROLE,address:127.0.0.1:8091,msg:< RegisterTMRequest{applicationId='business-service', transactionServiceGroup='my_test_tx_group'} >
+10:08:54.967 logback [timeoutChecker_1_1] INFO  i.s.c.r.netty.TmNettyRemotingClient - register TM success. client version:1.3.0, server version:1.3.0,channel:[id: 0x53554d6d, L:/127.0.0.1:55879 - R:/127.0.0.1:8091]
+10:08:54.968 logback [timeoutChecker_1_1] INFO  i.s.c.rpc.netty.NettyPoolableFactory - register success, cost 4 ms, version:1.3.0,role:TMROLE,channel:[id: 0x53554d6d, L:/127.0.0.1:55879 - R:/127.0.0.1:8091]
+11:12:13.261 logback [main] INFO  com.zxu.BusinessApplication - Starting BusinessApplication using Java 1.8.0_211 on PKGHRBLUXQKPXFP with PID 19544 (D:\zxu_work_space\zxu_github\Paramecium\par-business\target\classes started by Administrator in D:\zxu_work_space\zxu_github\Paramecium)
+11:12:13.264 logback [main] INFO  com.zxu.BusinessApplication - The following profiles are active: prod
+11:12:14.181 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+11:12:14.182 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+11:12:14.209 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 0 MongoDB repository interfaces.
+11:12:14.223 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+11:12:14.224 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+11:12:14.245 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+11:12:14.530 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'io.seata.spring.boot.autoconfigure.SeataAutoConfiguration' of type [io.seata.spring.boot.autoconfigure.SeataAutoConfiguration$$EnhancerBySpringCGLIB$$afc701c3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:12:14.545 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'springApplicationContextProvider' of type [io.seata.spring.boot.autoconfigure.provider.SpringApplicationContextProvider] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:12:14.581 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'failureHandler' of type [io.seata.tm.api.DefaultFailureHandlerImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:12:14.621 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.cloud.alibaba.seata-io.seata.spring.boot.autoconfigure.properties.SpringCloudAlibabaConfiguration' of type [io.seata.spring.boot.autoconfigure.properties.SpringCloudAlibabaConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:12:14.625 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'seata-io.seata.spring.boot.autoconfigure.properties.SeataProperties' of type [io.seata.spring.boot.autoconfigure.properties.SeataProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:12:14.626 logback [main] INFO  i.s.s.b.a.SeataAutoConfiguration - Automatically configure Seata
+11:12:14.689 logback [main] INFO  io.seata.config.ConfigurationFactory - load Configuration:FileConfiguration$$EnhancerByCGLIB$$862af1eb
+11:12:14.699 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'configProperties' of type [io.seata.spring.boot.autoconfigure.properties.config.ConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:12:14.705 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'configFileProperties' of type [io.seata.spring.boot.autoconfigure.properties.config.ConfigFileProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:12:14.706 logback [main] INFO  io.seata.config.ConfigurationFactory - load Configuration:FileConfiguration$$EnhancerByCGLIB$$862af1eb
+11:12:14.814 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'serviceProperties' of type [io.seata.spring.boot.autoconfigure.properties.client.ServiceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:12:14.818 logback [main] INFO  i.s.s.a.GlobalTransactionScanner - Initializing Global Transaction Clients ... 
+11:12:14.828 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'threadFactoryProperties' of type [io.seata.spring.boot.autoconfigure.properties.client.ThreadFactoryProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:12:14.832 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'transportProperties' of type [io.seata.spring.boot.autoconfigure.properties.client.TransportProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:12:14.919 logback [main] INFO  i.s.c.rpc.netty.NettyClientBootstrap - NettyClientBootstrap has started
+11:12:14.919 logback [main] INFO  i.s.s.a.GlobalTransactionScanner - Transaction Manager Client is initialized. applicationId[business-service] txServiceGroup[my_test_tx_group]
+11:12:14.938 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'rmProperties' of type [io.seata.spring.boot.autoconfigure.properties.client.RmProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:12:14.940 logback [main] INFO  io.seata.rm.datasource.AsyncWorker - Async Commit Buffer Limit: 1000
+11:12:14.940 logback [main] INFO  i.s.r.d.xa.ResourceManagerXA - ResourceManagerXA init ...
+11:12:14.957 logback [main] INFO  i.s.c.rpc.netty.NettyClientBootstrap - NettyClientBootstrap has started
+11:12:14.957 logback [main] INFO  i.s.s.a.GlobalTransactionScanner - Resource Manager is initialized. applicationId[business-service] txServiceGroup[my_test_tx_group]
+11:12:14.957 logback [main] INFO  i.s.s.a.GlobalTransactionScanner - Global Transaction Clients are initialized. 
+11:12:15.493 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+11:12:15.505 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+11:12:15.505 logback [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+11:12:15.506 logback [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+11:12:15.665 logback [main] INFO  o.a.c.c.C.[.[localhost].[/star] - Initializing Spring embedded WebApplicationContext
+11:12:15.665 logback [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2346 ms
+11:12:15.840 logback [main] INFO  i.s.s.a.d.SeataAutoDataSourceProxyCreator - Auto proxy of [dataSource]
+11:12:17.012 logback [main] INFO  i.s.s.a.GlobalTransactionScanner - Bean[com.zxu.service.OrderBillServiceImpl$$EnhancerBySpringCGLIB$$12de1875] with name [orderBillServiceImpl] would use interceptor [io.seata.spring.annotation.GlobalTransactionalInterceptor]
+11:12:17.489 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+11:12:17.640 logback [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+11:12:18.297 logback [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+11:12:18.396 logback [main] INFO  i.s.c.r.n.NettyClientChannelManager - will connect to 127.0.0.1:8091
+11:12:18.396 logback [main] INFO  i.s.c.r.netty.RmNettyRemotingClient - RM will register :jdbc:mysql://192.168.27.25:3306/gaea
+11:12:18.401 logback [main] INFO  i.s.c.rpc.netty.NettyPoolableFactory - NettyPool create channel to transactionRole:RMROLE,address:127.0.0.1:8091,msg:< RegisterRMRequest{resourceIds='jdbc:mysql://192.168.27.25:3306/gaea', applicationId='business-service', transactionServiceGroup='my_test_tx_group'} >
+11:12:19.066 logback [main] INFO  i.s.c.r.netty.RmNettyRemotingClient - register RM success. client version:1.3.0, server version:1.3.0,channel:[id: 0x19501c78, L:/127.0.0.1:59328 - R:/127.0.0.1:8091]
+11:12:19.074 logback [main] INFO  i.s.c.rpc.netty.NettyPoolableFactory - register success, cost 70 ms, version:1.3.0,role:RMROLE,channel:[id: 0x19501c78, L:/127.0.0.1:59328 - R:/127.0.0.1:8091]
+11:12:19.213 logback [main] INFO  org.mongodb.driver.cluster - Cluster created with settings {hosts=[192.168.27.25:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+11:12:19.308 logback [cluster-rtt-ClusterId{value='60ac6b1321db6d6b68e72f5c', description='null'}-192.168.27.25:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:13}] to 192.168.27.25:27017
+11:12:19.308 logback [cluster-ClusterId{value='60ac6b1321db6d6b68e72f5c', description='null'}-192.168.27.25:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:14}] to 192.168.27.25:27017
+11:12:19.309 logback [cluster-ClusterId{value='60ac6b1321db6d6b68e72f5c', description='null'}-192.168.27.25:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=192.168.27.25:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=26401500}
+11:12:19.616 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path '/star'
+11:12:19.627 logback [main] INFO  com.zxu.BusinessApplication - Started BusinessApplication in 7.437 seconds (JVM running for 8.685)
+11:12:23.805 logback [main] INFO  com.zxu.BusinessApplication - Starting BusinessApplication using Java 1.8.0_211 on PKGHRBLUXQKPXFP with PID 21500 (D:\zxu_work_space\zxu_github\Paramecium\par-business\target\classes started by Administrator in D:\zxu_work_space\zxu_github\Paramecium)
+11:12:23.808 logback [main] INFO  com.zxu.BusinessApplication - The following profiles are active: prod
+11:12:24.707 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+11:12:24.708 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+11:12:24.734 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 20 ms. Found 0 MongoDB repository interfaces.
+11:12:24.747 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+11:12:24.748 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+11:12:24.768 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+11:12:25.029 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'io.seata.spring.boot.autoconfigure.SeataAutoConfiguration' of type [io.seata.spring.boot.autoconfigure.SeataAutoConfiguration$$EnhancerBySpringCGLIB$$c526bca] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:12:25.042 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'springApplicationContextProvider' of type [io.seata.spring.boot.autoconfigure.provider.SpringApplicationContextProvider] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:12:25.079 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'failureHandler' of type [io.seata.tm.api.DefaultFailureHandlerImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:12:25.118 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.cloud.alibaba.seata-io.seata.spring.boot.autoconfigure.properties.SpringCloudAlibabaConfiguration' of type [io.seata.spring.boot.autoconfigure.properties.SpringCloudAlibabaConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:12:25.121 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'seata-io.seata.spring.boot.autoconfigure.properties.SeataProperties' of type [io.seata.spring.boot.autoconfigure.properties.SeataProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:12:25.122 logback [main] INFO  i.s.s.b.a.SeataAutoConfiguration - Automatically configure Seata
+11:12:25.175 logback [main] INFO  io.seata.config.ConfigurationFactory - load Configuration:FileConfiguration$$EnhancerByCGLIB$$862af1eb
+11:12:25.184 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'configProperties' of type [io.seata.spring.boot.autoconfigure.properties.config.ConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:12:25.188 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'configFileProperties' of type [io.seata.spring.boot.autoconfigure.properties.config.ConfigFileProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:12:25.188 logback [main] INFO  io.seata.config.ConfigurationFactory - load Configuration:FileConfiguration$$EnhancerByCGLIB$$862af1eb
+11:12:25.274 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'serviceProperties' of type [io.seata.spring.boot.autoconfigure.properties.client.ServiceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:12:25.280 logback [main] INFO  i.s.s.a.GlobalTransactionScanner - Initializing Global Transaction Clients ... 
+11:12:25.290 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'threadFactoryProperties' of type [io.seata.spring.boot.autoconfigure.properties.client.ThreadFactoryProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:12:25.293 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'transportProperties' of type [io.seata.spring.boot.autoconfigure.properties.client.TransportProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:12:25.377 logback [main] INFO  i.s.c.rpc.netty.NettyClientBootstrap - NettyClientBootstrap has started
+11:12:25.377 logback [main] INFO  i.s.s.a.GlobalTransactionScanner - Transaction Manager Client is initialized. applicationId[business-service] txServiceGroup[my_test_tx_group]
+11:12:25.388 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'rmProperties' of type [io.seata.spring.boot.autoconfigure.properties.client.RmProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:12:25.388 logback [main] INFO  io.seata.rm.datasource.AsyncWorker - Async Commit Buffer Limit: 1000
+11:12:25.388 logback [main] INFO  i.s.r.d.xa.ResourceManagerXA - ResourceManagerXA init ...
+11:12:25.395 logback [main] INFO  i.s.c.rpc.netty.NettyClientBootstrap - NettyClientBootstrap has started
+11:12:25.395 logback [main] INFO  i.s.s.a.GlobalTransactionScanner - Resource Manager is initialized. applicationId[business-service] txServiceGroup[my_test_tx_group]
+11:12:25.395 logback [main] INFO  i.s.s.a.GlobalTransactionScanner - Global Transaction Clients are initialized. 
+11:12:25.790 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+11:12:25.803 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+11:12:25.803 logback [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+11:12:25.804 logback [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+11:12:25.977 logback [main] INFO  o.a.c.c.C.[.[localhost].[/star] - Initializing Spring embedded WebApplicationContext
+11:12:25.977 logback [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2113 ms
+11:12:26.156 logback [main] INFO  i.s.s.a.d.SeataAutoDataSourceProxyCreator - Auto proxy of [dataSource]
+11:12:27.300 logback [main] INFO  i.s.s.a.GlobalTransactionScanner - Bean[com.zxu.service.OrderBillServiceImpl$$EnhancerBySpringCGLIB$$c99b8745] with name [orderBillServiceImpl] would use interceptor [io.seata.spring.annotation.GlobalTransactionalInterceptor]
+11:12:27.740 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+11:12:27.890 logback [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+11:12:28.534 logback [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+11:12:28.623 logback [main] INFO  i.s.c.r.n.NettyClientChannelManager - will connect to 127.0.0.1:8091
+11:12:28.624 logback [main] INFO  i.s.c.r.netty.RmNettyRemotingClient - RM will register :jdbc:mysql://192.168.27.25:3306/gaea
+11:12:28.627 logback [main] INFO  i.s.c.rpc.netty.NettyPoolableFactory - NettyPool create channel to transactionRole:RMROLE,address:127.0.0.1:8091,msg:< RegisterRMRequest{resourceIds='jdbc:mysql://192.168.27.25:3306/gaea', applicationId='business-service', transactionServiceGroup='my_test_tx_group'} >
+11:12:29.239 logback [main] INFO  i.s.c.r.netty.RmNettyRemotingClient - register RM success. client version:1.3.0, server version:1.3.0,channel:[id: 0x355f52c2, L:/127.0.0.1:59368 - R:/127.0.0.1:8091]
+11:12:29.247 logback [main] INFO  i.s.c.rpc.netty.NettyPoolableFactory - register success, cost 65 ms, version:1.3.0,role:RMROLE,channel:[id: 0x355f52c2, L:/127.0.0.1:59368 - R:/127.0.0.1:8091]
+11:12:29.411 logback [main] INFO  org.mongodb.driver.cluster - Cluster created with settings {hosts=[192.168.27.25:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+11:12:29.476 logback [cluster-ClusterId{value='60ac6b1ded10ec0a9bffe47c', description='null'}-192.168.27.25:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:15}] to 192.168.27.25:27017
+11:12:29.476 logback [cluster-rtt-ClusterId{value='60ac6b1ded10ec0a9bffe47c', description='null'}-192.168.27.25:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:16}] to 192.168.27.25:27017
+11:12:29.477 logback [cluster-ClusterId{value='60ac6b1ded10ec0a9bffe47c', description='null'}-192.168.27.25:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=192.168.27.25:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=24649400}
+11:12:29.769 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+11:12:29.782 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path '/star'
+11:12:29.793 logback [main] INFO  com.zxu.BusinessApplication - Started BusinessApplication in 7.071 seconds (JVM running for 8.179)
+11:12:45.204 logback [http-nio-8888-exec-2] INFO  o.a.c.c.C.[.[localhost].[/star] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+11:12:45.204 logback [http-nio-8888-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+11:12:45.205 logback [http-nio-8888-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+11:12:56.610 logback [http-nio-8888-exec-6] ERROR com.zxu.interceptor.LoginInterceptor - 登录信息失效，请重新登录！A0210
+11:13:25.372 logback [timeoutChecker_1_1] INFO  i.s.c.r.n.NettyClientChannelManager - will connect to 127.0.0.1:8091
+11:13:25.373 logback [timeoutChecker_1_1] INFO  i.s.c.rpc.netty.NettyPoolableFactory - NettyPool create channel to transactionRole:TMROLE,address:127.0.0.1:8091,msg:< RegisterTMRequest{applicationId='business-service', transactionServiceGroup='my_test_tx_group'} >
+11:13:25.380 logback [timeoutChecker_1_1] INFO  i.s.c.r.netty.TmNettyRemotingClient - register TM success. client version:1.3.0, server version:1.3.0,channel:[id: 0x729ed1d8, L:/127.0.0.1:59456 - R:/127.0.0.1:8091]
+11:13:25.380 logback [timeoutChecker_1_1] INFO  i.s.c.rpc.netty.NettyPoolableFactory - register success, cost 4 ms, version:1.3.0,role:TMROLE,channel:[id: 0x729ed1d8, L:/127.0.0.1:59456 - R:/127.0.0.1:8091]
+11:14:21.881 logback [http-nio-8888-exec-3] ERROR com.zxu.controller.UploadController - I/O error on POST request for "http://127.0.0.1:8088/fileStorage/serve/upload/head_image/": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://127.0.0.1:8088/fileStorage/serve/upload/head_image/": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:785)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:711)
+	at org.springframework.web.client.RestTemplate.postForObject(RestTemplate.java:437)
+	at com.zxu.client.UploadClient.uploadFile(UploadClient.java:36)
+	at com.zxu.controller.UploadController.uploadUserHead(UploadController.java:55)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at com.zxu.filter.SprSeataFilter.doFilter(SprSeataFilter.java:32)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:339)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:357)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1220)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1156)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1050)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:984)
+	at org.springframework.http.client.SimpleBufferingClientHttpRequest.executeInternal(SimpleBufferingClientHttpRequest.java:76)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:776)
+	... 61 common frames omitted
+11:18:11.459 logback [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+11:18:11.473 logback [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+11:18:11.481 logback [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+11:25:16.973 logback [main] INFO  com.zxu.BusinessApplication - Starting BusinessApplication using Java 1.8.0_211 on PKGHRBLUXQKPXFP with PID 12944 (D:\zxu_work_space\zxu_github\Paramecium\par-business\target\classes started by Administrator in D:\zxu_work_space\zxu_github\Paramecium)
+11:25:16.976 logback [main] INFO  com.zxu.BusinessApplication - The following profiles are active: prod
+11:25:17.953 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+11:25:17.954 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+11:25:17.982 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 20 ms. Found 0 MongoDB repository interfaces.
+11:25:17.996 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+11:25:17.997 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+11:25:18.017 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+11:25:18.279 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'io.seata.spring.boot.autoconfigure.SeataAutoConfiguration' of type [io.seata.spring.boot.autoconfigure.SeataAutoConfiguration$$EnhancerBySpringCGLIB$$b10d930] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:25:18.291 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'springApplicationContextProvider' of type [io.seata.spring.boot.autoconfigure.provider.SpringApplicationContextProvider] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:25:18.327 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'failureHandler' of type [io.seata.tm.api.DefaultFailureHandlerImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:25:18.365 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.cloud.alibaba.seata-io.seata.spring.boot.autoconfigure.properties.SpringCloudAlibabaConfiguration' of type [io.seata.spring.boot.autoconfigure.properties.SpringCloudAlibabaConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:25:18.369 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'seata-io.seata.spring.boot.autoconfigure.properties.SeataProperties' of type [io.seata.spring.boot.autoconfigure.properties.SeataProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:25:18.370 logback [main] INFO  i.s.s.b.a.SeataAutoConfiguration - Automatically configure Seata
+11:25:18.426 logback [main] INFO  io.seata.config.ConfigurationFactory - load Configuration:FileConfiguration$$EnhancerByCGLIB$$862af1eb
+11:25:18.434 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'configProperties' of type [io.seata.spring.boot.autoconfigure.properties.config.ConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:25:18.438 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'configFileProperties' of type [io.seata.spring.boot.autoconfigure.properties.config.ConfigFileProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:25:18.439 logback [main] INFO  io.seata.config.ConfigurationFactory - load Configuration:FileConfiguration$$EnhancerByCGLIB$$862af1eb
+11:25:18.528 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'serviceProperties' of type [io.seata.spring.boot.autoconfigure.properties.client.ServiceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:25:18.534 logback [main] INFO  i.s.s.a.GlobalTransactionScanner - Initializing Global Transaction Clients ... 
+11:25:18.544 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'threadFactoryProperties' of type [io.seata.spring.boot.autoconfigure.properties.client.ThreadFactoryProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:25:18.548 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'transportProperties' of type [io.seata.spring.boot.autoconfigure.properties.client.TransportProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:25:18.633 logback [main] INFO  i.s.c.rpc.netty.NettyClientBootstrap - NettyClientBootstrap has started
+11:25:18.634 logback [main] INFO  i.s.s.a.GlobalTransactionScanner - Transaction Manager Client is initialized. applicationId[business-service] txServiceGroup[my_test_tx_group]
+11:25:18.646 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'rmProperties' of type [io.seata.spring.boot.autoconfigure.properties.client.RmProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:25:18.646 logback [main] INFO  io.seata.rm.datasource.AsyncWorker - Async Commit Buffer Limit: 1000
+11:25:18.647 logback [main] INFO  i.s.r.d.xa.ResourceManagerXA - ResourceManagerXA init ...
+11:25:18.655 logback [main] INFO  i.s.c.rpc.netty.NettyClientBootstrap - NettyClientBootstrap has started
+11:25:18.655 logback [main] INFO  i.s.s.a.GlobalTransactionScanner - Resource Manager is initialized. applicationId[business-service] txServiceGroup[my_test_tx_group]
+11:25:18.655 logback [main] INFO  i.s.s.a.GlobalTransactionScanner - Global Transaction Clients are initialized. 
+11:25:19.043 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+11:25:19.055 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+11:25:19.055 logback [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+11:25:19.055 logback [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+11:25:19.213 logback [main] INFO  o.a.c.c.C.[.[localhost].[/star] - Initializing Spring embedded WebApplicationContext
+11:25:19.213 logback [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2181 ms
+11:25:19.515 logback [main] INFO  i.s.s.a.d.SeataAutoDataSourceProxyCreator - Auto proxy of [dataSource]
+11:25:20.717 logback [main] INFO  i.s.s.a.GlobalTransactionScanner - Bean[com.zxu.service.OrderBillServiceImpl$$EnhancerBySpringCGLIB$$417cdaec] with name [orderBillServiceImpl] would use interceptor [io.seata.spring.annotation.GlobalTransactionalInterceptor]
+11:25:21.153 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+11:25:21.302 logback [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+11:25:21.941 logback [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+11:25:22.040 logback [main] INFO  i.s.c.r.n.NettyClientChannelManager - will connect to 127.0.0.1:8091
+11:25:22.041 logback [main] INFO  i.s.c.r.netty.RmNettyRemotingClient - RM will register :jdbc:mysql://192.168.27.25:3306/gaea
+11:25:22.045 logback [main] INFO  i.s.c.rpc.netty.NettyPoolableFactory - NettyPool create channel to transactionRole:RMROLE,address:127.0.0.1:8091,msg:< RegisterRMRequest{resourceIds='jdbc:mysql://192.168.27.25:3306/gaea', applicationId='business-service', transactionServiceGroup='my_test_tx_group'} >
+11:25:22.654 logback [main] INFO  i.s.c.r.netty.RmNettyRemotingClient - register RM success. client version:1.3.0, server version:1.3.0,channel:[id: 0xdb30706c, L:/127.0.0.1:60060 - R:/127.0.0.1:8091]
+11:25:22.662 logback [main] INFO  i.s.c.rpc.netty.NettyPoolableFactory - register success, cost 64 ms, version:1.3.0,role:RMROLE,channel:[id: 0xdb30706c, L:/127.0.0.1:60060 - R:/127.0.0.1:8091]
+11:25:22.791 logback [main] INFO  org.mongodb.driver.cluster - Cluster created with settings {hosts=[192.168.27.25:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+11:25:22.879 logback [cluster-ClusterId{value='60ac6e22a3515063d10eb079', description='null'}-192.168.27.25:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:17}] to 192.168.27.25:27017
+11:25:22.879 logback [cluster-rtt-ClusterId{value='60ac6e22a3515063d10eb079', description='null'}-192.168.27.25:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:18}] to 192.168.27.25:27017
+11:25:22.880 logback [cluster-ClusterId{value='60ac6e22a3515063d10eb079', description='null'}-192.168.27.25:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=192.168.27.25:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=24168000}
+11:25:23.172 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+11:25:23.184 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path '/star'
+11:25:23.195 logback [main] INFO  com.zxu.BusinessApplication - Started BusinessApplication in 7.337 seconds (JVM running for 8.819)
+11:26:18.632 logback [timeoutChecker_1_1] INFO  i.s.c.r.n.NettyClientChannelManager - will connect to 127.0.0.1:8091
+11:26:18.633 logback [timeoutChecker_1_1] INFO  i.s.c.rpc.netty.NettyPoolableFactory - NettyPool create channel to transactionRole:TMROLE,address:127.0.0.1:8091,msg:< RegisterTMRequest{applicationId='business-service', transactionServiceGroup='my_test_tx_group'} >
+11:26:18.641 logback [timeoutChecker_1_1] INFO  i.s.c.r.netty.TmNettyRemotingClient - register TM success. client version:1.3.0, server version:1.3.0,channel:[id: 0xf5b73a7d, L:/127.0.0.1:60101 - R:/127.0.0.1:8091]
+11:26:18.642 logback [timeoutChecker_1_1] INFO  i.s.c.rpc.netty.NettyPoolableFactory - register success, cost 4 ms, version:1.3.0,role:TMROLE,channel:[id: 0xf5b73a7d, L:/127.0.0.1:60101 - R:/127.0.0.1:8091]
+11:30:23.909 logback [http-nio-8888-exec-1] INFO  o.a.c.c.C.[.[localhost].[/star] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+11:30:23.909 logback [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+11:30:23.910 logback [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+11:30:25.278 logback [http-nio-8888-exec-2] ERROR com.zxu.interceptor.LoginInterceptor - 登录信息失效，请重新登录！A0210
+11:39:22.213 logback [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+11:39:22.227 logback [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+11:39:22.236 logback [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

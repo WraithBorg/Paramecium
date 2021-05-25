@@ -1,5 +1,6 @@
 package com.zxu.convert;
 
+import com.zxu.constant.UploadConst;
 import com.zxu.domain.CategoryDo;
 import com.zxu.constant.PageConst;
 import com.zxu.util.CustomUtils;
@@ -34,7 +35,7 @@ public class CategoryInfoConvert {
         categoryVO.setEx_table_id(0L);
 
         if (CustomUtils.isNotBlank(categoryInfo.getImgUrl())) {
-            categoryVO.setImgurl(PageConst.IMG_PATH + "index_flash_01.png");
+            categoryVO.setImgurl(PageConst.IMG_PATH+ UploadConst.ITEM_IMAGE + "index_flash_01.png");
         }
 
         categoryVO.setOrderindex(0);
