@@ -56,7 +56,6 @@ public class OrderBillServiceImpl implements OrderBillService {
     private ShopCartItemMapper shopCartItemMapper;
     @Resource
     private ReceiptInfoMapper receiptInfoMapper;
-
     @Resource
     private AccountClient accountClient;
     @Resource

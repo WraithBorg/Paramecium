@@ -58,7 +58,7 @@ public class LoginController {
         }
         //
         JwtDTO dto = JwtDTO.builder(userInfo.getId(), userInfo.getNickName(), userInfo.getPassword(), userInfo.getTelePhone());
-        String jwtToken = JwtUtil.createJWT(1000 * 60, dto);
+        String jwtToken = JwtUtil.createJWT(1000 * 60*60, dto);
         Map<String, String> data = CustomUtils.ofMap(
                 "authcode", jwtToken,
                 "authcodeLong", jwtToken,

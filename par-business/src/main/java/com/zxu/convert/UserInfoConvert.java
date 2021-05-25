@@ -1,6 +1,6 @@
 package com.zxu.convert;
 
-import com.zxu.FfileServer;
+//import com.zxu.FfileServer;
 import com.zxu.domain.UserDo;
 import com.zxu.constant.PageConst;
 import com.zxu.util.CustomUtils;
@@ -13,8 +13,8 @@ import java.util.Date;
 
 @Component
 public class UserInfoConvert {
-    @Resource
-    private FfileServer ffileServer;
+//    @Resource
+//    private FfileServer ffileServer;
 
     public UserInfoVO getUserVO(UserDo userInfo) {
         UserInfoVO vo = new UserInfoVO();
@@ -46,7 +46,7 @@ public class UserInfoConvert {
         vo.setGender(0);
         vo.setMoney("0");
         vo.setNickname(userInfo.getNickName());
-        vo.setUser_head(ffileServer.getImgUrl()+ userInfo.getHeadImgUrl());
+        vo.setUser_head(PageConst.IMG_PATH + userInfo.getHeadImgUrl());
         vo.setUserid(userInfo.getId());
         vo.setUsername(userInfo.getNickName());
         return vo;

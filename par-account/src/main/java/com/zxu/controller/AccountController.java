@@ -1,6 +1,6 @@
 package com.zxu.controller;
 
-import com.zxu.constant.AccessAccount;
+import com.zxu.constant.Uri4Account;
 import com.zxu.constant.CConstant;
 import com.zxu.domain.AccountDo;
 import com.zxu.result.DockResult;
@@ -24,7 +24,7 @@ public class AccountController {
      * 查询余额
      */
     @ResponseBody
-    @RequestMapping(AccessAccount.GET_INFO)
+    @RequestMapping(Uri4Account.GET_INFO)
     public DockResult<AccountDo> getAccountInfo(@RequestBody Map map) {
         Object reqBody = map.get(CConstant.USER_ID);
         if (reqBody == null || CustomUtils.isBlank((String) reqBody)) {
@@ -39,7 +39,7 @@ public class AccountController {
      * 扣款
      */
     @ResponseBody
-    @RequestMapping(AccessAccount.DEDUCT)
+    @RequestMapping(Uri4Account.DEDUCT)
     public DockResult deduct(@RequestBody Map map) {
         String userId = (String) map.get(CConstant.USER_ID);
         BigDecimal amount = new BigDecimal(String.valueOf(map.get(CConstant.AMOUNT)));
@@ -55,7 +55,7 @@ public class AccountController {
      * 充值
      */
     @ResponseBody
-    @RequestMapping(AccessAccount.CHARGE)
+    @RequestMapping(Uri4Account.CHARGE)
     public DockResult charge(@RequestBody Map map) {
         String userId = (String) map.get(CConstant.USER_ID);
         BigDecimal amount = new BigDecimal(String.valueOf(map.get(CConstant.AMOUNT)));

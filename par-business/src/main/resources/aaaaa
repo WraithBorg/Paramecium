@@ -1,0 +1,122 @@
+{
+    "result": true,
+    "message": "mobile.shopOrder.query.success",
+    "data": {
+        "count": 1,
+        "entity": "HsmStoreBillDTO",
+        "message": null,
+        "storeBills": [
+            {
+                "id": "40288ac07977e98801797820791b0207",
+                "updateIndicator": "Append",
+                "sendOrgan": {// 配送中心
+                    "id": "40289b98786d0a3401786d1888d30001",
+                    "updateIndicator": "Append",
+                    "name": "配送重心",
+                    "code": "PSZX001",
+                    "pinYin": null,
+                },
+                "outStore": {//仓库
+                    "id": "40289b98787bfb5101787c7289a00004",
+                    "updateIndicator": "Append",
+                    "name": "重心库",
+                    "code": "CK001",
+                    "pinYin": null
+                },
+                "sysbillCode": "ZXPK00000018",
+                "manualCode": "ZXPK-zxpk-00000002",
+                "billDate": 1620961212000,
+                "billStateFlag": "3",
+                "billStateFlagName": "已审核",
+                "checkDate": 1621218065000,
+                "orderDate": null,
+                "deliverDate": null,
+                "businessDate": 1617332458000,
+                "arriveDate": null,
+                "billState": 3,
+                "billReState": 0,
+                "weightState": "0",
+                "detailCount": 2,
+                "billMemo": null,
+                "businessTypeDTO": {
+                    "id": "0430_0100_0100",
+                    "updateIndicator": "Append",
+                    "name": "中心盘点单",
+                    "pinYin": null,
+                    "code": "0430_0100_0100"
+                },
+                "details": [
+                    {
+                        "id": "40288ac07977e98801797820791b0209",
+                        "updateIndicator": "Append",
+                        "num": "2.00000000",
+                        "inHouseDTO": null,
+                        "outHouseDTO": null,
+                        "shopHouseDTO": null,
+                        "goodsDTO": {
+                            "id": "ff808081790d40f4017911737e430093",
+                            "updateIndicator": "Append",
+                            "name": "鸡腿",
+                            "code": "001002002",
+                            "pinYin": "jt",
+                            "spec": null,
+                            "styleName": "",
+                            "imageUrls": null,
+                        },
+                        "busUnitOutAmount": 8656.00000000,//数量
+                        "price": 0E-8,//单价
+                        "outMoney": 0E-8,//金额
+                        "batchCode": "00100200221042809392319231",
+                        "memo": null,//备注
+                        "billId": "40288ac07977e98801797820791b0207",
+                        "productDate": 1617241103000,
+                        "assistUnit": null,//辅助单位
+                        "outAssistAmount": null,//辅助单位数量
+                        "canChangePriceFlag": null,
+                        "canChangeTaxFlag": null,
+                        "shortageFlag": null,
+                        "grossWeight": null,
+                        "inAssistAmount": null,
+                        "parentAmount": null,
+                        "taxClass": null,
+                        "noTransMoney": null,
+                        "noTransInTaxesMoney": null,
+                        "makeTime": null,
+                        "transMoney": 0,
+                        "inBusPlanAmount": 0,
+                        "inPlanPrice": 0,
+                        "mainAmount": 8656.00000000,
+                        "mainUnit": "克"
+                    } 
+                ],
+                "billEmp": "管理员",
+                "checkEmp": "管理员",
+                "fatherId": "40289b997964e06b017968d135c50009",
+                "difference": false,
+                "freight": 0,
+                "pieceAmount": 1,
+                "autoType": 1,
+                "expressFlag": false,
+                "stockType": 0,
+                "detailAdd": null,
+                "detailMdf": null,
+                "detailDel": null,
+                "departmentDTO": null,
+                "employeeDTO": null,
+                "busUser": {
+                    "id": "40289b9878f2e1220178f2ec8c390000",
+                    "updateIndicator": "Append",
+                    "name": "zzz",
+                    "code": "YG004",
+                    "pinYin": null
+                },
+                "subCustomerDTO": null,
+                "returnFlag": 0,
+              
+                "assistUnit": null,
+                "inAssistAmount": null 
+            
+            }
+        ]
+    }
+}

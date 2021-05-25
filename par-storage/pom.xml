@@ -14,24 +14,28 @@
     <dependencies>
         <dependency>
             <groupId>com.zxu</groupId>
-            <artifactId>par-common-core</artifactId>
+            <artifactId>common-core</artifactId>
             <version>0.0.1</version>
         </dependency>
         <dependency>
             <groupId>com.zxu</groupId>
-            <artifactId>par-common-api</artifactId>
+            <artifactId>common-api</artifactId>
             <version>0.0.1</version>
         </dependency>
         <dependency>
             <groupId>com.zxu</groupId>
-            <artifactId>par-common-mysql</artifactId>
+            <artifactId>common-third</artifactId>
             <version>0.0.1</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.zxu</groupId>
-            <artifactId>par-common-seata</artifactId>
-            <version>0.0.1</version>
-        </dependency>
     </dependencies>
+    <build>
+        <finalName>par-storage</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

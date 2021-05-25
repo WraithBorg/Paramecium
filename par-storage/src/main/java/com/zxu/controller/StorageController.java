@@ -1,6 +1,6 @@
 package com.zxu.controller;
 
-import com.zxu.constant.AccessStorage;
+import com.zxu.constant.Uri4Storage;
 import com.zxu.constant.CConstant;
 import com.zxu.domain.StorageDo;
 import com.zxu.result.DockResult;
@@ -23,7 +23,7 @@ public class StorageController {
      * 查询库存数
      */
     @ResponseBody
-    @RequestMapping(AccessStorage.QUERY_INVENTORY)
+    @RequestMapping(Uri4Storage.QUERY_INVENTORY)
     public DockResult<StorageDo> queryInventory(@RequestBody Map map) {
         Object reqBody = map.get(CConstant.COMMODITY_CODE);
         if (reqBody == null || CustomUtils.isBlank((String) reqBody)) {
@@ -38,7 +38,7 @@ public class StorageController {
      * 加库存
      */
     @ResponseBody
-    @RequestMapping(AccessStorage.PLUS_INVENTORY)
+    @RequestMapping(Uri4Storage.PLUS_INVENTORY)
     public DockResult plusInventory(@RequestBody Map map) {
         String commodityCode = (String) map.get(CConstant.COMMODITY_CODE);
         Integer amount = (Integer) map.get(CConstant.AMOUNT);
@@ -50,7 +50,7 @@ public class StorageController {
      * 减库存
      */
     @ResponseBody
-    @RequestMapping(AccessStorage.MINUS_INVENTORY)
+    @RequestMapping(Uri4Storage.MINUS_INVENTORY)
     public DockResult minusInventory(@RequestBody Map map) {
         String commodityCode = (String) map.get(CConstant.COMMODITY_CODE);
         Integer amount = (Integer) map.get(CConstant.AMOUNT);
