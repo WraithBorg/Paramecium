@@ -23,4 +23,13 @@ public interface OrderBillService {
      * 清除已取消订单
      */
     void clearOrder(String orderid);
+    /**
+     * 查看订单
+     */
+    OrderBillDo getOrder(String id);
+    /**
+     * 支付订单
+     */
+    void payOrder (String orderid);
+    
 }

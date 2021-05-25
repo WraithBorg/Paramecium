@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 public class OrderBillAddrConvert {
 
     OrderBillAddrVO getOrderBillAddrVO(OrderLogisticsDo info) {
+        if (info == null) return null;
         OrderBillAddrVO vo = new OrderBillAddrVO();
         vo.setAddress(info.getCneeAddress());
         vo.setTruename(info.getCneeRealName());

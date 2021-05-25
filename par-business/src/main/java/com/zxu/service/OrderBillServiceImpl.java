@@ -177,4 +177,16 @@ public class OrderBillServiceImpl implements OrderBillService {
             detailMapper.deleteByMap(CustomUtils.ofMap(OrderLogisticsDo.t.order_id, id));
         }
     }
+
+    @Override
+    public OrderBillDo getOrder (String id) {
+        return billMapper.selectById(id);
+    }
+
+    @Override
+    public void payOrder (String id) {
+        OrderBillDo orderBillDo = billMapper.selectById(id);
+        orderBillDo.setState(OrderState.UN_SEND.id);
+        billMapper.updateById(orderBillDo);
+    }
 }

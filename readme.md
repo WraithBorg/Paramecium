@@ -14,5 +14,5 @@ ser-服务层
 
 ```
 # 启动
-`cd C:\Windows\System32\cmd.exe`
+`cd D:\zxu_study\seata-server-1.3.0\seata\bin`
 `seata-server.bat -p 8091 -h 127.0.0.1 -m file`

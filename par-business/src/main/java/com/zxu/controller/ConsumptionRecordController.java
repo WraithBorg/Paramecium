@@ -15,7 +15,7 @@ import java.util.Map;
  * 消费记录
  */
 @RestController
-public class PayLogController {
+public class ConsumptionRecordController {
     @Resource
     private HttpServletRequest httpServletRequest;
     @GetMapping("/paylog/mypaylog")
