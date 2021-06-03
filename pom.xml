@@ -13,6 +13,8 @@
         <module>par-storage</module>
         <module>ser-filestorage</module>
         <module>demo-swagger</module>
+        <module>ser-kafka-provider</module>
+        <module>ser-kafka-consumer-spush</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
