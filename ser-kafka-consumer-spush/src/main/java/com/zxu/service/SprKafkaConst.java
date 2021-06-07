@@ -1,4 +1,4 @@
-package com.zxu.consts;
+package com.zxu.service;
 
 public class SprKafkaConst {
     public static final String topic4OrderBill = "topic4OrderBill";

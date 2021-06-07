@@ -1,18 +1,15 @@
 package com.zxu.controller;
 
-import com.zxu.consts.SprKafkaConst;
+import com.zxu.dto.OrderBill4kfk;
 import com.zxu.dto.SpushNoticeDto;
-import com.zxu.entity.NoticeMessage4kfk;
 import com.zxu.service.KafkaProviderService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import java.util.UUID;
 
 @Controller
 public class KafkaProviderController {
@@ -26,17 +23,17 @@ public class KafkaProviderController {
      */
     @PostMapping(value = "/noticeMessage")
     @ResponseBody
-    public void noticeMessage(@RequestBody SpushNoticeDto noticeDto) {
-        this.producer.sendMessage(SprKafkaConst.topic4UserNotice,noticeDto);
+    public void noticeMessage (@RequestBody SpushNoticeDto noticeDto) {
+        this.producer.send4NoticeMessage(noticeDto);
     }
-    
-    @GetMapping(value = "/orderBill")
+
+    /**
+     * 推送订单信息
+     */
+    @PostMapping(value = "/pushOrderBill")
     @ResponseBody
-    public void sendMessageToKafkaTopic(@RequestParam("name") String name) {
-        NoticeMessage4kfk noticeB = new NoticeMessage4kfk();
-        noticeB.setId(UUID.randomUUID().toString());
-        noticeB.setMessage(name);
-        this.producer.sendMessage(SprKafkaConst.topic4Test, noticeB);
+    public void pushOrderBill (@RequestBody OrderBill4kfk orderBill) {
+        this.producer.send4OrderBill(orderBill);
     }
-    
+
 }
