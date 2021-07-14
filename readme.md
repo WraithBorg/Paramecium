@@ -13,7 +13,7 @@ systemctl restart redis
 #### ser-kafka-provider 消息生产服务  localhost:8090/kafkaPrivoder
 #### ser-kafka-consumer-spush 推送消息通知服务 localhost:8092/kafkaConsumer4Spush
 
-127.0.0.1:8090/kafkaPrivoder/orderBill?name=zzzzzz  
+127.0.0.1:8090/kafkaPrivoder/orderBill?name=zzzzzz
 ```
 par-业务层
 conmmon-通用层
