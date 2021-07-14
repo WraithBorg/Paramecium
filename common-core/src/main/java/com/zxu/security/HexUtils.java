@@ -1,6 +1,6 @@
 package com.zxu.security;
 
-import org.springframework.util.StringUtils;
+import com.zxu.util.CustomUtils;
 
 /**
  * 进制转换工具类
@@ -31,7 +31,7 @@ public class HexUtils {
      * 16进制转化为 2进制
      */
     public static byte[] _16_2(String hexStr) {
-        if (StringUtils.isEmpty(hexStr))
+        if (CustomUtils.isBlank(hexStr))
             return null;
 
         byte[] result = new byte[hexStr.length() / 2];

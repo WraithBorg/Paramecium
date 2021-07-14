@@ -2,8 +2,6 @@ package com.zxu.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeanUtils;
-
 import java.math.BigDecimal;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
@@ -233,19 +231,7 @@ public class CustomUtils {
         return map;
     }
 
-    /**
-     * 复制对象
-     * 添加这个方法的原因是，apache中也有和Spring一样的方法BeanUtils.copyProperties，
-     * 但是apache的有时候会有问题，通过CommonUtil中添加这个方法，统一为Spring的
-     * 这方法不需要自己new一个target
-     */
-    public static <T> T copyProperties(Object source, Class<T> clazz) throws Exception {
-        Objects.requireNonNull(source);
-        Objects.requireNonNull(clazz);
-        Object target = clazz.newInstance();
-        BeanUtils.copyProperties(source, target);
-        return clazz.cast(target);
-    }
+   
 
     public static void requireNonNull(Object obj) {
         Objects.requireNonNull(obj);

@@ -1,8 +1,7 @@
 package com.zxu.security;
 
 
-import org.springframework.util.StringUtils;
-
+import com.zxu.util.CustomUtils;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
@@ -218,7 +217,7 @@ public class RSATools {
         Signature signTool = Signature.getInstance(algorithm);
         PrivateKey key = commonGetPrivatekeyByText(privateKey);
         signTool.initSign(key);
-        if (StringUtils.isEmpty(charset)) {
+        if (CustomUtils.isBlank(charset)) {
             signTool.update(content.getBytes());
         } else {
             signTool.update(content.getBytes(charset));
@@ -249,7 +248,7 @@ public class RSATools {
         Signature signTool = Signature.getInstance(algorithm);
         PublicKey key = commonGetPublickeyByText(publicKey);
         signTool.initVerify(key);
-        if (StringUtils.isEmpty(charset)) {
+        if (CustomUtils.isBlank(charset)) {
             signTool.update(content.getBytes());
         } else {
             signTool.update(content.getBytes(charset));
